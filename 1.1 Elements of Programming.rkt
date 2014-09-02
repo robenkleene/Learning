@@ -61,4 +61,21 @@
 
 ;; The if statement returns the `+` operator if `b` is greater than zero otherwise the `-` operator. The returned operator is then used to evaluate the arguements: `a` and `b`. In this way, the absolute value of `b` is added to the value of `a`.
 
+;; Exercise 1.5
 
+;; (define (p) (p))
+
+(define (test x y)
+  (if (= x 0)
+      0
+      y))
+
+;; (test 0 (p))
+
+;; Applicative-order evaluation will result in an infinite loop, because in applicative-order evaluation arguments are evaluated before they are applied. So p calls itself before the body of the `test` procedure is entered.
+
+;; Normal-order evaluation will not result in an infinite loop, because in normal-order evaluation arguments are not evaluated until they are needed. So Ben's call to the `test`.
+
+;; Exercise 1.6
+
+;; An infinite loop because all three of the arguments to `new-if` will be evaluated before the body of `new-if` even executes. Since the third argument to `new-if` calls the `sqrt-iter` procedure itself again, this will result an infinite recursive calls to `sqrt-ter`.
