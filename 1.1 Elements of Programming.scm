@@ -33,7 +33,6 @@
 
 
 (define (sum-of-squares-of-two-larger-numbers x y z)
-  (define (square x) (* x x))
   (define (sum-of-squares x y)
     (+ (square x) (square y)))
   (define (smaller x y z)
