@@ -97,3 +97,22 @@
 (sqrt (+ 100 37))			; 11.704699917758145
 (sqrt (+ (sqrt 2) (sqrt 3)))		; 1.7739279023207892
 (square (sqrt 1000))			; 1000.000369924366
+
+;;;; Exercise 1.7
+
+;;; Good
+
+(sqrt 2)	      ; 1.4142156862745097 ; Actual 1.4142156862745097
+(sqrt .44)	      ; .6633286959747728  ; Actual 0.6633249581
+(sqrt 20000000010000) ; 4472135.956117613  ; Actual 4472135.9561176134
+
+;;; Bad
+
+(sqrt .00004)		    ; .03167509508023218 ; Actual 0.0063245553
+(sqrt .0001)		    ; .03230844833048122 ; Actual 0.01
+(sqrt .0023)		    ; .05261937032580024 ; Actual 0.0479583152
+(sqrt 200000000100009999)   ; Infinite Loop
+
+;;; For very small numbers, the algorithm is inaccurate if the radicand is not significantly greater than the tolerence.
+
+;;; For very large numbers, the arithmetic operation comparing the calculated guess to the radicand will never pass if the impercision of the computer's arithmetic operation is greater than our tolerence. This will result in an infinite loop.
