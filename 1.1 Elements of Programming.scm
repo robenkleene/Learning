@@ -175,3 +175,30 @@
 (sqrt .0023)             ; 4.7958315235167776e-2 ; Actual 0.0479583152
 (sqrt 200000000100009999)      ; 447213599.6832925 ; 4.4721359561×10^8
 
+;;; Yes, the improved procedure works better for very small and very large numbers.
+
+;;;; Exercise 1.8
+
+(define (cbrt x)
+  (define (cbrt-iter guess x)
+    (define (improve guess x)
+      (/ (+ (/ x
+               (square guess))
+            (* 2 guess))
+         3))
+    (define (good-enough? guess x)
+      (< (abs (- guess
+                 (improve guess
+                          x)))
+         (* 0.001 guess)))
+    (if (good-enough? guess
+                      x)
+        guess
+        (cbrt-iter (improve guess x)
+                   x)))
+  (cbrt-iter 1.0  x))
+
+(cbrt 27) ; 3.001274406506175
+
+
+
