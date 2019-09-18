@@ -16,11 +16,8 @@ main() {
         if (c == ' ' || c == '\n' || c == '\t')
             state = OUT;
         else if (state == OUT) {
-            state = OUT;
-            else if (state == OUT) {
-                state = IN;
-                ++nw;
-            }
+            state = IN;
+            ++nw;
         }
         printf("%d %d %d\n", nl, nw, nc);
     }
