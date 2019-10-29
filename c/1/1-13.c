@@ -11,8 +11,6 @@ int main() {
     nc = 0;
     do {
         c = getchar();
-        if (state == IN)
-            ++nc;
         if (c == ' ' || c == '\n' || c == '\t' || c == EOF) {
             if (nc > 0) {
                 if (nc < LENGTH) {
@@ -26,7 +24,8 @@ int main() {
         } else if (state == OUT) {
             state = IN;
             nc = 1;
-        }
+        } else if (state == IN)
+            ++nc;
     } while (c != EOF);
     for (int i = 0; i < LENGTH; i++) {
         int cc = wcount[i];
