@@ -1,11 +1,11 @@
 #include <stdio.h>
 #define MAXLINE 1000    /* maximum input line size */
 
-int getline(char line[], int maxline);
+int getline(char s[], int lim);
 void copy(char to[], char from[]);
 
 /* print longest input line */
-main()
+int main()
 {
     int len;            /* current line length */
     int max;            /* maximum length seen so far */
@@ -28,23 +28,23 @@ int getline(char s[], int lim)
 {
     int c, i;
 
-    for (i=0; i<lim-1 && (c=getchar())!=EOF && c!=′\n′; ++i)
+    for (i=0; i<lim-1 && (c=getchar())!=EOF && c!='\n'; ++i)
         s[i] = c;
-    if (c == ′\n′) {
+    if (c == '\n') {
         s[i] = c;
          ++i;
 
     }
-    s[i] = ′\0′;
+    s[i] = '\0';
     return i;
 }
 
-/* copy:  copy ′from′ into ′to′; assume to is big enough */
+/* copy:  copy 'from' into 'to'; assume to is big enough */
 void copy(char to[], char from[])
 {
     int i;
 
     i = 0;
-    while ((to[i] = from[i]) != ′\0′)
+    while ((to[i] = from[i]) != '\0')
         ++i;
 }
