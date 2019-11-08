@@ -11,11 +11,12 @@ int main() {
     char line[MAXLINE];    /* current input line */
 
     max = 0;
-    while ((len = get_line(line, MAXLINE)) > 0)
+    while ((len = get_line(line, MAXLINE)) > 0) {
         if (len >= MAXLINE)
             fprintf(stderr, "Printing the first %d characters because the longest line was %d which is longer than the maxium length of %d\n", MAXLINE - 1, max, MAXLINE - 1);
-        if (len >= 80) /* there was a line */
+        if (len >= THRESHOLD)
             printf("%s", line);
+    }
     return 0;
 }
 
