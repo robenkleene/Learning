@@ -4,21 +4,30 @@
 #define MAXLINE 1000
 
 int get_line(char s[], int lim);
+int reverse(char s[]);
 
 int main() {
     char line[MAXLINE];
 
     while ((get_line(line, MAXLINE)) > 0) {
+        reverse(line);
+        printf("%s", line);
     }
     return 0;
 }
 
 int reverse(char s[]) {
     char reversed[MAXLINE];
-    int i, j;
-    for (i = 0, j = strlen(s) - 1; i < strlen(s) && j >= 0; i++, j--) {
+    int i, j, len;
+    // j = strlen(s) - 2, the 2 is to skip the trailing new line
+    len = strlen(s);
+    for (i = 0, j = len - 2; i < strlen(s) && j >= 0; i++, j--) {
         reversed[i] = s[j];
     }
+    reversed[i] = '\n';
+    i++;
+    reversed[i] = '\0';
+    strncpy(s, reversed, MAXLINE);
     return 0;
 }
 
