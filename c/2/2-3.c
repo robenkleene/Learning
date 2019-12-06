@@ -6,8 +6,7 @@ int main() {
     int v = 0X1F;
     printf("%i\n", v);
     printf("%s\n", s);
-    int result = atoi(s);
-    printf("%i\n", result);
+    printf("%lu\n", strtol(s, NULL, 16));
 }
 
 int htoi(char s[]) {
