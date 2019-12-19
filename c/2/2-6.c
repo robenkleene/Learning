@@ -23,8 +23,8 @@ unsigned getbits(unsigned x, int p, int n) {
 
 int main() {
     int x = 10;
-    unsigned result = getbits(x, 4, 3);
     printbits(sizeof(x), &x);
-    printf("%i", result);
+    unsigned result = getbits(x, 4, 3);
+    printf("%i\n", result);
     printbits(sizeof(result), &result);
 }
