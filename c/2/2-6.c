@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-void printbits(size_t const size, void const * const ptr)
-{
+void printbits(size_t const size, void const * const ptr) {
     unsigned char *b = (unsigned char*) ptr;
     unsigned char byte;
     int i, j;
@@ -17,14 +16,22 @@ void printbits(size_t const size, void const * const ptr)
     puts("");
 }
 
+void qpb(int x) {
+    printbits(sizeof(x), &x);
+}
+
 unsigned getbits(unsigned x, int p, int n) {
+    /* int offset = p + 1 - n; */
+    /* printf("offset = p + 1 - n = %i\n", offset); */
+    /* int shifted = x >> offset; */
+    /* printf("shifted = x >> offset = %i\n", offset); */
     return (x >> (p + 1 - n)) & ~(~0 << n);
 }
 
 int main() {
     int x = 10;
-    printbits(sizeof(x), &x);
+    qpb(x);
     unsigned result = getbits(x, 4, 3);
     printf("%i\n", result);
-    printbits(sizeof(result), &result);
+    qpb(result);
 }
