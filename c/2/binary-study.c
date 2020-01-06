@@ -24,6 +24,17 @@ void test() {
     printf("\noctal test, 0112 equals 74\n");
     int octal = 0112; // 0112 is 74 in octal
     printf("0112 = octal = %i\n", octal);
+    // Binary
+    // Preceding an integer with `0b` makes it binary.
+    int binary = 0b100; // 0112 is 74 in octal
+    printf("0b100 = binary = %i\n", binary);
+    // Shift
+    int result = binary << 2;
+    printf("result = %i << 2\n", binary);
+    qpb(result);
+    result = binary >> 2;
+    printf("result = %i >> 2\n", binary);
+    qpb(result);
     // Bitwise & masking
     printf("Masking test n = n & 0177, sets to zero all but the low-order 7 bits of n\n");
     int n = 5;
@@ -32,7 +43,7 @@ void test() {
     int constant = 0177;
     printf("0177 = %i\n", 0177);
     qpb(constant);
-    int result = n & 0177;
+    result = n & 0177;
     printf("result = %i & 0177\n", n);
     qpb(result);
 }
