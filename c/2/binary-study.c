@@ -43,6 +43,8 @@ void test() {
     int constant = 0177;
     printf("0177 = %i\n", 0177);
     qpb(constant);
+    printf("~0177\n");
+    qpb(~constant);
     result = n & 0177;
     printf("result = %i & 0177\n", n);
     qpb(result);
@@ -50,6 +52,8 @@ void test() {
 
 unsigned operations(unsigned x, int p, int n) {
     printf("\nPerforming a series of bitwise operations\n");
+    printf("(x >> (p + 1 - n)) & ~(~0 << n)\n");
+    printf("(%i >> (%i + 1 - %i)) & ~(~0 << %i)\n", x, p, n, n);
     qpb(x);
     int offset = p + 1 - n;
     printf("p + 1 - n = %i\n", offset);
@@ -65,8 +69,7 @@ int main() {
     test();
 
     int x = 10;
-    /* qpb(x); */
     unsigned result = operations(x, 4, 3);
-    /* printf("%i\n", result); */
+    printf("Result:\n");
     qpb(result);
 }
