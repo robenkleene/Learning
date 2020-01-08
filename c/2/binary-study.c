@@ -52,12 +52,15 @@ void test() {
 
 unsigned operations(unsigned x, int p, int n) {
     printf("\nPerforming a series of bitwise operations\n");
+    printf("x = %i, p = %i, n = %i\n", x, p, n);
+    printf("Get right most n bits of x starting from position p\n");
+    qpb(x);
     printf("(x >> (p + 1 - n)) & ~(~0 << n)\n");
     printf("(%i >> (%i + 1 - %i)) & ~(~0 << %i)\n", x, p, n, n);
-    qpb(x);
     int offset = p + 1 - n;
     printf("p + 1 - n = %i\n", offset);
     int shifted = x >> offset;
+    printf("Shift the bits by %i to the right\n", offset);
     printf("x >> %i\n", offset);
     qpb(shifted);
     printf("~(~0 << %i)\n", n);
