@@ -65,14 +65,14 @@ unsigned operations(unsigned x, int p, int n) {
     qpb(shifted);
     printf("~(~0 << %i)\n", n);
     qpb(~(~0 << n));
+    printf("(%i >> (%i + 1 - %i)) & ~(~0 << %i)\n", x, p, n, n);
+    int result = (x >> (p + 1 - n)) & ~(~0 << n);
+    qpb(result);
     return (x >> (p + 1 - n)) & ~(~0 << n);
 }
 
 int main() {
     test();
-
     int x = 10;
-    unsigned result = operations(x, 4, 3);
-    printf("Result:\n");
-    qpb(result);
+    operations(x, 4, 3);
 }
