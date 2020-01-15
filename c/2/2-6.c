@@ -19,14 +19,17 @@ void qpb(int x) {
 }
 
 unsigned setbits(unsigned x, int p, int n, int y) {
-    // First thing I have to do is set n bits from postion p to `1`
-    int field = ~(~0 << n) << (p + 1 - n);
-    printf("field\n");
-    qpb(field);
     printf("x\n");
     qpb(x);
     printf("y\n");
     qpb(y);
+    int offset = (p + 1 - n);
+    int field = ~(~0 << n) << offset;
+    printf("field\n");
+    qpb(field);
+    int shifted = y << offset;
+    printf("Shifted\n");
+    qpb(shifted);
     return x;
 }
 
