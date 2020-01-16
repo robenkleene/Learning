@@ -30,6 +30,9 @@ unsigned setbits(unsigned x, int p, int n, int y) {
     int shifted = y << offset;
     printf("Shifted\n");
     qpb(shifted);
+    /* int prepared = x & shifted; */
+    /* printf("Prepared\n"); */
+    /* qpb(prepared); */
     return x;
 }
 
