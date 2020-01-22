@@ -37,9 +37,11 @@ unsigned setbits(unsigned x, int p, int n, int y) {
 }
 
 int main() {
-    int x = 555;
-    int y = 777;
-    unsigned result = setbits(x, 4, 3, y);
+    int x = 127;
+    int y = 0;
+    int n = 3;
+    int p = 2;
+    unsigned result = setbits(x, p, n, y);
     printf("result\n");
     qpb(result);
 }
