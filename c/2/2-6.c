@@ -18,22 +18,15 @@ void qpb(int x) {
     printbits(sizeof(x), &x);
 }
 
-unsigned setbits(unsigned x, int p, int n, int y) {
-    printf("x\n");
-    qpb(x);
-    printf("y\n");
-    qpb(y);
-    int offset = (p + 1 - n);
-    int field = ~(~0 << n) << offset;
-    printf("field\n");
-    qpb(field);
-    int shifted = y << offset;
-    printf("Shifted\n");
-    qpb(shifted);
-    /* int prepared = x & shifted; */
-    /* printf("Prepared\n"); */
-    /* qpb(prepared); */
-    return x;
+unsigned setbits(unsigned x, int p, int n, unsigned y) {
+    int position_count = p + 1;
+    int offset = p + 1 - n;
+    int invert_position = (~0 << position_count);
+    int x_with_offset = (x & invert_position);
+    int n_field = ~(~0 << offset);
+    int y_zeroed = y & ~(~0 << n);
+    int y_zeroed_shifted = y_zeroed << (p + 1 - n);
+    return x_with_offset | n_field | y_zeroed_shifted;
 }
 
 int main() {
