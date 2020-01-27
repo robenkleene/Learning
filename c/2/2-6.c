@@ -30,10 +30,10 @@ unsigned setbits(unsigned x, int p, int n, unsigned y) {
 }
 
 int main() {
-    int x = 127;
-    int y = 0;
-    int n = 3;
-    int p = 2;
+    int x = 0b11111111111111111111;
+    int y = 0b10101010101010101010101010101010;
+    int n = 5;
+    int p = 9;
     unsigned result = setbits(x, p, n, y);
     printf("result\n");
     qpb(result);
