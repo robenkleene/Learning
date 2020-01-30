@@ -22,18 +22,18 @@ unsigned setbits(unsigned x, int p, int n, unsigned y) {
     int position_count = p + 1;
     int offset = p + 1 - n;
     int invert_position = (~0 << position_count);
-    int x_with_offset = (x & invert_position);
     int n_field = ~(~0 << offset);
+    int x_with_offset = (x & (invert_position | n_field));
     int y_zeroed = y & ~(~0 << n);
     int y_zeroed_shifted = y_zeroed << (p + 1 - n);
-    return x_with_offset | n_field | y_zeroed_shifted;
+    return x_with_offset | y_zeroed_shifted;
 }
 
 int main() {
-    int x = 0b11111111111111111111;
+    int x = 0b01010101010101010101010101010101;
     int y = 0b10101010101010101010101010101010;
     int n = 5;
-    int p = 9;
+    int p = 10;
     unsigned result = setbits(x, p, n, y);
     printf("result\n");
     qpb(result);
