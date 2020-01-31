@@ -21,7 +21,7 @@ void qpb(int x) {
 unsigned setbits(unsigned x, int p, int n, unsigned y) {
     int position_count = p + 1;
     int offset = p + 1 - n;
-    int invert_position = (~0 << position_count);
+    int invert_position = ~0 << position_count;
     printf("Invert position\n");
     qpb(invert_position);
     int n_field = ~(~0 << offset);
