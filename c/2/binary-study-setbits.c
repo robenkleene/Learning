@@ -4,13 +4,13 @@
 unsigned setbits(unsigned x, int p, int n, unsigned y) {
     int position_count = p + 1;
     int offset = p + 1 - n;
-    int invert_position = ~0 << position_count;
-    printf("Invert position\n");
-    qpb(invert_position);
-    int n_field = ~(~0 << offset);
-    printf("n_field\n");
-    qpb(n_field);
-    int field = (invert_position | n_field);
+    int left_field = ~0 << position_count;
+    printf("Left field\n");
+    qpb(left_field);
+    int right_field = ~(~0 << offset);
+    printf("right_field\n");
+    qpb(right_field);
+    int field = left_field | right_field;
     printf("field\n");
     qpb(field);
     int x_with_offset = x & field;
