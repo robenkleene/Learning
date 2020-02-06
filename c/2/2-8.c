@@ -2,6 +2,9 @@
 #include "printbits.h"
 
 unsigned rightrot(x, n) {
+    int shifted = x << n;
+    printf("shifted\n");
+    qpb(shifted);
     return x;
 }
 
