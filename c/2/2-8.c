@@ -10,7 +10,7 @@ int rightrot(x, n) {
 }
 
 int main() {
-    int x = 0b10101010101010101010101010101010;
+    int x = 0b01010100000010000010000100010010;
     int n = 5;
     printf("n = %i\n", n);
     printf("X\n");
