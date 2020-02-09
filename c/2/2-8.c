@@ -2,11 +2,17 @@
 #include "printbits.h"
 
 int rightrot(x, n) {
+    int field = ~(~0 << n);
+    printf("field\n");
+    qpb(field);
+    int right_bits = x & field;
+    printf("right_bits\n");
+    qpb(right_bits);
     unsigned int ux = x;
     int shifted = ux >> n;
     printf("shifted\n");
     qpb(shifted);
-    return x;
+    return shifted;
 }
 
 int main() {
