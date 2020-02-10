@@ -2,6 +2,8 @@
 #include "printbits.h"
 
 int rightrot(x, n) {
+    int bits = sizeof(x) * 8;
+    printf("bits = %i\n", bits);
     int field = ~(~0 << n);
     printf("field\n");
     qpb(field);
