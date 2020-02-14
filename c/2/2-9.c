@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include "printbits.h"
 
+// `x &= (x−1)` deletes the rightmost 1-bit of `x` because if the left most bit
+// is a `1`, it becomes a `0`, whereas if it's a `0`, it will shift the
+// rightmost 1-bit left.
+
 int bitcount(unsigned x) {
     printf("x - 1\n");
     qpb(x - 1);
