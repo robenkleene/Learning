@@ -6,11 +6,13 @@
 // rightmost 1-bit left.
 
 int bitcount(unsigned x) {
-    printf("x - 1\n");
-    qpb(x - 1);
-    x &= (x - 1);
-    printf("x\n");
-    qpb(x);
+    int decremented = x - 1;
+    printf("decremeneted\n");
+    qpb(decremented);
+    int shifted = x;
+    shifted &= decremented;
+    printf("shifted\n");
+    qpb(shifted);
 
     int b;
 
@@ -25,6 +27,5 @@ int main() {
     printf("x\n");
     qpb(x);
     int result = bitcount(x);
-    printf("Result\n");
-    qpb(result);
+    printf("result = %i\n", result);
 }
