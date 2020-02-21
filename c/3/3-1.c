@@ -1,6 +1,5 @@
 #include <stdio.h>
-
-#define LENGTH 7
+#include <time.h> 
 
 int binsearch2(int x, int v[], int n) {
     int low, high, mid;
@@ -35,13 +34,32 @@ int binsearch(int x, int v[], int n) {
     return -1; /* no match */
 }
 
+/* #define LENGTH 14 */
+
 int main() {
-    int v[LENGTH] = {11, 12, 203, 260, 600, 601, 700};
+    int v[] = {11, 12, 203, 260, 600, 601, 700, 800, 900, 910, 1000, 1010, 1000};
+    size_t n = sizeof(v) / sizeof(int);
     int x = 260;
     printf("x = %i\n", x);
-    for (int i = 0; i < LENGTH; i++) {
+    for (int i = 0; i < n; i++) {
         printf("%i ", v[i]);
     }
-    int result = binsearch2(x, v, LENGTH);
+
+    clock_t t;
+
+    printf("\n\nbinsearch2");
+    t = clock();
+    int result = binsearch2(x, v, n);
+    t = clock() - t;
+    double time_taken = ((double)t) / CLOCKS_PER_SEC;
+    printf("\n%f seconds", time_taken);
+    printf("\nresult = %i\n", result);
+
+    printf("\n\nbinsearch");
+    t = clock();
+    result = binsearch(x, v, n);
+    t = clock() - t;
+    time_taken = ((double)t) / CLOCKS_PER_SEC;
+    printf("\n%f seconds", time_taken);
     printf("\nresult = %i\n", result);
 }
