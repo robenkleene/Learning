@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define LENGTH 5
+#define LENGTH 7
 
 int binsearch2(int x, int v[], int n) {
     int low, high, mid;
@@ -36,8 +36,12 @@ int binsearch(int x, int v[], int n) {
 }
 
 int main() {
-    int v[LENGTH] = {11, 12, 203, 260, 600};
+    int v[LENGTH] = {11, 12, 203, 260, 600, 601, 700};
     int x = 260;
+    printf("x = %i\n", x);
+    for (int i = 0; i < LENGTH; i++) {
+        printf("%i ", v[i]);
+    }
     int result = binsearch2(x, v, LENGTH);
-    printf("result = %i\n", result);
+    printf("\nresult = %i\n", result);
 }
