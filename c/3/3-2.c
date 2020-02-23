@@ -4,7 +4,7 @@ void escape(char s[], char t[]) {
     int i;
 
     i = 0;
-    while ((s[i] = t[i]) != '\0')
+    while ((t[i] = s[i]) != '\0')
         ++i;
 }
 
@@ -13,8 +13,9 @@ int main()
     char start[] = "A string with a \t and a \n";
     size_t size = sizeof(start) / sizeof(char);
     char result[size];
+    printf("start = %s\n", start);
     escape(start, result);
-
+    printf("result = %s\n", result);
 
     /* int c, i, nwhite, nother, ndigit[10]; */
 
