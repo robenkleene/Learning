@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void escape(char s[], char t[]) {
+static void escape(char s[], char t[]) {
     int i;
 
     i = 0;
@@ -8,8 +8,7 @@ void escape(char s[], char t[]) {
         ++i;
 }
 
-int main()
-{
+int main() {
     char start[] = "A string with a \t and a \n";
     size_t size = sizeof(start) / sizeof(char);
     char result[size];
