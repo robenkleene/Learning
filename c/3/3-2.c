@@ -26,6 +26,9 @@ static void escape(char s[], char t[]) {
     }
 }
 
+static void unescape(char s[], char t[]) {
+}
+
 int main() {
     char start[] = "A string with a \t and a \n";
     char result[MAXLENGTH];
