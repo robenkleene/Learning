@@ -27,12 +27,38 @@ static void escape(char s[], char t[]) {
 }
 
 static void unescape(char s[], char t[]) {
+    int i = 0, j = 0;
+    char c;
+    while ((c = s[i]) != '\0') {
+        if (c == '\\') {
+            i++;
+            switch (s[i]) {
+                case 'n':
+                    t[j] = '\n';
+                    break;
+                case 't':
+                    t[j] = '\t';
+                    break;
+                default:
+                    i--;
+                    t[j] = c;
+                    break;
+            }
+        } else {
+            t[j] = c;
+        }
+        ++i;
+        ++j;
+    }
 }
 
 int main() {
-    char start[] = "A string with a \t and a \n";
-    char result[MAXLENGTH];
+    char start[] = "A string with\\ a \t and a \n";
     printf("Initial\n%s\n", start);
-    escape(start, result);
-    printf("Escaped\n%s\n", result);
+    char escaped[MAXLENGTH];
+    escape(start, escaped);
+    printf("Escaped\n%s\n", escaped);
+    char unescaped[MAXLENGTH];
+    unescape(escaped, unescaped);
+    printf("Unescaped\n%s\n", unescaped);
 }
