@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include <string.h>
 
+int isan(char c) {
+    return isalpha(c) || isdigit(c);
+}
+
 void expand(char s1[], char s2[]) {
     char c;
     int length = strlen(s1);
@@ -9,7 +13,8 @@ void expand(char s1[], char s2[]) {
         c = s1[i];
         if (i + 2 < length) {
             char c2 = s1[i + 2];
-            if ((isalpha(c) || isdigit(c)) && s1[i + 1] == '-' && (isalpha(c2) || isdigit(c2))) {
+            if (isan(c) && s1[i + 1] == '-' && (isan(c2))) {
+                putchar(c);
             } else {
                 putchar(c);
             }
