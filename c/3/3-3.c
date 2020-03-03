@@ -9,20 +9,21 @@ int issupported(char c1, char c2) {
 }
 
 void expand(char s1[], char s2[]) {
-    char c;
+    char c1;
     int length = strlen(s1);
     for (int i = 0, j = 0; i < length; i++, j++) {
-        c = s1[i];
+        c1 = s1[i];
         if (i + 2 < length) {
             char c2 = s1[i + 2];
-            if (s1[i + 1] == '-' && issupported(c, c2)) {
+            if (s1[i + 1] == '-' && issupported(c1, c2)) {
                 /* i += 2; */
-                putchar(c);
+
+                putchar(c1);
             } else {
-                putchar(c);
+                putchar(c1);
             }
         } else {
-            putchar(c);
+            putchar(c1);
         }
     }
 }
