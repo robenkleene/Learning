@@ -19,11 +19,12 @@ void expand(char s1[], char s2[]) {
             if (s1[i + 1] == '-' &&
                 issupported(c1, c2) &&
                 c1 < c2) {
-                s2[j] = c1;
-                /* i += 2; */
-                /* for (int k = c1; k <= c2; k++, j++) { */
-                /*     s2[j] = k; */
-                /* } */
+                i += 2;
+                for (int k = c1; k <= c2; k++, j++) {
+                    // TODO: This isn't working
+                    putchar(k);
+                    /* s2[j] = k; */
+                }
             } else {
                 s2[j] = c1;
             }
