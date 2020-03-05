@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#define LENGTH 1000
+
 int issupported(char c1, char c2) {
     return (isdigit(c1) && isdigit(c2)) ||
         (isupper(c1) && isupper(c2)) ||
@@ -21,10 +23,11 @@ void expand(char s1[], char s2[]) {
                 c1 < c2) {
                 i += 2;
                 for (int k = c1; k <= c2; k++, j++) {
-                    // TODO: This isn't working
-                    putchar(k);
-                    /* s2[j] = k; */
+                    /* printf("j in = %i\n", j); */
+                    s2[j] = k;
                 }
+                // `j` will be incremented at the star of the `for` loop
+                j--;
             } else {
                 s2[j] = c1;
             }
@@ -41,7 +44,7 @@ int main() {
                 " abc...xyz in s2. Allow for letters of either case and digits, and be"
                 " prepared to handle cases like a-b-c and a-z0−9 and -a-z. Arrange that"
                 " a leading or trailing - is taken literally-.a-";
-    char s2[0];
+    char s2[LENGTH];
     printf("s1 = %s\n\n", s1);
     expand(s1, s2);
     printf("s2 = %s\n\n", s2);
