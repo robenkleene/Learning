@@ -5,9 +5,7 @@
 #define LENGTH 1000
 
 int issupported(char c1, char c2) {
-    return (isdigit(c1) && isdigit(c2)) ||
-        (isupper(c1) && isupper(c2)) ||
-        (islower(c1) && islower(c2));
+    return (isdigit(c1) && isdigit(c2)) || (isupper(c1) && isupper(c2)) || (islower(c1) && islower(c2));
 }
 
 void expand(char s1[], char s2[]) {
@@ -18,9 +16,8 @@ void expand(char s1[], char s2[]) {
         c1 = s1[i];
         if (i + 2 < length) {
             char c2 = s1[i + 2];
-            if (s1[i + 1] == '-' &&
-                issupported(c1, c2) &&
-                c1 < c2) {
+            // `c1 + 1 < c2` don't expand backwards or adjecent letters
+            if (s1[i + 1] == '-' && issupported(c1, c2) && c1 + 1 < c2) {
                 i += 2;
                 for (int k = c1; k <= c2; k++, j++) {
                     s2[j] = k;
