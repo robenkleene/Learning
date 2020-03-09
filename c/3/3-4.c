@@ -1,3 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+
+char *strrev(char *str) {
+    char *p1, *p2;
+
+    if (!str || !*str)
+        return str;
+    for (p1 = str, p2 = str + strlen(str) - 1; p2 > p1; ++p1, --p2) {
+        *p1 ^= *p2;
+        *p2 ^= *p1;
+        *p1 ^= *p2;
+    }
+    return str;
+}
+
 /* itoa:  convert n to characters in s */
 void itoa(int n, char s[]) {
     int i, sign;
@@ -15,5 +31,9 @@ void itoa(int n, char s[]) {
     if (sign < 0)
         s[i++] = '-';
     s[i] = '\0';
-    reverse(s);
+    strrev(s);
+}
+
+int main() {
+    printf("hello, world\n");
 }
