@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#define LENGTH 1000
+
 char *strrev(char *str) {
     char *p1, *p2;
 
@@ -35,5 +37,8 @@ void itoa(int n, char s[]) {
 }
 
 int main() {
-    printf("hello, world\n");
+    int i = -100;
+    char s[LENGTH];
+    itoa(i, s);
+    printf("s = %s\n", s);
 }
