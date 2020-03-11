@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <limits.h>
 
 #define LENGTH 1000
 
@@ -28,6 +29,8 @@ void itoa(int n, char s[]) {
         /* generate digits in reverse order */
         /* get next digit */
         s[i++] = n % 10 + '0';
+        printf("i = %i\n", i);
+        printf("s[i] = %i\n", s[i]);
     } while ((n /= 10) > 0);
     /* delete it */
     if (sign < 0)
@@ -37,8 +40,14 @@ void itoa(int n, char s[]) {
 }
 
 int main() {
-    int i = -100;
     char s[LENGTH];
+
+    int i = INT_MIN;
+    itoa(i, s);
+    printf("s = %s\n", s);
+    printf("\n\n");
+
+    i = INT_MIN + 1;
     itoa(i, s);
     printf("s = %s\n", s);
 }
