@@ -29,8 +29,10 @@ void itoa(int n, char s[]) {
         /* generate digits in reverse order */
         /* get next digit */
         s[i++] = n % 10 + '0';
+
         printf("i = %i\n", i);
-        printf("s[i] = %i\n", s[i]);
+        printf("s[i - 1] = %i\n", s[i - 1]);
+        printf("s[i - 1] = %c\n", s[i - 1]);
     } while ((n /= 10) > 0);
     /* delete it */
     if (sign < 0)
@@ -43,11 +45,13 @@ int main() {
     char s[LENGTH];
 
     int i = INT_MIN;
+    printf("i = %i\n", i);
     itoa(i, s);
     printf("s = %s\n", s);
     printf("\n\n");
 
     i = INT_MIN + 1;
+    printf("i = %i\n", i);
     itoa(i, s);
     printf("s = %s\n", s);
 }
