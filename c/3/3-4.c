@@ -17,18 +17,16 @@ char *strrev(char *str) {
     return str;
 }
 
-/* itoa:  convert n to characters in s */
+// The original implementation fails if `n == INT_MIN` because in two's
+// complement negative numbers can have one higher in absolute value, because
+// positive integers lose one value by representing zero.
 void itoa(int n, char s[]) {
     int i, sign;
     if ((sign = n) < 0)
-        /* record sign */
-        /* make n positive */
         n = -n;
     printf("n = %i\n", n);
     i = 0;
     do {
-        /* generate digits in reverse order */
-        /* get next digit */
         printf("n mod 10 = %i\n", n % 10);
         s[i++] = n % 10 + '0';
 
@@ -36,7 +34,6 @@ void itoa(int n, char s[]) {
         printf("s[i - 1] = %i\n", s[i - 1]);
         printf("s[i - 1] = %c\n", s[i - 1]);
     } while ((n /= 10) > 0);
-    /* delete it */
     if (sign < 0)
         s[i++] = '-';
     s[i] = '\0';
