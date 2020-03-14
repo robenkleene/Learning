@@ -18,9 +18,6 @@ char *strrev(char *str) {
     return str;
 }
 
-// The original implementation fails if `n == INT_MIN` because in two's
-// complement negative numbers can have one higher in absolute value, because
-// positive integers lose one value by representing zero.
 void itob(int n, char s[], int b) {
     int i, sign;
     sign = n;
