@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
+#include <stdlib.h>
 
 #define LENGTH 1000
 
@@ -22,18 +23,12 @@ char *strrev(char *str) {
 // positive integers lose one value by representing zero.
 void itoa(int n, char s[]) {
     int i, sign;
-    if ((sign = n) < 0)
-        n = -n;
-    printf("n = %i\n", n);
+    sign = n;
+
     i = 0;
     do {
-        printf("n mod 10 = %i\n", n % 10);
-        s[i++] = n % 10 + '0';
-
-        printf("i = %i\n", i);
-        printf("s[i - 1] = %i\n", s[i - 1]);
-        printf("s[i - 1] = %c\n", s[i - 1]);
-    } while ((n /= 10) > 0);
+        s[i++] = abs(n % 10) + '0';
+    } while (n /= 10);
     if (sign < 0)
         s[i++] = '-';
     s[i] = '\0';
