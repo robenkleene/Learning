@@ -18,15 +18,18 @@ char *strrev(char *str) {
     return str;
 }
 
-/* Write the function itob(n,s,b) that converts the integer n into a base b character representation in the string s. In particular, itob(n,s,16) formats n as a hexadecimal integer in s. */
+/* Write the function itob(n,s,b) that converts the integer n into a base b
+ * character representation in the string s. In particular, itob(n,s,16)
+ * formats n as a hexadecimal integer in s. */
 void itob(int n, char s[], int b) {
     int i, sign;
     sign = n;
-
     i = 0;
     do {
-        s[i++] = abs(n % 10) + '0';
-    } while (n /= 10);
+        int val = abs(n % b);
+        int result = val < 10 ? val + '0': val - 10 + 'a';
+        s[i++] = result;
+    } while (n /= b);
     if (sign < 0)
         s[i++] = '-';
     s[i] = '\0';
@@ -36,12 +39,12 @@ void itob(int n, char s[], int b) {
 int main() {
     char s[LENGTH];
 
-    int i = 10;
+    int i = 256;
     printf("i = %i\n", i);
     printf("ix = %x\n", i);
-    /* itob(i, s); */
-    /* printf("s = %s\n", s); */
-    /* printf("\n\n"); */
+    itob(i, s, 16);
+    printf("s = %s\n", s);
+    printf("\n\n");
 
     /* i = INT_MIN; */
     /* printf("i = %i\n", i); */
