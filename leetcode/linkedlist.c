@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 typedef struct {
     
 } MyLinkedList;
@@ -38,6 +40,10 @@ void myLinkedListDeleteAtIndex(MyLinkedList* obj, int index) {
 
 void myLinkedListFree(MyLinkedList* obj) {
     
+}
+
+int main() {
+    printf("hello, world\n");
 }
 
 /**
