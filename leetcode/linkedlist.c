@@ -5,8 +5,9 @@ typedef struct {
 /** Initialize your data structure here. */
 
 MyLinkedList* myLinkedListCreate() {
-    MyLinkedList ll = { };
+    MyLinkedList ll;
     MyLinkedList *ptr_ll;
+    ptr_ll = &ll;
     return ptr_ll;
 }
 
