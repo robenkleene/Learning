@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct node {
     int val;
@@ -6,5 +7,12 @@ typedef struct node {
 } node_t;
 
 int main() {
-    printf("hello, world\n");
+    node_t * head = NULL;
+    head = (node_t *)malloc(sizeof(node_t));
+    if (head == NULL) {
+        return 1;
+    }
+
+    head->val = 1;
+    head->next = NULL;
 }
