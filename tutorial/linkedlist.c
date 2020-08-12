@@ -14,5 +14,7 @@ int main() {
     }
 
     head->val = 1;
-    head->next = NULL;
+    head->next = (node_t *) malloc(sizeof(node_t));
+    head->next->val = 2;
+    head->next->next = NULL;
 }
