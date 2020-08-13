@@ -26,4 +26,6 @@ int main() {
     head->next = (node_t *)malloc(sizeof(node_t));
     head->next->val = 2;
     head->next->next = NULL;
+
+    print_list(head);
 }
