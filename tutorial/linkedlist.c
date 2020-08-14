@@ -117,9 +117,24 @@ int main() {
     append(head, 3);
     print_list(head);
     printf("\n");
-    /* append(head, value) */
-    /* push(head, value) */
-    /* pop(head) */
-    /* remove_last(head) */
-    /* remove_by_index(head, index) */
+
+    printf("Push a value to the beginning\n");
+    push(&head, 4);
+    print_list(head);
+    printf("\n");
+
+    printf("Pop a value from the beginning\n");
+    pop(&head);
+    print_list(head);
+    printf("\n");
+
+    printf("Remove the last value\n");
+    remove_last(head);
+    print_list(head);
+    printf("\n");
+
+    printf("Remove at index 1\n");
+    remove_by_index(&head, 1);
+    print_list(head);
+    printf("\n");
 }
