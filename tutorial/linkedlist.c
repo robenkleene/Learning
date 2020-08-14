@@ -96,16 +96,28 @@ int remove_by_index(node_t **head, int n) {
 }
 
 int main() {
+    // Manually creating a node
     node_t *head = NULL;
     head = (node_t *)malloc(sizeof(node_t));
     if (head == NULL) {
         return 1;
     }
-
     head->val = 1;
+    printf("Manually creating a node\n");
+    print_list(head);
+    printf("\n");
+
+    // Manually adding a ndoe
     head->next = (node_t *)malloc(sizeof(node_t));
     head->next->val = 2;
     head->next->next = NULL;
-
+    printf("Manually adding a node\n");
     print_list(head);
+    printf("\n");
+
+    /* append(head, value) */
+    /* push(head, value) */
+    /* pop(head) */
+    /* remove_last(head) */
+    /* remove_by_index(head, index) */
 }
