@@ -95,6 +95,10 @@ int remove_by_index(node_t **head, int n) {
     return retval;
 }
 
+int remove_by_value(node_t **head, int n) {
+    return 0;
+}
+
 int main() {
     printf("Manually creating a node\n");
     node_t *head = NULL;
