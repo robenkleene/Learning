@@ -96,7 +96,28 @@ int remove_by_index(node_t **head, int n) {
 }
 
 int remove_by_value(node_t **head, int n) {
-    return 0;
+    int i = 0;
+    int retval = -1;
+    node_t *current = *head;
+    node_t *temp_node = NULL;
+
+    if (n == 0) {
+        return pop(head);
+    }
+
+    for (i = 0; i < n - 1; i++) {
+        if (current->next == NULL) {
+            return -1;
+        }
+        current = current->next;
+    }
+
+    temp_node = current->next;
+    retval = temp_node->val;
+    current->next = temp_node->next;
+    free(temp_node);
+
+    return retval;
 }
 
 int main() {
@@ -139,6 +160,11 @@ int main() {
 
     printf("Remove at index 1\n");
     remove_by_index(&head, 1);
+    print_list(head);
+    printf("\n");
+
+    printf("Remove by value 1\n");
+    remove_by_value(&head, 1);
     print_list(head);
     printf("\n");
 }
