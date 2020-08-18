@@ -101,15 +101,21 @@ int remove_by_value(node_t **head, int n) {
     node_t *current = *head;
     node_t *temp_node = NULL;
 
-    if (n == 0) {
-        return pop(head);
-    }
 
-    for (i = 0; i < n - 1; i++) {
-        if (current->next == NULL) {
-            return -1;
+    /* TODO: Do I need this? */
+    /* if (n == current->val) { */
+    /*     return pop(head); */
+    /* } */
+
+    while (current != NULL) {
+        if (current->val == n) {
+            break;
         }
         current = current->next;
+    }
+
+    if (current == NULL) {
+        return -1;
     }
 
     temp_node = current->next;
@@ -167,4 +173,6 @@ int main() {
     remove_by_value(&head, 1);
     print_list(head);
     printf("\n");
+
+    // Testing return by value
 }
