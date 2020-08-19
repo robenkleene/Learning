@@ -101,7 +101,6 @@ int remove_by_value(node_t **head, int n) {
     node_t *current = *head;
     node_t *temp_node = NULL;
 
-
     /* TODO: Do I need this? */
     /* if (n == current->val) { */
     /*     return pop(head); */
@@ -169,10 +168,16 @@ int main() {
     print_list(head);
     printf("\n");
 
-    printf("Remove by value 1\n");
-    remove_by_value(&head, 1);
+    /* printf("Remove by value 1\n"); */
+    /* remove_by_value(&head, 1); */
+    /* print_list(head); */
+    /* printf("\n"); */
+
+    // Debugging work
+    // TODO: Try adding a second value and then remove the last value and see
+    // if it crashes
+    printf("Remove by index 0\n");
+    remove_by_index(&head, 0);
     print_list(head);
     printf("\n");
-
-    // Testing return by value
 }
