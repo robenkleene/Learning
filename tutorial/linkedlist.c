@@ -126,7 +126,7 @@ int remove_by_value(node_t **head, int n) {
 }
 
 int main() {
-    printf("Manually creating a node\n");
+    printf("Manually creating value 1\n");
     node_t *head = NULL;
     head = (node_t *)malloc(sizeof(node_t));
     if (head == NULL) {
@@ -136,19 +136,19 @@ int main() {
     print_list(head);
     printf("\n");
 
-    printf("Manually adding a node\n");
+    printf("Manually adding value 2\n");
     head->next = (node_t *)malloc(sizeof(node_t));
     head->next->val = 2;
     head->next->next = NULL;
     print_list(head);
     printf("\n");
 
-    printf("Appending a value node\n");
+    printf("Appending value 3\n");
     append(head, 3);
     print_list(head);
     printf("\n");
 
-    printf("Push a value to the beginning\n");
+    printf("Push a value 4 to the beginning\n");
     push(&head, 4);
     print_list(head);
     printf("\n");
@@ -176,7 +176,22 @@ int main() {
     // Debugging work
     // TODO: Try adding a second value and then remove the last value and see
     // if it crashes
-    printf("Remove by index 0\n");
+    printf("Remove at index 0\n");
+    remove_by_index(&head, 0);
+    print_list(head);
+    printf("\n");
+
+    printf("Appending a value node\n");
+    append(head, 3);
+    print_list(head);
+    printf("\n");
+
+    printf("Appending a value node\n");
+    append(head, 4);
+    print_list(head);
+    printf("\n");
+
+    printf("Remove by index 1\n");
     remove_by_index(&head, 0);
     print_list(head);
     printf("\n");
