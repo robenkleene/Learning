@@ -1,16 +1,14 @@
 #include <stdio.h>
 
 typedef struct {
-    
+    int val;
+    struct node *next;
 } MyLinkedList;
 
 /** Initialize your data structure here. */
 
 MyLinkedList* myLinkedListCreate() {
-    MyLinkedList ll;
-    MyLinkedList *ptr_ll;
-    ptr_ll = &ll;
-    return ptr_ll;
+    return NULL;
 }
 
 /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
@@ -43,6 +41,7 @@ void myLinkedListFree(MyLinkedList* obj) {
 }
 
 int main() {
+    MyLinkedList *ll = myLinkedListCreate();
     printf("hello, world\n");
 }
 
