@@ -11,11 +11,9 @@ void print_point(struct point pt) {
 }
 
 int main() {
-    // Make a struct variablle
+    // Declare a struct variablle
     struct point pt;
-    // Initialize a point
-    // TODO: Why doesn't this work?
-    /* pt = { 5, 10 }; */
+    // Set its member values
     pt.x = 5;
     pt.y = 10;
     print_point(pt);
