@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-typedef struct {
+typedef struct MyLinkedList {
     int val;
     struct MyLinkedList *next;
 } MyLinkedList;
