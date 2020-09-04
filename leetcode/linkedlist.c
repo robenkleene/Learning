@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stddef.h>
 
 typedef struct MyLinkedList {
     int val;
@@ -15,12 +16,20 @@ void printList(MyLinkedList *obj) {
 
 /** Initialize your data structure here. */
 MyLinkedList* myLinkedListCreate() {
-    return NULL;
+    MyLinkedList *head = NULL;
+    return head;
 }
 
 /** Get the value of the index-th node in the linked list. If the index is
  * invalid, return -1. */
 int myLinkedListGet(MyLinkedList* obj, int index) {
+    int i = 0;
+    MyLinkedList *current = obj;
+    for (int i; i < index; i++) {
+        if (current == NULL) {
+            return -1;
+        }
+    }
     return 0;
 }
 
