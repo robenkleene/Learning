@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stddef.h>
+#include <stdlib.h>
 
 typedef struct MyLinkedList {
     int val;
@@ -29,14 +30,17 @@ int myLinkedListGet(MyLinkedList* obj, int index) {
         if (current == NULL) {
             return -1;
         }
+        current = current->next;
     }
-    return 0;
+    return current->val;
 }
 
 /** Add a node of value val before the first element of the linked list. After
  * the insertion, the new node will be the first node of the linked list. */
 void myLinkedListAddAtHead(MyLinkedList* obj, int val) {
-  
+    MyLinkedList *new_node = (MyLinkedList *)malloc(sizeof(MyLinkedList));
+
+    // TODO: Continue here
 }
 
 /** Append a node of value val to the last element of the linked list. */
