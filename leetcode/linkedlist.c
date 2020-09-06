@@ -17,8 +17,10 @@ void printList(MyLinkedList *obj) {
 
 /** Initialize your data structure here. */
 MyLinkedList* myLinkedListCreate() {
-    MyLinkedList *head = NULL;
-    return head;
+    MyLinkedList *node = (MyLinkedList *)malloc(sizeof(MyLinkedList));
+    node->val = 0;
+    node->next = NULL;
+    return node;
 }
 
 /** Get the value of the index-th node in the linked list. If the index is
@@ -46,7 +48,13 @@ void myLinkedListAddAtHead(MyLinkedList* obj, int val) {
 
 /** Append a node of value val to the last element of the linked list. */
 void myLinkedListAddAtTail(MyLinkedList* obj, int val) {
-  
+    MyLinkedList *current = obj;
+    // TODO: What happens if obj is `NULL`?
+    // TODO: Continue here
+
+    while (current->next != NULL) {
+        current = current->next;
+    }
 }
 
 /** Add a node of value val before the index-th node in the linked list. If
@@ -67,8 +75,10 @@ void myLinkedListFree(MyLinkedList* obj) {
 }
 
 int main() {
-    MyLinkedList *ll = myLinkedListCreate();
-    printf("hello, world\n");
+    MyLinkedList *list = myLinkedListCreate();
+    printList(list);
+    myLinkedListAddAtHead(list, 5);
+    printList(list);
 }
 
 /**
