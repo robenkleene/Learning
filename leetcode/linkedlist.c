@@ -10,9 +10,10 @@ typedef struct MyLinkedList {
 void printList(MyLinkedList *obj) {
     MyLinkedList *current = obj;
     while (current != NULL) {
-        printf("%d\n", current->val);
+        printf("%d ", current->val);
         current = current->next;
     }
+    printf("\n");
 }
 
 /** Initialize your data structure here. */
@@ -39,11 +40,11 @@ int myLinkedListGet(MyLinkedList* obj, int index) {
 
 /** Add a node of value val before the first element of the linked list. After
  * the insertion, the new node will be the first node of the linked list. */
-void myLinkedListAddAtHead(MyLinkedList* obj, int val) {
+void myLinkedListAddAtHead(MyLinkedList** obj, int val) {
     MyLinkedList *node = (MyLinkedList *)malloc(sizeof(MyLinkedList));
     node->val = val;
-    node->next = obj;
-    obj = node;
+    node->next = *obj;
+    *obj = node;
 }
 
 /** Append a node of value val to the last element of the linked list. */
@@ -77,7 +78,7 @@ void myLinkedListFree(MyLinkedList* obj) {
 int main() {
     MyLinkedList *list = myLinkedListCreate();
     printList(list);
-    myLinkedListAddAtHead(list, 5);
+    myLinkedListAddAtHead(&list, 5);
     printList(list);
 }
 
