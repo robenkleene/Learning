@@ -48,8 +48,13 @@ void myLinkedListAddAtHead(MyLinkedList** obj, int val) {
 }
 
 /** Append a node of value val to the last element of the linked list. */
-void myLinkedListAddAtTail(MyLinkedList* obj, int val) {
-    MyLinkedList *current = obj;
+void myLinkedListAddAtTail(MyLinkedList** obj, int val) {
+    if (*obj == NULL) {
+        (*obj)->val = val;
+        (*obj)->next = NULL;
+    }
+
+    MyLinkedList *current = *obj;
     // TODO: What happens if obj is `NULL`?
     // TODO: Continue here
 
