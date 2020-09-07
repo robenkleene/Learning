@@ -76,8 +76,10 @@ void myLinkedListFree(MyLinkedList* obj) {
 }
 
 int main() {
+    printf("myLinkedListCreate()\n");
     MyLinkedList *list = myLinkedListCreate();
     printList(list);
+    printf("myLinkedListAddAtHead(&list, 5)\n");
     myLinkedListAddAtHead(&list, 5);
     printList(list);
 }
