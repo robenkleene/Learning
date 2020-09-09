@@ -80,6 +80,7 @@ void myLinkedListAddAtIndex(MyLinkedList *obj, int index, int val) {
 
     MyLinkedList *next = current->next;
     MyLinkedList *new = (MyLinkedList *)malloc(sizeof(MyLinkedList));
+    // TODO: Pick up here
 }
 
 /** Delete the index-th node in the linked list, if the index is valid. */
