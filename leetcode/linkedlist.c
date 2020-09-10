@@ -48,8 +48,8 @@ void myLinkedListAddAtHead(MyLinkedList **obj, int val) {
 }
 
 /** Append a node of value val to the last element of the linked list. */
-void myLinkedListAddAtTail(MyLinkedList **obj, int val) {
-    MyLinkedList *current = *obj;
+void myLinkedListAddAtTail(MyLinkedList *obj, int val) {
+    MyLinkedList *current = obj;
     if (current == NULL) {
         current->val = val;
         current->next = NULL;
@@ -69,18 +69,22 @@ void myLinkedListAddAtTail(MyLinkedList **obj, int val) {
  * index equals to the length of linked list, the node will be appended to the
  * end of linked list. If index is greater than the length, the node will not
  * be inserted. */
-void myLinkedListAddAtIndex(MyLinkedList *obj, int index, int val) {
-    MyLinkedList *current = obj;
-    for (int i = 0; i < index; i++) {
+void myLinkedListAddAtIndex(MyLinkedList **obj, int index, int val) {
+    MyLinkedList *current = *obj;
+    for (int i = 0; i < index - 1; i++) {
         if (current->next == NULL) {
             return;
         }
         current = current->next;
-    }    
+    }
 
-    MyLinkedList *next = current->next;
     MyLinkedList *new = (MyLinkedList *)malloc(sizeof(MyLinkedList));
-    // TODO: Pick up here
+    new->val = val;
+    new->next = current->next;
+    current->next = new;
+    if (index == 0) {
+        *obj = current;
+    }
 }
 
 /** Delete the index-th node in the linked list, if the index is valid. */
@@ -94,11 +98,17 @@ int main() {
     printf("myLinkedListCreate()\n");
     MyLinkedList *list = myLinkedListCreate();
     printList(list);
-    printf("myLinkedListAddAtHead(&list, 5)\n");
-    myLinkedListAddAtHead(&list, 5);
+    printf("myLinkedListAddAtHead(&list, 0)\n");
+    myLinkedListAddAtHead(&list, 0);
     printList(list);
-    printf("myLinkedListAddAtTail(list, 3);\n");
-    myLinkedListAddAtTail(&list, 3);
+    printf("myLinkedListAddAtTail(list, 1);\n");
+    myLinkedListAddAtTail(list, 1);
+    printList(list);
+    printf("myLinkedListAddAtIndex(&list, 1, 2);\n");
+    myLinkedListAddAtIndex(&list, 1, 2);
+    printList(list);
+    printf("myLinkedListAddAtIndex(&list, 0, 3);\n");
+    myLinkedListAddAtIndex(&list, 0, 3);
     printList(list);
 }
 
