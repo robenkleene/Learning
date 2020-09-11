@@ -105,7 +105,7 @@ int main() {
     myLinkedListAddAtTail(list, 2);
     printList(list);
     printf("myLinkedListAddAtIndex(&list, 1, 3);\n");
-    myLinkedListAddAtIndex(&list, 2, 3);
+    myLinkedListAddAtIndex(&list, 1, 3);
     printList(list);
     printf("myLinkedListAddAtIndex(&list, 0, 4);\n");
     myLinkedListAddAtIndex(&list, 0, 4);
