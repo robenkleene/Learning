@@ -81,9 +81,10 @@ void myLinkedListAddAtIndex(MyLinkedList **obj, int index, int val) {
     MyLinkedList *new = (MyLinkedList *)malloc(sizeof(MyLinkedList));
     new->val = val;
     new->next = current->next;
-    current->next = new;
     if (index == 0) {
-        *obj = current;
+        *obj = new;
+    } else {
+        current->next = new;
     }
 }
 
