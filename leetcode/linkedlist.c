@@ -98,17 +98,17 @@ int main() {
     printf("myLinkedListCreate()\n");
     MyLinkedList *list = myLinkedListCreate();
     printList(list);
-    printf("myLinkedListAddAtHead(&list, 0)\n");
-    myLinkedListAddAtHead(&list, 0);
+    printf("myLinkedListAddAtHead(&list, 1)\n");
+    myLinkedListAddAtHead(&list, 1);
     printList(list);
-    printf("myLinkedListAddAtTail(list, 1);\n");
-    myLinkedListAddAtTail(list, 1);
+    printf("myLinkedListAddAtTail(list, 2);\n");
+    myLinkedListAddAtTail(list, 2);
     printList(list);
-    printf("myLinkedListAddAtIndex(&list, 1, 2);\n");
-    myLinkedListAddAtIndex(&list, 1, 2);
+    printf("myLinkedListAddAtIndex(&list, 1, 3);\n");
+    myLinkedListAddAtIndex(&list, 2, 3);
     printList(list);
-    printf("myLinkedListAddAtIndex(&list, 0, 3);\n");
-    myLinkedListAddAtIndex(&list, 0, 3);
+    printf("myLinkedListAddAtIndex(&list, 0, 4);\n");
+    myLinkedListAddAtIndex(&list, 0, 4);
     printList(list);
 }
 
