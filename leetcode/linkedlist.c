@@ -90,7 +90,16 @@ void myLinkedListAddAtIndex(MyLinkedList **obj, int index, int val) {
 }
 
 /** Delete the index-th node in the linked list, if the index is valid. */
-void myLinkedListDeleteAtIndex(MyLinkedList *obj, int index) {
+void myLinkedListDeleteAtIndex(MyLinkedList **obj, int index) {
+    MyLinkedList *current = *obj;
+    if (index == 0) {
+        *obj = current->next;
+        free(current);
+        return;
+    }
+    for (int i = 0; i < index - 1; i++) {
+        
+    }
 }
 
 void myLinkedListFree(MyLinkedList *obj) {
