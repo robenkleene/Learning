@@ -98,7 +98,13 @@ void myLinkedListDeleteAtIndex(MyLinkedList **obj, int index) {
         return;
     }
     for (int i = 0; i < index - 1; i++) {
-        
+       if (current->next == NULL) {
+           return;
+       }
+       current = current->next;
+    }
+
+    if (current->next != NULL) {
     }
 }
 
