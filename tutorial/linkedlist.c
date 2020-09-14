@@ -9,7 +9,7 @@ typedef struct node {
 void print_list(node_t *head) {
     node_t *current = head;
 
-    while (current != NULL) {
+    while (current) {
         printf("%d\n", current->val);
         current = current->next;
     }
@@ -17,7 +17,7 @@ void print_list(node_t *head) {
 
 void append(node_t *head, int val) {
     node_t *current = head;
-    while (current->next != NULL) {
+    while (current->next) {
         current = current->next;
     }
 
@@ -39,7 +39,7 @@ int pop(node_t **head) {
     int retval = -1;
     node_t *next_node = NULL;
 
-    if (*head == NULL) {
+    if (!*head) {
         return -1;
     }
 
@@ -53,14 +53,14 @@ int pop(node_t **head) {
 
 int remove_last(node_t *head) {
     int retval = 0;
-    if (head->next == NULL) {
+    if (!head->next) {
         retval = head->val;
         free(head);
         return retval;
     }
 
     node_t *current = head;
-    while (current->next->next != NULL) {
+    while (current->next->next) {
         current = current->next;
     }
 
@@ -81,7 +81,7 @@ int remove_by_index(node_t **head, int n) {
     }
 
     for (i = 0; i < n - 1; i++) {
-        if (current->next == NULL) {
+        if (!current->next) {
             return -1;
         }
         current = current->next;
@@ -105,14 +105,14 @@ int remove_by_value(node_t **head, int n) {
         return pop(head);
     }
 
-    while (current != NULL) {
+    while (current) {
         if (current->val == n) {
             break;
         }
         current = current->next;
     }
 
-    if (current == NULL) {
+    if (!current) {
         return -1;
     }
 
@@ -128,7 +128,7 @@ int main() {
     printf("Manually creating value 1\n");
     node_t *head = NULL;
     head = (node_t *)malloc(sizeof(node_t));
-    if (head == NULL) {
+    if (!head) {
         return 1;
     }
     head->val = 1;
