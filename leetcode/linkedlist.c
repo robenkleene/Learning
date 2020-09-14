@@ -9,7 +9,7 @@ typedef struct MyLinkedList {
 
 void printList(MyLinkedList *obj) {
     MyLinkedList *current = obj;
-    while (current != NULL) {
+    while (current) {
         printf("%d ", current->val);
         current = current->next;
     }
@@ -30,7 +30,7 @@ int myLinkedListGet(MyLinkedList *obj, int index) {
     int i = 0;
     MyLinkedList *current = obj;
     for (int i; i < index; i++) {
-        if (current == NULL) {
+        if (!current) {
             return -1;
         }
         current = current->next;
@@ -50,12 +50,12 @@ void myLinkedListAddAtHead(MyLinkedList **obj, int val) {
 /** Append a node of value val to the last element of the linked list. */
 void myLinkedListAddAtTail(MyLinkedList *obj, int val) {
     MyLinkedList *current = obj;
-    if (current == NULL) {
+    if (!current) {
         current->val = val;
         current->next = NULL;
     }
 
-    while (current->next != NULL) {
+    while (current->next) {
         current = current->next;
     }
 
@@ -72,7 +72,7 @@ void myLinkedListAddAtTail(MyLinkedList *obj, int val) {
 void myLinkedListAddAtIndex(MyLinkedList **obj, int index, int val) {
     MyLinkedList *current = *obj;
     for (int i = 0; i < index - 1; i++) {
-        if (current->next == NULL) {
+        if (!current->next) {
             return;
         }
         current = current->next;
@@ -98,13 +98,13 @@ void myLinkedListDeleteAtIndex(MyLinkedList **obj, int index) {
         return;
     }
     for (int i = 0; i < index - 1; i++) {
-       if (current->next == NULL) {
+       if (!current->next) {
            return;
        }
        current = current->next;
     }
 
-    if (current->next != NULL) {
+    if (current->next) {
     }
 }
 
