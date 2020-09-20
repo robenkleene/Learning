@@ -98,10 +98,10 @@ void myLinkedListDeleteAtIndex(MyLinkedList **obj, int index) {
         return;
     }
     for (int i = 0; i < index - 1; i++) {
-       if (!current->next) {
-           return;
-       }
-       current = current->next;
+        if (!current->next) {
+            return;
+        }
+        current = current->next;
     }
 
     if (current->next) {
@@ -109,6 +109,12 @@ void myLinkedListDeleteAtIndex(MyLinkedList **obj, int index) {
 }
 
 void myLinkedListFree(MyLinkedList *obj) {
+    MyLinkedList *current = obj;
+    while (current) {
+        MyLinkedList *head = current;
+        current = current->next;
+        free(head);
+    }
 }
 
 int main() {
@@ -118,16 +124,16 @@ int main() {
     printf("myLinkedListAddAtHead(&list, 1)\n");
     myLinkedListAddAtHead(&list, 1);
     printList(list);
-    printf("myLinkedListAddAtTail(list, 2);\n");
-    myLinkedListAddAtTail(list, 2);
-    printList(list);
-    printf("myLinkedListAddAtIndex(&list, 1, 3);\n");
-    myLinkedListAddAtIndex(&list, 1, 3);
-    printList(list);
-    printf("myLinkedListAddAtIndex(&list, 0, 4);\n");
-    myLinkedListAddAtIndex(&list, 0, 4);
-    printList(list);
-    free(list);
+    // printf("myLinkedListAddAtTail(list, 2);\n");
+    // myLinkedListAddAtTail(list, 2);
+    // printList(list);
+    // printf("myLinkedListAddAtIndex(&list, 1, 3);\n");
+    // myLinkedListAddAtIndex(&list, 1, 3);
+    // printList(list);
+    // printf("myLinkedListAddAtIndex(&list, 0, 4);\n");
+    // myLinkedListAddAtIndex(&list, 0, 4);
+    // printList(list);
+    myLinkedListFree(list);
 }
 
 /**
