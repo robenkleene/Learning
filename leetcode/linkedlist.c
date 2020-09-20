@@ -127,6 +127,7 @@ int main() {
     printf("myLinkedListAddAtIndex(&list, 0, 4);\n");
     myLinkedListAddAtIndex(&list, 0, 4);
     printList(list);
+    free(list);
 }
 
 /**
