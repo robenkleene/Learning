@@ -7,15 +7,6 @@ typedef struct MyLinkedList {
     struct MyLinkedList *next;
 } MyLinkedList;
 
-void printList(MyLinkedList *obj) {
-    MyLinkedList *current = obj;
-    while (current) {
-        printf("%d ", current->val);
-        current = current->next;
-    }
-    printf("\n");
-}
-
 /** Initialize your data structure here. */
 MyLinkedList *myLinkedListCreate() {
     MyLinkedList *new = (MyLinkedList *)malloc(sizeof(MyLinkedList));
@@ -117,6 +108,33 @@ void myLinkedListFree(MyLinkedList *obj) {
     }
 }
 
+/**
+ * Your MyLinkedList struct will be instantiated and called as such:
+ * MyLinkedList* obj = myLinkedListCreate();
+ * int param_1 = myLinkedListGet(obj, index);
+
+ * myLinkedListAddAtHead(obj, val);
+
+ * myLinkedListAddAtTail(obj, val);
+
+ * myLinkedListAddAtIndex(obj, index, val);
+
+ * myLinkedListDeleteAtIndex(obj, index);
+
+ * myLinkedListFree(obj);
+*/
+
+// Helper
+
+void printList(MyLinkedList *obj) {
+    MyLinkedList *current = obj;
+    while (current) {
+        printf("%d ", current->val);
+        current = current->next;
+    }
+    printf("\n");
+}
+
 int main() {
     printf("myLinkedListCreate()\n");
     MyLinkedList *list = myLinkedListCreate();
@@ -135,19 +153,3 @@ int main() {
     printList(list);
     myLinkedListFree(list);
 }
-
-/**
- * Your MyLinkedList struct will be instantiated and called as such:
- * MyLinkedList* obj = myLinkedListCreate();
- * int param_1 = myLinkedListGet(obj, index);
-
- * myLinkedListAddAtHead(obj, val);
-
- * myLinkedListAddAtTail(obj, val);
-
- * myLinkedListAddAtIndex(obj, index, val);
-
- * myLinkedListDeleteAtIndex(obj, index);
-
- * myLinkedListFree(obj);
-*/
