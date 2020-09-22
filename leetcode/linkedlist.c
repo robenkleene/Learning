@@ -18,9 +18,8 @@ MyLinkedList *myLinkedListCreate() {
 /** Get the value of the index-th node in the linked list. If the index is
  * invalid, return -1. */
 int myLinkedListGet(MyLinkedList *obj, int index) {
-    int i = 0;
     MyLinkedList *current = obj;
-    for (int i; i < index; i++) {
+    for (int i = 0; i < index; i++) {
         if (!current) {
             return -1;
         }
