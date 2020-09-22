@@ -154,7 +154,7 @@ int main() {
     myLinkedListFree(list);
 
     // Test
-    printf("myLinkedListCreate()\n");
+    printf("\n\nmyLinkedListCreate()\n");
     MyLinkedList *list2 = myLinkedListCreate();
     printf("myLinkedListAddAtHead(&list2, 1)\n");
     myLinkedListAddAtHead(&list2, 1);
@@ -166,8 +166,7 @@ int main() {
     int result = myLinkedListGet(list2, 1);
     printf("result = %i\n", result);
     printf("myLinkedListDeleteAtIndex(&list, 1);\n");
-    myLinkedListDeleteAtIndex(&list, 1);
-    printf("result = %i\n", result);
+    myLinkedListDeleteAtIndex(&list2, 1);
     printf("myLinkedListGet(list2, 1);\n");
     result = myLinkedListGet(list2, 1);
     printf("result = %i\n", result);
