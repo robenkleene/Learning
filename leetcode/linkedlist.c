@@ -95,6 +95,9 @@ void myLinkedListDeleteAtIndex(MyLinkedList **obj, int index) {
     }
 
     if (current->next) {
+        MyLinkedList *delete = current->next;
+        current->next = delete->next;
+        free(delete);
     }
 }
 
