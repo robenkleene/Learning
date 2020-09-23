@@ -163,10 +163,10 @@ int main() {
     myLinkedListAddAtHead(&list2, 1);
     printList(list2);
     printf("myLinkedListAddAtTail(list2, 3);\n");
-    myLinkedListAddAtTail(list2, 2);
+    myLinkedListAddAtTail(list2, 3);
     printList(list2);
     printf("myLinkedListAddAtIndex(&list2, 1, 2);\n");
-    myLinkedListAddAtIndex(&list2, 1, 3);
+    myLinkedListAddAtIndex(&list2, 1, 2);
     printList(list2);
     printf("myLinkedListGet(list2, 1);\n");
     int result = myLinkedListGet(list2, 1);
