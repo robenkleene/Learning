@@ -9,7 +9,8 @@ typedef struct MyLinkedList {
 
 /** Initialize your data structure here. */
 MyLinkedList *myLinkedListCreate() {
-    MyLinkedList *new = NULL;
+    MyLinkedList *new = (MyLinkedList *)malloc(sizeof(MyLinkedList));
+    new->next = NULL;
     return new;
 }
 
