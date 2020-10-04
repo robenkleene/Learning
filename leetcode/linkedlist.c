@@ -9,9 +9,7 @@ typedef struct MyLinkedList {
 
 /** Initialize your data structure here. */
 MyLinkedList *myLinkedListCreate() {
-    MyLinkedList *new = (MyLinkedList *)malloc(sizeof(MyLinkedList));
-    new->next = NULL;
-    return new;
+    return NULL;
 }
 
 /** Get the value of the index-th node in the linked list. If the index is
