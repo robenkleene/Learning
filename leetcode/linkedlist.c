@@ -27,7 +27,7 @@ int myLinkedListGet(MyLinkedList *obj, int index) {
 
 /** Add a node of value val before the first element of the linked list. After
  * the insertion, the new node will be the first node of the linked list. */
-void myLinkedListAddAtHead(MyLinkedList **obj, int val) {
+void myLinkedListAddAtHead(MyLinkedList *obj, int val) {
     MyLinkedList *new = (MyLinkedList *)malloc(sizeof(MyLinkedList));
     new->val = val;
     new->next = *obj;
@@ -56,7 +56,7 @@ void myLinkedListAddAtTail(MyLinkedList *obj, int val) {
  * index equals to the length of linked list, the node will be appended to the
  * end of linked list. If index is greater than the length, the node will not
  * be inserted. */
-void myLinkedListAddAtIndex(MyLinkedList **obj, int index, int val) {
+void myLinkedListAddAtIndex(MyLinkedList *obj, int index, int val) {
     MyLinkedList *current = *obj;
     for (int i = 0; i < index - 1; i++) {
         if (!current->next) {
@@ -77,7 +77,7 @@ void myLinkedListAddAtIndex(MyLinkedList **obj, int index, int val) {
 }
 
 /** Delete the index-th node in the linked list, if the index is valid. */
-void myLinkedListDeleteAtIndex(MyLinkedList **obj, int index) {
+void myLinkedListDeleteAtIndex(MyLinkedList *obj, int index) {
     MyLinkedList *current = *obj;
     if (index == 0) {
         *obj = current->next;
@@ -138,17 +138,17 @@ int main() {
     printf("myLinkedListCreate()\n");
     MyLinkedList *list = myLinkedListCreate();
     printList(list);
-    printf("myLinkedListAddAtHead(&list, 1)\n");
-    myLinkedListAddAtHead(&list, 1);
+    printf("myLinkedListAddAtHead(list, 1)\n");
+    myLinkedListAddAtHead(list, 1);
     printList(list);
     printf("myLinkedListAddAtTail(list, 2);\n");
     myLinkedListAddAtTail(list, 2);
     printList(list);
-    printf("myLinkedListAddAtIndex(&list, 1, 3);\n");
-    myLinkedListAddAtIndex(&list, 1, 3);
+    printf("myLinkedListAddAtIndex(list, 1, 3);\n");
+    myLinkedListAddAtIndex(list, 1, 3);
     printList(list);
-    printf("myLinkedListAddAtIndex(&list, 0, 4);\n");
-    myLinkedListAddAtIndex(&list, 0, 4);
+    printf("myLinkedListAddAtIndex(list, 0, 4);\n");
+    myLinkedListAddAtIndex(list, 0, 4);
     printList(list);
     myLinkedListFree(list);
 
@@ -156,20 +156,20 @@ int main() {
     printf("\n\nmyLinkedListCreate()\n");
     MyLinkedList *list2 = myLinkedListCreate();
     printList(list2);
-    printf("myLinkedListAddAtHead(&list2, 1)\n");
-    myLinkedListAddAtHead(&list2, 1);
+    printf("myLinkedListAddAtHead(list2, 1)\n");
+    myLinkedListAddAtHead(list, 1);
     printList(list2);
     printf("myLinkedListAddAtTail(list2, 3);\n");
     myLinkedListAddAtTail(list2, 3);
     printList(list2);
-    printf("myLinkedListAddAtIndex(&list2, 1, 2);\n");
-    myLinkedListAddAtIndex(&list2, 1, 2);
+    printf("myLinkedListAddAtIndex(list2, 1, 2);\n");
+    myLinkedListAddAtIndex(list, 1, 2);
     printList(list2);
     printf("myLinkedListGet(list2, 1);\n");
     int result = myLinkedListGet(list2, 1);
     printf("result = %i\n", result);
-    printf("myLinkedListDeleteAtIndex(&list, 1);\n");
-    myLinkedListDeleteAtIndex(&list2, 1);
+    printf("myLinkedListDeleteAtIndex(list, 1);\n");
+    myLinkedListDeleteAtIndex(list2, 1);
     printList(list2);
     printf("myLinkedListGet(list2, 1);\n");
     result = myLinkedListGet(list2, 1);
