@@ -2,10 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 typedef struct MyLinkedList {
     int val;
     struct MyLinkedList *next;
 } MyLinkedList;
+
+const MyLinkedList *SENTINEL = (MyLinkedList *)malloc(sizeof(MyLinkedList));
 
 /** Initialize your data structure here. */
 MyLinkedList *myLinkedListCreate() {
