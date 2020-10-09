@@ -8,7 +8,8 @@ typedef struct MyLinkedList {
     struct MyLinkedList *next;
 } MyLinkedList;
 
-const MyLinkedList *SENTINEL = (MyLinkedList *)malloc(sizeof(MyLinkedList));
+static MyLinkedList SENTINEL;
+MyLinkedList* const head = &SENTINEL;
 
 /** Initialize your data structure here. */
 MyLinkedList *myLinkedListCreate() {
