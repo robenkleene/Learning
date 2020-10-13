@@ -8,8 +8,8 @@ typedef struct MyLinkedList {
     struct MyLinkedList *next;
 } MyLinkedList;
 
-static MyLinkedList SENTINEL;
-MyLinkedList* const head = &SENTINEL;
+static MyLinkedList SENTINEL_STATIC;
+MyLinkedList* const SENTINEL = &SENTINEL_STATIC;
 
 /** Initialize your data structure here. */
 MyLinkedList *myLinkedListCreate() {
@@ -20,6 +20,9 @@ MyLinkedList *myLinkedListCreate() {
  * invalid, return -1. */
 int myLinkedListGet(MyLinkedList *obj, int index) {
     MyLinkedList *current = obj;
+    while (current != SENTINEL && current->next) {
+        current = current->next;
+    }
     for (int i = 0; i < index; i++) {
         if (!current) {
             return -1;
