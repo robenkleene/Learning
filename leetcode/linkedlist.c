@@ -1,7 +1,7 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <assert.h>
 
 typedef struct MyLinkedList {
     int val;
@@ -13,14 +13,16 @@ MyLinkedList* const SENTINEL = &SENTINEL_STATIC;
 
 /** Initialize your data structure here. */
 MyLinkedList *myLinkedListCreate() {
-    return NULL;
+    SENTINEL->next = NULL;
+    return SENTINEL;
 }
 
 /** Get the value of the index-th node in the linked list. If the index is
  * invalid, return -1. */
 int myLinkedListGet(MyLinkedList *obj, int index) {
+    assert(obj == SENTINEL);
     MyLinkedList *current = obj;
-    while (current != SENTINEL && current->next) {
+    while (current == SENTINEL && current->next) {
         current = current->next;
     }
     for (int i = 0; i < index; i++) {
@@ -35,24 +37,24 @@ int myLinkedListGet(MyLinkedList *obj, int index) {
 /** Add a node of value val before the first element of the linked list. After
  * the insertion, the new node will be the first node of the linked list. */
 void myLinkedListAddAtHead(MyLinkedList *obj, int val) {
+    assert(obj == SENTINEL);
+    MyLinkedList *current = obj;
+    while (current == SENTINEL && current->next) {
+        current = current->next;
+    }
     MyLinkedList *new = (MyLinkedList *)malloc(sizeof(MyLinkedList));
     new->val = val;
-    new->next = *obj;
-    *obj = new;
+    new->next = current;
+    obj->next = new;
 }
 
 /** Append a node of value val to the last element of the linked list. */
 void myLinkedListAddAtTail(MyLinkedList *obj, int val) {
+    assert(obj == SENTINEL);
     MyLinkedList *current = obj;
-    if (!current) {
-        current->val = val;
-        current->next = NULL;
-    }
-
     while (current->next) {
         current = current->next;
     }
-
     MyLinkedList *new = (MyLinkedList *)malloc(sizeof(MyLinkedList));
     new->val = val;
     new->next = NULL;
@@ -64,7 +66,11 @@ void myLinkedListAddAtTail(MyLinkedList *obj, int val) {
  * end of linked list. If index is greater than the length, the node will not
  * be inserted. */
 void myLinkedListAddAtIndex(MyLinkedList *obj, int index, int val) {
-    MyLinkedList *current = *obj;
+    assert(obj == SENTINEL);
+    MyLinkedList *current = obj;
+    while (current == SENTINEL && current->next) {
+        current = current->next;
+    }
     for (int i = 0; i < index - 1; i++) {
         if (!current->next) {
             return;
@@ -74,22 +80,16 @@ void myLinkedListAddAtIndex(MyLinkedList *obj, int index, int val) {
 
     MyLinkedList *new = (MyLinkedList *)malloc(sizeof(MyLinkedList));
     new->val = val;
-    if (index == 0) {
-        new->next = current;
-        *obj = new;
-    } else {
-        new->next = current->next;
-        current->next = new;
-    }
+    new->next = current->next;
+    current->next = new;
 }
 
 /** Delete the index-th node in the linked list, if the index is valid. */
 void myLinkedListDeleteAtIndex(MyLinkedList *obj, int index) {
-    MyLinkedList *current = *obj;
-    if (index == 0) {
-        *obj = current->next;
-        free(current);
-        return;
+    assert(obj == SENTINEL);
+    MyLinkedList *current = obj;
+    while (current == SENTINEL && current->next) {
+        current = current->next;
     }
     for (int i = 0; i < index - 1; i++) {
         if (!current->next) {
@@ -97,7 +97,6 @@ void myLinkedListDeleteAtIndex(MyLinkedList *obj, int index) {
         }
         current = current->next;
     }
-
     if (current->next) {
         MyLinkedList *delete = current->next;
         current->next = delete->next;
@@ -106,7 +105,11 @@ void myLinkedListDeleteAtIndex(MyLinkedList *obj, int index) {
 }
 
 void myLinkedListFree(MyLinkedList *obj) {
+    assert(obj == SENTINEL);
     MyLinkedList *current = obj;
+    while (current == SENTINEL && current->next) {
+        current = current->next;
+    }
     while (current) {
         MyLinkedList *head = current;
         current = current->next;
@@ -133,7 +136,11 @@ void myLinkedListFree(MyLinkedList *obj) {
 // Helper
 
 void printList(MyLinkedList *obj) {
+    assert(obj == SENTINEL);
     MyLinkedList *current = obj;
+    while (current == SENTINEL && current->next) {
+        current = current->next;
+    }
     while (current) {
         printf("%d ", current->val);
         current = current->next;
