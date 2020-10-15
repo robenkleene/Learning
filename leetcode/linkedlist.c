@@ -1,7 +1,7 @@
+#include <assert.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <assert.h>
 
 typedef struct MyLinkedList {
     int val;
@@ -9,7 +9,7 @@ typedef struct MyLinkedList {
 } MyLinkedList;
 
 static MyLinkedList SENTINEL_STATIC;
-MyLinkedList* const SENTINEL = &SENTINEL_STATIC;
+MyLinkedList *const SENTINEL = &SENTINEL_STATIC;
 
 /** Initialize your data structure here. */
 MyLinkedList *myLinkedListCreate() {
@@ -142,6 +142,10 @@ void printList(MyLinkedList *obj) {
     MyLinkedList *current = obj;
     while (current == SENTINEL && current->next) {
         current = current->next;
+    }
+    if (current == SENTINEL) {
+        printf("\n");
+        return;
     }
     while (current) {
         printf("%d ", current->val);
