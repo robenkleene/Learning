@@ -44,8 +44,10 @@ void myLinkedListAddAtHead(MyLinkedList *obj, int val) {
     }
     MyLinkedList *new = (MyLinkedList *)malloc(sizeof(MyLinkedList));
     new->val = val;
-    new->next = current;
-    obj->next = new;
+    if (current != SENTINEL) {
+        new->next = current;
+    }
+    current->next = new;
 }
 
 /** Append a node of value val to the last element of the linked list. */
