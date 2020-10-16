@@ -44,6 +44,7 @@ void myLinkedListAddAtHead(MyLinkedList *obj, int val) {
     }
     MyLinkedList *new = (MyLinkedList *)malloc(sizeof(MyLinkedList));
     new->val = val;
+    new->next = NULL;
     if (current != SENTINEL) {
         new->next = current;
     }
