@@ -44,11 +44,8 @@ void myLinkedListAddAtHead(MyLinkedList *obj, int val) {
     }
     MyLinkedList *new = (MyLinkedList *)malloc(sizeof(MyLinkedList));
     new->val = val;
-    new->next = NULL;
-    if (current != SENTINEL) {
-        new->next = current;
-    }
-    current->next = new;
+    new->next = current == SENTINEL ? NULL : current;
+    SENTINEL->next = new;
 }
 
 /** Append a node of value val to the last element of the linked list. */
@@ -208,31 +205,31 @@ int main() {
     printf("myLinkedListAddAtHead(list, 2)\n");
     myLinkedListAddAtHead(list, 2);
     printList(list);
-    printf("myLinkedListAddAtHead(list, 1)\n");
-    myLinkedListAddAtHead(list, 1);
-    printList(list);
-    printf("myLinkedListAddAtIndex(list, 3, 0);\n");
-    myLinkedListAddAtIndex(list, 3, 0);
-    printList(list);
-    printf("myLinkedListDeleteAtIndex(list, 2);\n");
-    myLinkedListDeleteAtIndex(list, 2);
-    printList(list);
-    printf("myLinkedListAddAtHead(list, 6)\n");
-    myLinkedListAddAtHead(list, 6);
-    printList(list);
-    printf("myLinkedListAddAtTail(list, 4);\n");
-    myLinkedListAddAtTail(list, 4);
-    printList(list);
-    printf("myLinkedListGet(list, 4);\n");
-    result = myLinkedListGet(list, 4);
-    printf("result = %i\n", result);
-    printf("myLinkedListAddAtHead(list, 4)\n");
-    myLinkedListAddAtHead(list, 4);
-    printList(list);
-    printf("myLinkedListAddAtIndex(list, 5, 0);\n");
-    myLinkedListAddAtIndex(list, 5, 0);
-    printList(list);
-    printf("myLinkedListAddAtHead(list, 6)\n");
-    myLinkedListAddAtHead(list, 6);
-    printList(list);
+    /* printf("myLinkedListAddAtHead(list, 1)\n"); */
+    /* myLinkedListAddAtHead(list, 1); */
+    /* printList(list); */
+    /* printf("myLinkedListAddAtIndex(list, 3, 0);\n"); */
+    /* myLinkedListAddAtIndex(list, 3, 0); */
+    /* printList(list); */
+    /* printf("myLinkedListDeleteAtIndex(list, 2);\n"); */
+    /* myLinkedListDeleteAtIndex(list, 2); */
+    /* printList(list); */
+    /* printf("myLinkedListAddAtHead(list, 6)\n"); */
+    /* myLinkedListAddAtHead(list, 6); */
+    /* printList(list); */
+    /* printf("myLinkedListAddAtTail(list, 4);\n"); */
+    /* myLinkedListAddAtTail(list, 4); */
+    /* printList(list); */
+    /* printf("myLinkedListGet(list, 4);\n"); */
+    /* result = myLinkedListGet(list, 4); */
+    /* printf("result = %i\n", result); */
+    /* printf("myLinkedListAddAtHead(list, 4)\n"); */
+    /* myLinkedListAddAtHead(list, 4); */
+    /* printList(list); */
+    /* printf("myLinkedListAddAtIndex(list, 5, 0);\n"); */
+    /* myLinkedListAddAtIndex(list, 5, 0); */
+    /* printList(list); */
+    /* printf("myLinkedListAddAtHead(list, 6)\n"); */
+    /* myLinkedListAddAtHead(list, 6); */
+    /* printList(list); */
 }
