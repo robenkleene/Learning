@@ -87,6 +87,16 @@ void myLinkedListAddAtIndex(MyLinkedList *obj, int index, int val) {
 /** Delete the index-th node in the linked list, if the index is valid. */
 void myLinkedListDeleteAtIndex(MyLinkedList *obj, int index) {
     assert(obj == SENTINEL);
+
+    if (index == 0) {
+        MyLinkedList *delete = SENTINEL->next;
+        if (!delete) {
+            return;
+        }
+        SENTINEL->next = delete->next;
+        free(delete);
+    }
+
     MyLinkedList *current = obj;
     while (current == SENTINEL && current->next) {
         current = current->next;
