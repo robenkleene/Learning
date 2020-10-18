@@ -232,4 +232,27 @@ int main() {
     printf("myLinkedListAddAtHead(list, 6)\n");
     myLinkedListAddAtHead(list, 6);
     printList(list);
+
+    // Test 3
+    printf("\n\nmyLinkedListCreate()\n");
+    list = myLinkedListCreate();
+    printList(list);
+    printf("myLinkedListAddAtHead(list, 1)\n");
+    myLinkedListAddAtHead(list, 1);
+    printList(list);
+    printf("myLinkedListAddAtTail(list, 3);\n");
+    myLinkedListAddAtTail(list, 3);
+    printList(list);
+    printf("myLinkedListAddAtIndex(list, 1, 2);\n");
+    myLinkedListAddAtIndex(list, 1, 2);
+    printList(list);
+    printf("myLinkedListGet(list, 1);\n");
+    result = myLinkedListGet(list, 1);
+    printf("result = %i\n", result);
+    printf("myLinkedListDeleteAtIndex(list, 0);\n");
+    myLinkedListDeleteAtIndex(list, 0);
+    printList(list);
+    printf("myLinkedListGet(list, 0);\n");
+    result = myLinkedListGet(list, 0);
+    printf("result = %i\n", result);
 }
