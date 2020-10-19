@@ -120,6 +120,9 @@ void myLinkedListFree(MyLinkedList *obj) {
     while (current == SENTINEL && current->next) {
         current = current->next;
     }
+    if (current == SENTINEL) {
+        return;
+    }
     while (current) {
         MyLinkedList *head = current;
         current = current->next;
