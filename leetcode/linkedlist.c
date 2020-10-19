@@ -242,6 +242,7 @@ int main() {
     printf("myLinkedListAddAtHead(list, 6)\n");
     myLinkedListAddAtHead(list, 6);
     printList(list);
+    myLinkedListFree(list);
 
     // Test 3
     printf("\n\nmyLinkedListCreate()\n");
@@ -265,4 +266,5 @@ int main() {
     printf("myLinkedListGet(list, 0);\n");
     result = myLinkedListGet(list, 0);
     printf("result = %i\n", result);
+    myLinkedListFree(list);
 }
