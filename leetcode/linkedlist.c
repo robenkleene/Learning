@@ -267,4 +267,16 @@ int main() {
     result = myLinkedListGet(list, 0);
     printf("result = %i\n", result);
     myLinkedListFree(list);
+
+    // Test 4
+    printf("\n\nmyLinkedListCreate()\n");
+    list = myLinkedListCreate();
+    printList(list);
+    printf("myLinkedListAddAtHead(list, 1)\n");
+    myLinkedListAddAtHead(list, 1);
+    printList(list);
+    printf("myLinkedListDeleteAtIndex(list, 0);\n");
+    myLinkedListDeleteAtIndex(list, 0);
+    printList(list);
+    myLinkedListFree(list);
 }
