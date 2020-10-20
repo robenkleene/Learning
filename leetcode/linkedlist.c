@@ -25,6 +25,9 @@ int myLinkedListGet(MyLinkedList *obj, int index) {
     while (current == SENTINEL && current->next) {
         current = current->next;
     }
+    if (current == SENTINEL) {
+        return -1;
+    }
     for (int i = 0; i < index; i++) {
         if (!current) {
             return -1;
@@ -67,6 +70,12 @@ void myLinkedListAddAtTail(MyLinkedList *obj, int val) {
  * be inserted. */
 void myLinkedListAddAtIndex(MyLinkedList *obj, int index, int val) {
     assert(obj == SENTINEL);
+
+    if (index == 0) {
+        myLinkedListAddAtHead(obj, val);
+        return;
+    }
+
     MyLinkedList *current = obj;
     while (current == SENTINEL && current->next) {
         current = current->next;
@@ -95,6 +104,7 @@ void myLinkedListDeleteAtIndex(MyLinkedList *obj, int index) {
         }
         SENTINEL->next = delete->next;
         free(delete);
+        return;
     }
 
     MyLinkedList *current = obj;
@@ -290,10 +300,10 @@ int main() {
     printf("myLinkedListAddAtIndex(list, 0, 10)\n");
     myLinkedListAddAtIndex(list, 0, 10);
     printList(list);
-    printf("myLinkedListAddAtIndex(list, 0, 10)\n");
+    printf("myLinkedListAddAtIndex(list, 0, 20)\n");
     myLinkedListAddAtIndex(list, 0, 20);
     printList(list);
-    printf("myLinkedListAddAtIndex(list, 0, 10)\n");
+    printf("myLinkedListAddAtIndex(list, 0, 30)\n");
     myLinkedListAddAtIndex(list, 1, 30);
     printList(list);
     printf("myLinkedListGet(list, 0);\n");
