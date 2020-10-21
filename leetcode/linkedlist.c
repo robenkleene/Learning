@@ -29,10 +29,10 @@ int myLinkedListGet(MyLinkedList *obj, int index) {
         return -1;
     }
     for (int i = 0; i < index; i++) {
+        current = current->next;
         if (!current) {
             return -1;
         }
-        current = current->next;
     }
     return current->val;
 }
