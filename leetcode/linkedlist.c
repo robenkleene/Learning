@@ -310,4 +310,43 @@ int main() {
     result = myLinkedListGet(list, 0);
     printf("result = %i\n", result);
     myLinkedListFree(list);
+
+    // Test 6
+    printf("\n\nmyLinkedListCreate()\n");
+    list = myLinkedListCreate();
+    printList(list);
+    printf("myLinkedListAddAtHead(list, 4)\n");
+    myLinkedListAddAtHead(list, 4);
+    printList(list);
+    printf("myLinkedListGet(list, 1);\n");
+    result = myLinkedListGet(list, 1);
+    printf("result = %i\n", result);
+    printf("myLinkedListAddAtHead(list, 1)\n");
+    myLinkedListAddAtHead(list, 1);
+    printList(list);
+    printf("myLinkedListAddAtHead(list, 5)\n");
+    myLinkedListAddAtHead(list, 5);
+    printList(list);
+    printf("myLinkedListDeleteAtIndex(list, 3);\n");
+    myLinkedListDeleteAtIndex(list, 3);
+    printList(list);
+    printf("myLinkedListAddAtHead(list, 7)\n");
+    myLinkedListAddAtHead(list, 7);
+    printList(list);
+    printf("myLinkedListGet(list, 3);\n");
+    result = myLinkedListGet(list, 3);
+    printf("result = %i\n", result);
+    printf("myLinkedListGet(list, 3);\n");
+    result = myLinkedListGet(list, 3);
+    printf("result = %i\n", result);
+    printf("myLinkedListGet(list, 3);\n");
+    result = myLinkedListGet(list, 3);
+    printf("result = %i\n", result);
+    printf("myLinkedListAddAtHead(list, 1)\n");
+    myLinkedListAddAtHead(list, 1);
+    printList(list);
+    printf("myLinkedListDeleteAtIndex(list, 4);\n");
+    myLinkedListDeleteAtIndex(list, 4);
+    printList(list);
+    myLinkedListFree(list);
 }
