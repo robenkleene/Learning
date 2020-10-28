@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 struct nlist { /* table entry: */
     struct nlist *next; /* next entry in chain */
@@ -28,7 +30,7 @@ struct nlist *lookup(char *s)
     return NULL; /* not found */
 }
 
-char *strdup(char *);
+/* char *strdup(char *); */
 /* install: put (name, defn) in hashtab */
 struct nlist *install(char *name, char *defn)
 {
@@ -48,14 +50,14 @@ struct nlist *install(char *name, char *defn)
     return np;
 }
 
-char *strdup(char *s) /* make a duplicate of s */
-{
-    char *p;
-    p = (char *) malloc(strlen(s)+1); /* +1 for ’\0’ */
-    if (p != NULL)
-       strcpy(p, s);
-    return p;
-}
+/* char *strdup(char *s) /1* make a duplicate of s *1/ */
+/* { */
+/*     char *p; */
+/*     p = (char *) malloc(strlen(s)+1); /1* +1 for ’\0’ *1/ */
+/*     if (p != NULL) */
+/*        strcpy(p, s); */
+/*     return p; */
+/* } */
 
 int main() {
     printf("hello, world\n");
