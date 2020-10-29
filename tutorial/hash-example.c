@@ -62,5 +62,7 @@ struct nlist *install(char *name, char *defn)
 int main() {
     unsigned result = hash("hello, world");
     printf("result = %i\n", result);
+    unsigned result2 = hash("h");
+    printf("result2 = %i\n", result2);
 }
 
