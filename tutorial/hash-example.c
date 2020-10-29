@@ -60,6 +60,7 @@ struct nlist *install(char *name, char *defn)
 /* } */
 
 int main() {
-    printf("hello, world\n");
+    unsigned result = hash("hello, world");
+    printf("result = %i\n", result);
 }
 
