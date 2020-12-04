@@ -2,6 +2,9 @@ class Solution {
   func search(_ matrix: [[Int]], _ target: Int) -> (Int, Int)? {
     for i in 0..<matrix.count {
       let submatrix = matrix[i]
+      guard i < submatrix.count else {
+          return nil
+      }
       if target > submatrix[0] {
         for j in 0..<submatrix.count {
           if submatrix[j] == target {
