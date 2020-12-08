@@ -21,6 +21,10 @@ class LinkedList:
         nodes.append("None")
         return " -> ".join(nodes)
 
+def make_list(arr):
+    print("Got here")
+    print("arr =", arr)
+
 class Solution:
     def rotateRight(self, head: 'ListNode', k: 'int') -> 'ListNode':
         # base cases
@@ -49,7 +53,8 @@ class Solution:
 
         return new_head
 
-
-head = [1, 2, 3, 4, 5]
-k = 2
-Solution().rotateRight(head, k)
+arr = [1, 2, 3, 4, 5]
+make_list(arr)
+# head = [1, 2, 3, 4, 5]
+# k = 2
+# Solution().rotateRight(head, k)
