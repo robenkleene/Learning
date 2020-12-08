@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-class Node:
+class ListNode:
     def __init__(self, data):
         self.data = data
         self.next = None
@@ -27,7 +27,7 @@ def make_list(arr):
         return llist
     curr = None
     for item in arr:
-        node = Node(item)
+        node = ListNode(item)
         if llist.head == None:
             llist.head = node
         else:
@@ -49,7 +49,7 @@ class Solution:
         while old_tail.next:
             old_tail = old_tail.next
             n += 1
-        ocAction('format')
+        old_tail.next = head
 
         # find new tail : (n - k % n - 1)th node
         # and new head : (n - k % n)th node
@@ -66,6 +66,7 @@ class Solution:
 arr = [1, 2, 3, 4, 5]
 llist = make_list(arr)
 print("llist =", llist)
-# head = [1, 2, 3, 4, 5]
-# k = 2
-# Solution().rotateRight(head, k)
+head = llist.head
+k = 2
+result = Solution().rotateRight(head, k)
+# print("result =", result)
