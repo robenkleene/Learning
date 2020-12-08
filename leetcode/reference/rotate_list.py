@@ -16,14 +16,24 @@ class LinkedList:
         node = self.head
         nodes = []
         while node is not None:
-            nodes.append(node.data)
+            nodes.append(str(node.data))
             node = node.next
         nodes.append("None")
         return " -> ".join(nodes)
 
 def make_list(arr):
-    print("Got here")
-    print("arr =", arr)
+    llist = LinkedList()
+    if len(arr) == 0:
+        return llist
+    curr = None
+    for item in arr:
+        node = Node(item)
+        if llist.head == None:
+            llist.head = node
+        else:
+            curr.next = node
+        curr = node
+    return llist
 
 class Solution:
     def rotateRight(self, head: 'ListNode', k: 'int') -> 'ListNode':
@@ -54,7 +64,8 @@ class Solution:
         return new_head
 
 arr = [1, 2, 3, 4, 5]
-make_list(arr)
+llist = make_list(arr)
+print("llist =", llist)
 # head = [1, 2, 3, 4, 5]
 # k = 2
 # Solution().rotateRight(head, k)
