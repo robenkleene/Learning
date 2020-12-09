@@ -26,8 +26,6 @@ class LinkedList:
 
 def make_list(arr):
     llist = LinkedList()
-    if len(arr) == 0:
-        return llist
     curr = None
     for item in arr:
         node = ListNode(item)
