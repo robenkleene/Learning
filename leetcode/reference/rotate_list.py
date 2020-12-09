@@ -8,18 +8,21 @@ class ListNode:
     def __repr__(self):
         return self.data
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-    def __repr__(self):
-        node = self.head
+    def chain_string(self):
+        node = self
         nodes = []
         while node is not None:
             nodes.append(str(node.data))
             node = node.next
         nodes.append("None")
         return " -> ".join(nodes)
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def __repr__(self):
+        return self.head.chain_string()
 
 def make_list(arr):
     llist = LinkedList()
@@ -65,8 +68,8 @@ class Solution:
 
 arr = [1, 2, 3, 4, 5]
 llist = make_list(arr)
-print("llist =", llist)
+print("llist = ", llist)
 head = llist.head
 k = 2
 result = Solution().rotateRight(head, k)
-# print("result =", result)
+print("result = ", result.chain_string())
