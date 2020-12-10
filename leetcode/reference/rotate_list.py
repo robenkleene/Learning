@@ -9,11 +9,11 @@ class ListNode:
         return self.data
 
     def chain_string(self):
-        node = self
+        cur = self
         nodes = []
-        while node is not None:
-            nodes.append(str(node.data))
-            node = node.next
+        while cur is not None:
+            nodes.append(str(cur.data))
+            cur = cur.next
         nodes.append("None")
         return " -> ".join(nodes)
 
