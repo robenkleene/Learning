@@ -10,12 +10,12 @@ class ListNode:
 
     def chain_string(self):
         cur = self
-        nodes = []
+        data = []
         while cur is not None:
-            nodes.append(str(cur.data))
+            data.append(str(cur.data))
             cur = cur.next
-        nodes.append("None")
-        return " -> ".join(nodes)
+        data.append("None")
+        return " -> ".join(data)
 
 class LinkedList:
     def __init__(self):
