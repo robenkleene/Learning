@@ -1,6 +1,19 @@
+#!/usr/bin/swift
+
+import Foundation
+
 class Node<T: Equatable> {
     var value: T? = nil
     var next: Node? = nil
+}
+
+extension Node: CustomStringConvertible {
+    var description: String {
+        guard let value = value else {
+            return "nil"
+        }
+        return "\(value)"
+    }
 }
 
 class LinkedList<T: Equatable> {
@@ -9,7 +22,13 @@ class LinkedList<T: Equatable> {
 
 extension LinkedList: CustomStringConvertible {
     var description: String {
-        return "Got here"
+        var values = [String]()
+        var cur: Node? = self.head
+        while cur != nil {
+            values.append("\(self)")
+            cur = cur?.next
+        }
+        return values.joined(separator: " -> ")
     }
 }
 
