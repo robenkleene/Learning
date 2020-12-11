@@ -23,9 +23,11 @@ class LinkedList<T: Equatable> {
 extension LinkedList: CustomStringConvertible {
     var description: String {
         var values = [String]()
-        var cur: Node? = self.head
+        var cur: Node? = head
         while cur != nil {
-            values.append("\(self)")
+            if let cur = cur {
+                values.append("\(cur)")
+            }
             cur = cur?.next
         }
         return values.joined(separator: " -> ")
