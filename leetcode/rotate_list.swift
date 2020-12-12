@@ -18,14 +18,10 @@ extension Node: CustomStringConvertible {
     }
 }
 
-class LinkedList<T: Equatable> {
-  var head = Node<T>()
-}
-
-extension LinkedList: CustomStringConvertible {
-    var description: String {
+extension Node  {
+    func chainString() -> String {
         var values = [String]()
-        var cur: Node? = head
+        var cur: Node? = self
         while cur != nil {
             if let cur = cur {
                 values.append("\(cur)")
@@ -33,6 +29,16 @@ extension LinkedList: CustomStringConvertible {
             cur = cur?.next
         }
         return values.joined(separator: " -> ")
+    }
+}
+
+class LinkedList<T: Equatable> {
+  var head = Node<T>()
+}
+
+extension LinkedList: CustomStringConvertible {
+    var description: String {
+        return self.head.chainString()
     }
 }
 
@@ -73,7 +79,8 @@ class Solution {
         oldTail.next = head
 
         var newTail = head
-        for i in 0...n - k % n - 1 {
+
+        for _ in 0...n - k % n - 1 {
             guard let next = newTail.next else {
                 assertionFailure()
                 break
@@ -85,6 +92,7 @@ class Solution {
             return nil
         }
         let newHead = next
+        newTail.next = nil
         return newHead
     }
 }
@@ -95,4 +103,4 @@ print("llist = \(llist)")
 let head = llist.head
 let k = 2
 let result = Solution().rotateRight(head, k)
-print("result = \(result as Optional)")
+print("result = \(result?.chainString() ?? "nil")")
