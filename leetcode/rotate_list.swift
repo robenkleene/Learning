@@ -54,7 +54,38 @@ func makeList<T: Equatable>(from array: [T]) -> LinkedList<T> {
 
 class Solution {
     func rotateRight(_ head: ListNode?, _ k: Int) -> ListNode? {
-        return ListNode()
+        guard let head = head else {
+            return nil
+        }
+        if head.next == nil {
+            return head
+        }
+        var oldTail = head
+        var n = 1
+        while (oldTail.next != nil) {
+            guard let next = oldTail.next else {
+                assertionFailure()
+                break
+            }
+            oldTail = next
+            n += 1
+        }
+        oldTail.next = head
+
+        var newTail = head
+        for i in 0...n - k % n - 1 {
+            guard let next = newTail.next else {
+                assertionFailure()
+                break
+            }
+            newTail = next
+        }
+        guard let next = newTail.next else {
+            assertionFailure()
+            return nil
+        }
+        let newHead = next
+        return newHead
     }
 }
 
