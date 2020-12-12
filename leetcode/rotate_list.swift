@@ -2,6 +2,8 @@
 
 import Foundation
 
+typealias ListNode = Node<Int>
+
 class Node<T: Equatable> {
     var value: T? = nil
     var next: Node? = nil
@@ -50,6 +52,16 @@ func makeList<T: Equatable>(from array: [T]) -> LinkedList<T> {
     return llist
 }
 
+class Solution {
+    func rotateRight(_ head: ListNode?, _ k: Int) -> ListNode? {
+        return ListNode()
+    }
+}
+
 let arr = [1, 2, 3, 4, 5]
 let llist = makeList(from: arr)
 print("llist = \(llist)")
+let head = llist.head
+let k = 2
+let result = Solution().rotateRight(head, k)
+print("result = \(result as Optional)")
