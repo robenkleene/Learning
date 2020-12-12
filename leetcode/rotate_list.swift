@@ -47,7 +47,7 @@ func makeList<T: Equatable>(from array: [T]) -> LinkedList<T> {
         }
         current = node
     }
-    return LinkedList<T>()
+    return llist
 }
 
 let arr = [1, 2, 3, 4, 5]
