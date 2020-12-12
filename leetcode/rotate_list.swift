@@ -80,7 +80,7 @@ class Solution {
 
         var newTail = head
 
-        for _ in 0...n - k % n - 1 {
+        for _ in 0..<n - k % n - 1 {
             guard let next = newTail.next else {
                 assertionFailure()
                 break
