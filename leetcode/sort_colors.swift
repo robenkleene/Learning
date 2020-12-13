@@ -9,7 +9,9 @@ class Solution {
         var p2 = nums.count - 1
         while curr <= p2 {
             if nums[curr] == 0 {
-                (nums[p0], nums[curr]) = (nums[curr], nums[p0])
+                if p0 != curr {
+                    (nums[p0], nums[curr]) = (nums[curr], nums[p0])
+                }
                 p0 += 1
                 curr += 1
             } else if nums[curr] == 2 {
