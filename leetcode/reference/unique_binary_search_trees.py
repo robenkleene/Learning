@@ -14,3 +14,6 @@ class Solution:
                 G[i] += G[j-1] * G[i-j]
 
         return G[n]
+
+result = Solution().numTrees(3)
+print("result =", result)
