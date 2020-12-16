@@ -19,8 +19,9 @@ class Solution {
         }
         (G[0], G[1]) = (1, 1)
         // Start `i` from `2` because `0` and `1` have already been populated.
-        for i in 2..<n + 1 {
-            for j in 1..<i + 1 {
+        for i in 2...n {
+            // Start from `1` to avoid counting the empty tree.
+            for j in 1...i {
                 G[i] += G[j - 1] * G[i - j]
             }
         }
