@@ -24,6 +24,8 @@ class Solution {
             for j in 1...i {
                 // Calculating `G[i]` is the count of the cartesian product of
                 // the count of all trees to the left and right.
+                // `j - 1`: Count of indexes to the left of `j`
+                // `i - j`: Count of indexes to the right of `j`
                 G[i] += G[j - 1] * G[i - j]
             }
         }
