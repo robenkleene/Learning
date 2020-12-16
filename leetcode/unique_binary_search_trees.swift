@@ -5,6 +5,14 @@ import Foundation
 class Solution {
     func numTrees(_ n: Int) -> Int {
         var G = Array(repeating: 0, count: n + 1)
+        switch n {
+            case 0:
+                return 1
+            case 1:
+                return 1
+            default:
+                break
+        }
         (G[0], G[1]) = (1, 1)
         for i in 2..<n + 1 {
             for j in 1..<i + 1 {
