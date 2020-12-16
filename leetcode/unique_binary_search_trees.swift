@@ -22,6 +22,8 @@ class Solution {
         for i in 2...n {
             // Start from `1` to avoid counting the empty tree.
             for j in 1...i {
+                // Calculating `G[i]` is the count of the cartesian product of
+                // the count of all trees to the left and right.
                 G[i] += G[j - 1] * G[i - j]
             }
         }
