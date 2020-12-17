@@ -15,7 +15,7 @@ class Node:
         result = ""
         if self.left != None:
             result += self.left.chain_string(level + 1)
-        result += ' ' * 4 * level + '->' + str(self.data) + "\n"
+        result += ' ' * 4 * level + ' -> ' + str(self.data) + "\n"
         if self.right != None:
             result += self.right.chain_string(level + 1)
         return result
