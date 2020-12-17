@@ -15,7 +15,7 @@ class Node:
         result = ""
         if self.left != None:
             result += self.left.chain_string(level + 1)
-        result += ' ' * 4 * level + '->' + str(self.data)
+        result += ' ' * 4 * level + '->' + str(self.data) + "\n"
         if self.right != None:
             result += self.right.chain_string(level + 1)
         return result
@@ -45,6 +45,7 @@ def make_tree(arr):
     return tree
 
 arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
+print(arr)
 tree = make_tree(arr)
 print(tree)
 
