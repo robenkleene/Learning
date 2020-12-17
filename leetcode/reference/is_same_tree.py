@@ -44,11 +44,6 @@ def make_tree(arr):
     tree.root = root
     return tree
 
-arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
-print(arr)
-tree = make_tree(arr)
-print(tree)
-
 class Solution:
     def isSameTree(self, p, q):
         """
@@ -66,3 +61,15 @@ class Solution:
             return False
         return self.isSameTree(p.right, q.right) and \
                self.isSameTree(p.left, q.left)
+
+arr1 = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
+tree1 = make_tree(arr1)
+tree2 = make_tree(arr1)
+
+result = Solution().isSameTree(tree1, tree2)
+print(result)
+
+arr2 = [3,5,3,1,4,6,7,8,9,10,11,12,13,14]
+tree3 = make_tree(arr2)
+result = Solution().isSameTree(tree1, tree3)
+print(result)
