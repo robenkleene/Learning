@@ -11,11 +11,14 @@ class Node:
     def __repr__(self):
         return self.data
 
-    def chain_string(self):
-        if node != None:
-            chain_string(node.left, level + 1)
-            print(' ' * 4 * level + '->', node.value)
-            chain_string(node.right, level + 1)
+    def chain_string(self, level=0):
+        result = ""
+        if self.left != None:
+            result += self.left.chain_string(level + 1)
+        result += ' ' * 4 * level + '->' + str(self.data)
+        if self.right != None:
+            result += self.right.chain_string(level + 1)
+        return result
 
 class Tree:
     def __init__(self):
