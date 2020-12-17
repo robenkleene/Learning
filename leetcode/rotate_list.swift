@@ -4,7 +4,7 @@ import Foundation
 
 typealias ListNode = Node<Int>
 
-class Node<T: Equatable> {
+class Node<T> {
     var value: T? = nil
     var next: Node? = nil
 }
@@ -32,7 +32,7 @@ extension Node  {
     }
 }
 
-class LinkedList<T: Equatable> {
+class LinkedList<T> {
   var head = Node<T>()
 }
 
@@ -42,7 +42,7 @@ extension LinkedList: CustomStringConvertible {
     }
 }
 
-func makeList<T: Equatable>(from array: [T]) -> LinkedList<T> {
+func makeList<T>(from array: [T]) -> LinkedList<T> {
     let llist = LinkedList<T>()
     var current: Node<T>?
     for item in array {
