@@ -45,6 +45,11 @@ func makeTree<T>(_ arr: [T]) -> BinaryTree<T> {
         return BinaryTree<T>()
     }
     var root = TreeNode(value: arr[0])
+    var items = arr
+    // while true {
+    //     var head = items.removeFirst()
+    //     head.left = TreeNode
+    // }
     return BinaryTree<T>()
 }
 
