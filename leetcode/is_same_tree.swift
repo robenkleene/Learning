@@ -2,6 +2,9 @@ class TreeNode<T> {
     var left: TreeNode?
     var right: TreeNode?
     var value: T?
+    init(value: T? = nil) {
+        self.value = value
+    }
 }
 
 extension TreeNode: CustomStringConvertible {
@@ -35,6 +38,14 @@ extension BinaryTree: CustomStringConvertible {
         }
         return generateDescription(for: root)
     }
+}
+
+func makeTree<T>(_ arr: [T]) -> BinaryTree<T> {
+    if arr.count < 1 {
+        return BinaryTree<T>()
+    }
+    var root = TreeNode(value: arr[0])
+    return BinaryTree<T>()
 }
 
 /**
