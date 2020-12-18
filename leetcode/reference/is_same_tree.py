@@ -3,19 +3,19 @@
 from collections import deque
 
 class Node:
-    def __init__(self, data):
+    def __init__(self, val):
         self.left = None
         self.right = None
-        self.data = data
+        self.val = val
 
     def __repr__(self):
-        return self.data
+        return self.val
 
     def chain_string(self, level=0):
         result = ""
         if self.left != None:
             result += self.left.chain_string(level + 1)
-        result += ' ' * 4 * level + ' -> ' + str(self.data) + "\n"
+        result += ' ' * 4 * level + ' -> ' + str(self.val) + "\n"
         if self.right != None:
             result += self.right.chain_string(level + 1)
         return result
@@ -66,10 +66,10 @@ arr1 = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
 tree1 = make_tree(arr1)
 tree2 = make_tree(arr1)
 
-result = Solution().isSameTree(tree1, tree2)
+result = Solution().isSameTree(tree1.root, tree2.root)
 print(result)
 
 arr2 = [3,5,3,1,4,6,7,8,9,10,11,12,13,14]
 tree3 = make_tree(arr2)
-result = Solution().isSameTree(tree1, tree3)
+result = Solution().isSameTree(tree1.root, tree3.root)
 print(result)
