@@ -1,17 +1,14 @@
 class TreeNode<T> {
     var left: TreeNode?
     var right: TreeNode?
-    var value: T?
-    init(value: T? = nil) {
+    var value: T
+    init(value: T) {
         self.value = value
     }
 }
 
 extension TreeNode: CustomStringConvertible {
     var description: String {
-        guard let value = value else {
-            return "nil"
-        }
         return "\(value)"
     }
 }
@@ -44,12 +41,13 @@ func makeTree<T>(_ arr: [T]) -> BinaryTree<T> {
     if arr.count < 1 {
         return BinaryTree<T>()
     }
-    var root = TreeNode(value: arr[0])
     var items = arr
-    // while true {
-    //     var head = items.removeFirst()
-    //     head.left = TreeNode
-    // }
+    var root = TreeNode(value: arr[0])
+
+    while true {
+        var head = items.removeFirst()
+        head.left = TreeNode()
+    }
     return BinaryTree<T>()
 }
 
