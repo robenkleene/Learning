@@ -53,13 +53,14 @@ func makeTree<T>(_ arr: [T]) -> BinaryTree<T> {
     let root = TreeNode(value: item)
     var fringe = [root]
     var left = true
+    var head: TreeNode<T>?
     for item in items {
-        let head = fringe.removeFirst()
         let node = TreeNode(value: item)
         if left {
-            head.left = node
+            head = fringe.removeFirst()
+            head?.left = node
         } else {
-            head.right = node
+            head?.right = node
         }
         fringe.append(node)
         left = !left
