@@ -23,14 +23,15 @@ class BinaryTree<T> {
 }
 
 extension BinaryTree: CustomStringConvertible {
-    func generateDescription(for node: TreeNode<T>, level: Int = 0) -> String {
+    func generateDescription(for node: TreeNode<T>, level: Int = 0, left: Bool? = nil) -> String {
         var description = ""
         if let left = node.left {
-            description += generateDescription(for: left, level: level + 1)
+            description += generateDescription(for: left, level: level + 1, left: true)
         }
-        description += "\(String(repeating:" ", count: 4 * level))-> \(node)\n"
+        let char = left == nil ? "" : left! ? "/ " : "\\ "
+        description += "\(String(repeating: " ", count: 4 * level))\(char) \(node)\n"
         if let right = node.right {
-            description += generateDescription(for: right, level: level + 1)
+            description += generateDescription(for: right, level: level + 1, left: false)
         }
         return description
     }
@@ -69,8 +70,7 @@ func makeTree<T>(_ arr: [T]) -> BinaryTree<T> {
     return tree
 }
 
-
-let arr1 = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
+let arr1 = [3, 5, 2, 1, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 let tree1 = makeTree(arr1)
 // let tree2 = make_tree(arr1)
 print(arr1)
@@ -93,6 +93,6 @@ print(tree1)
  */
 // class Solution {
 //     func isSameTree(_ p: TreeNode?, _ q: TreeNode?) -> Bool {
-        
+
 //     }
 // }
