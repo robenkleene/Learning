@@ -28,7 +28,7 @@ extension BinaryTree: CustomStringConvertible {
         if let left = node.left {
             description += generateDescription(for: left, level: level + 1)
         }
-        description += "\(String(repeating:" ", count: 4 * level)) -> \(node) + \n"
+        description += "\(String(repeating:" ", count: 4 * level))-> \(node)\n"
         if let right = node.right {
             description += generateDescription(for: right, level: level + 1)
         }
@@ -73,6 +73,7 @@ func makeTree<T>(_ arr: [T]) -> BinaryTree<T> {
 let arr1 = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
 let tree1 = makeTree(arr1)
 // let tree2 = make_tree(arr1)
+print(arr1)
 print(tree1)
 
 /**
