@@ -91,7 +91,7 @@ class Solution {
         if p == nil && q == nil {
             return true
         }
-        if p != nil || q != nil {
+        if p == nil || q == nil {
             return false
         }
         if p?.value != q?.value {
