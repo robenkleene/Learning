@@ -5,20 +5,21 @@ import Foundation
 typealias ListNode = Node<Int>
 
 class Node<T> {
-    var value: T? = nil
-    var next: Node? = nil
+    var value: T
+    var next: Node?
+
+    init(value: T) {
+        self.value = value
+    }
 }
 
 extension Node: CustomStringConvertible {
     var description: String {
-        guard let value = value else {
-            return "nil"
-        }
         return "\(value)"
     }
 }
 
-extension Node  {
+extension Node {
     func chainString() -> String {
         var values = [String]()
         var cur: Node? = self
@@ -33,12 +34,15 @@ extension Node  {
 }
 
 class LinkedList<T> {
-  var head = Node<T>()
+    var head: Node<T>?
 }
 
 extension LinkedList: CustomStringConvertible {
     var description: String {
-        return self.head.chainString()
+        guard let head = head else {
+            return "nil"
+        }
+        return head.chainString()
     }
 }
 
@@ -46,8 +50,7 @@ func makeList<T>(from array: [T]) -> LinkedList<T> {
     let llist = LinkedList<T>()
     var current: Node<T>?
     for item in array {
-        let node = Node<T>()
-        node.value = item
+        let node = Node<T>(value: item)
         if let current = current {
             current.next = node
         } else {
@@ -68,7 +71,7 @@ class Solution {
         }
         var oldTail = head
         var n = 1
-        while (oldTail.next != nil) {
+        while oldTail.next != nil {
             guard let next = oldTail.next else {
                 assertionFailure()
                 break
@@ -80,7 +83,7 @@ class Solution {
 
         var newTail = head
 
-        for _ in 0..<n - k % n - 1 {
+        for _ in 0 ..< n - k % n - 1 {
             guard let next = newTail.next else {
                 assertionFailure()
                 break
