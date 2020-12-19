@@ -11,13 +11,15 @@ class Node:
     def __repr__(self):
         return self.val
 
-    def chain_string(self, level=0):
+    def chain_string(self, level=0, left=None):
         result = ""
         if self.left != None:
-            result += self.left.chain_string(level + 1)
-        result += ' ' * 4 * level + ' -> ' + str(self.val) + "\n"
+            result += self.left.chain_string(level + 1, True)
+        char = '' if left == None else '/' if left else '\\'
+        # char = left == None ? '' : left ? '/' : '\\'
+        result += ' ' * 4 * level + char + str(self.val) + "\n"
         if self.right != None:
-            result += self.right.chain_string(level + 1)
+            result += self.right.chain_string(level + 1, False)
         return result
 
 class Tree:
