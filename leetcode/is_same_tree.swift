@@ -15,6 +15,9 @@ extension TreeNode: CustomStringConvertible {
 
 class BinaryTree<T> {
     var root: TreeNode<T>?
+    init(root: TreeNode<T>? = nil) {
+        self.root = root
+    }
 }
 
 extension BinaryTree: CustomStringConvertible {
@@ -42,13 +45,24 @@ func makeTree<T>(_ arr: [T]) -> BinaryTree<T> {
         return BinaryTree<T>()
     }
     var items = arr
-    var root = TreeNode(value: arr[0])
-
-    while true {
-        var head = items.removeFirst()
-        head.left = TreeNode()
+    let item = items.removeFirst()
+    let root = TreeNode(value: item)
+    var fringe = [root]
+    var left = true
+    for item in items {
+        let head = fringe.removeFirst()
+        let node = TreeNode(value: item)
+        if left {
+            head.left = node
+        } else {
+            head.right = node
+        }
+        left = !left
     }
-    return BinaryTree<T>()
+
+    let tree = BinaryTree<T>()
+    tree.root = root
+    return tree
 }
 
 /**
