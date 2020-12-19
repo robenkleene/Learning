@@ -1,3 +1,5 @@
+#!/usr/bin/swift
+
 class TreeNode<T> {
     var left: TreeNode?
     var right: TreeNode?
@@ -30,6 +32,7 @@ extension BinaryTree: CustomStringConvertible {
         if let right = node.right {
             description += generateDescription(for: right, level: level + 1)
         }
+        return description
     }
 
     var description: String {
@@ -57,6 +60,7 @@ func makeTree<T>(_ arr: [T]) -> BinaryTree<T> {
         } else {
             head.right = node
         }
+        fringe.append(node)
         left = !left
     }
 
@@ -64,6 +68,12 @@ func makeTree<T>(_ arr: [T]) -> BinaryTree<T> {
     tree.root = root
     return tree
 }
+
+
+let arr1 = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
+let tree1 = makeTree(arr1)
+// let tree2 = make_tree(arr1)
+print(tree1)
 
 /**
  * Definition for a binary tree node.
@@ -80,8 +90,8 @@ func makeTree<T>(_ arr: [T]) -> BinaryTree<T> {
  *     }
  * }
  */
-class Solution {
-    func isSameTree(_ p: TreeNode?, _ q: TreeNode?) -> Bool {
+// class Solution {
+//     func isSameTree(_ p: TreeNode?, _ q: TreeNode?) -> Bool {
         
-    }
-}
+//     }
+// }
