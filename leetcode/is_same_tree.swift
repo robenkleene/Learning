@@ -71,12 +71,6 @@ func makeTree<T>(_ arr: [T]) -> BinaryTree<T> {
     return tree
 }
 
-let arr1 = [3, 5, 2, 1, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-let tree1 = makeTree(arr1)
-// let tree2 = make_tree(arr1)
-print(arr1)
-print(tree1)
-
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -92,8 +86,29 @@ print(tree1)
  *     }
  * }
  */
-// class Solution {
-//     func isSameTree(_ p: TreeNode?, _ q: TreeNode?) -> Bool {
+class Solution {
+    func isSameTree(_ p: TreeNode<Int>?, _ q: TreeNode<Int>?) -> Bool {
+        if p == nil && q == nil {
+            return true
+        }
+        if p != nil || q != nil {
+            return false
+        }
+        if p?.value != q?.value {
+            return false
+        }
+        return isSameTree(p?.right, q?.right) && isSameTree(p?.left, q?.left)
+    }
+}
 
-//     }
-// }
+let arr1 = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
+let tree1 = makeTree(arr1)
+let tree2 = makeTree(arr1)
+
+var result = Solution().isSameTree(tree1.root, tree2.root)
+print(result)
+
+let arr2 = [3,5,3,1,4,6,7,8,9,10,11,12,13,14]
+let tree3 = makeTree(arr2)
+result = Solution().isSameTree(tree1.root, tree3.root)
+print(result)
