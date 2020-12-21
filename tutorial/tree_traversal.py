@@ -45,6 +45,16 @@ def make_tree(arr):
     tree.root = root
     return tree
 
+def dfs(graph, start):
+    visited, stack = set(), [start]
+    while stack:
+        vertex = stack.pop()
+        if vertex not in visited:
+            visited.add(vertex)
+            stack.extend([vertex.left, vertex.right] - visited)
+    return visited
 
-arr1 = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
-tree1 = make_tree(arr1)
+arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
+tree = make_tree(arr)
+result = dfs(tree, tree.root)
+print("result = ", result)
