@@ -51,7 +51,12 @@ def dfs(graph, start):
         vertex = stack.pop()
         if vertex not in visited:
             visited.add(vertex)
-            stack.extend([vertex.left, vertex.right] - visited)
+            children = set()
+            if vertex.left != None:
+                children.add(vertex.left)
+            if vertex.right != None:
+                children.add(vertex.right)
+            stack.extend(children - visited)
     return visited
 
 arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
