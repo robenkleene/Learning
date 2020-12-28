@@ -46,17 +46,17 @@ def make_tree(arr):
     return tree
 
 def dfs_iter(graph, start):
-    visited, stack = set(), [start]
+    visited, stack = [], [start]
     while stack:
         vertex = stack.pop()
         if vertex not in visited:
-            visited.add(vertex)
+            visited.append(vertex)
             children = set()
             if vertex.left != None:
                 children.add(vertex.left)
             if vertex.right != None:
                 children.add(vertex.right)
-            stack.extend(children - visited)
+            stack.extend(children - set(visited))
     return visited
 
 arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
