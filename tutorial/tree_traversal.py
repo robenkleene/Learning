@@ -9,7 +9,7 @@ class Node:
         self.val = val
 
     def __repr__(self):
-        return self.val
+        return str(self.val)
 
     def chain_string(self, level=0, left=None):
         result = ""
@@ -45,7 +45,7 @@ def make_tree(arr):
     tree.root = root
     return tree
 
-def dfs(graph, start):
+def dfs_iter(graph, start):
     visited, stack = set(), [start]
     while stack:
         vertex = stack.pop()
@@ -61,5 +61,6 @@ def dfs(graph, start):
 
 arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
 tree = make_tree(arr)
-result = dfs(tree, tree.root)
+print(tree)
+result = dfs_iter(tree, tree.root)
 print("result = ", result)
