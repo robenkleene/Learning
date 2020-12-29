@@ -62,15 +62,16 @@ def dfs_iter(start, goal=None):
             stack.extend(children - set(visited))
     return visited
 
-# def dfs_recu():
+def dfs_recu(start, goal):
+    if path is None:
+        path = [start]
+    yield dfs_recu_impl(start, goal, [start])
 
-# def dfs_recu_impl(graph, start, goal, path=None):
-#     if path is None:
-#         path = [start]
-#     if start == goal:
-#         yield path
-#     for next in graph[start] - set(path):
-#         yield from dfs_recu_impl(graph, next, goal, path + [next])
+def dfs_recu_impl(curr, goal, path):
+    if curr == goal:
+        yield path
+    for next in set([curr.left, curr.right]) - set(path):
+        yield from dfs_recu_impl(next, goal, path + [next])
 
 arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
 tree = make_tree(arr)
