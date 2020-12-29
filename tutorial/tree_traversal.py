@@ -45,10 +45,13 @@ def make_tree(arr):
     tree.root = root
     return tree
 
-def dfs_iter(graph, start):
+def dfs_iter(graph, start, goal=None):
     visited, stack = [], [start]
     while stack:
         vertex = stack.pop()
+        if goal != None and vertex.val == goal:
+            visited.append(vertex)
+            return visited
         if vertex not in visited:
             visited.append(vertex)
             children = set()
@@ -59,8 +62,20 @@ def dfs_iter(graph, start):
             stack.extend(children - set(visited))
     return visited
 
+# def dfs_recu(graph, start, goal, path=None):
+#     if path is None:
+#         path = [start]
+#     if start == goal:
+#         yield path
+#     for next in graph[start] - set(path):
+#         yield from dfs_paths(graph, next, goal, path + [next])
+
 arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
 tree = make_tree(arr)
+
 print(tree)
+print("Depth-First")
 result = dfs_iter(tree, tree.root)
-print("result = ", result)
+print(result)
+result = dfs_iter(tree, tree.root, 6)
+print(result)
