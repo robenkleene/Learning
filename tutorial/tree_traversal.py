@@ -62,7 +62,7 @@ def dfs_iter(start, goal=None):
             stack.extend(children - set(visited))
     return visited
 
-def dfs_recu(start, goal):
+def dfs_recu(start, goal=None):
     if path is None:
         path = [start]
     yield dfs_recu_impl(start, goal, [start])
@@ -78,7 +78,11 @@ tree = make_tree(arr)
 
 print(tree)
 print("Depth-First")
+print("Iterative")
 result = dfs_iter(tree.root)
 print(result)
 result = dfs_iter(tree.root, 6)
+print(result)
+print("Recursive")
+result = dfs_recu(tree.root)
 print(result)
