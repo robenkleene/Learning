@@ -68,7 +68,7 @@ def dfs_recu(start, goal=None):
     return list(gen)
 
 def dfs_recu_impl(curr, goal, path):
-    if curr == goal:
+    if goal != None and curr == goal:
         yield path
     children = set()
     if curr.left != None:
