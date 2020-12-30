@@ -63,9 +63,8 @@ def dfs_iter(start, goal=None):
     return visited
 
 def dfs_recu(start, goal=None):
-    if path is None:
-        path = [start]
-    yield dfs_recu_impl(start, goal, [start])
+    path = [start]
+    return dfs_recu_impl(start, goal, [start])
 
 def dfs_recu_impl(curr, goal, path):
     if curr == goal:
