@@ -64,7 +64,8 @@ def dfs_iter(start, goal=None):
 
 def dfs_recu(start, goal=None):
     path = [start]
-    return list(dfs_recu_impl(start, goal, [start]))
+    gen = dfs_recu_impl(start, goal, [start])
+    return list(gen)
 
 def dfs_recu_impl(curr, goal, path):
     if curr == goal:
