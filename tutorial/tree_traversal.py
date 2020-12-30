@@ -64,12 +64,17 @@ def dfs_iter(start, goal=None):
 
 def dfs_recu(start, goal=None):
     path = [start]
-    return dfs_recu_impl(start, goal, [start])
+    return list(dfs_recu_impl(start, goal, [start]))
 
 def dfs_recu_impl(curr, goal, path):
     if curr == goal:
         yield path
-    for next in set([curr.left, curr.right]) - set(path):
+    children = set()
+    if curr.left != None:
+        children.add(curr.left)
+    if curr.right != None:
+        children.add(curr.right)
+    for next in children - set(path):
         yield from dfs_recu_impl(next, goal, path + [next])
 
 arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
