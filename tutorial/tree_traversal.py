@@ -48,24 +48,24 @@ def make_tree(arr):
 def dfs_iter(start, goal=None):
     visited, stack = [], [start]
     while stack:
-        vertex = stack.pop()
-        if goal != None and vertex.val == goal:
-            visited.append(vertex)
+        curr = stack.pop()
+        if goal != None and curr.val == goal:
+            visited.append(curr)
             return visited
-        if vertex not in visited:
-            visited.append(vertex)
+        if curr not in visited:
+            visited.append(curr)
             children = set()
-            if vertex.left != None:
-                children.add(vertex.left)
-            if vertex.right != None:
-                children.add(vertex.right)
+            if curr.left != None:
+                children.add(curr.left)
+            if curr.right != None:
+                children.add(curr.right)
             stack.extend(children - set(visited))
     return visited
 
 def dfs_recu(curr, goal=None, path=None):
     if path == None:
         path = [curr]
-    if goal != None and curr == goal:
+    if goal != None and curr.val == goal:
         return path
     if curr.left != None:
         path += dfs_recu(curr.left, goal, [curr.left])
