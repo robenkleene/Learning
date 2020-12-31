@@ -68,9 +68,9 @@ def dfs_recu(curr, goal=None, path=None):
     if goal != None and curr == goal:
         return path
     if curr.left != None:
-        dfs_recu(curr.left, goal, path + [curr.left])
+        path += dfs_recu(curr.left, goal, [curr.left])
     if curr.right != None:
-        dfs_recu(curr.right, goal, path + [curr.right])
+        path += dfs_recu(curr.right, goal, [curr.right])
     return path
 
 arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
