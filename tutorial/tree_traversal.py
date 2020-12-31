@@ -62,6 +62,23 @@ def dfs_iter(start, goal=None):
             stack.extend(children - set(visited))
     return visited
 
+def bfs_iter(start, goal=None):
+    visited, queue = [], [start]
+    while queue:
+        curr = queue.pop(0)
+        if goal != None and curr.val == goal:
+            visited.append(curr)
+            return visited
+        if curr not in visited:
+            visited.append(curr)
+            children = set()
+            if curr.left != None:
+                children.add(curr.left)
+            if curr.right != None:
+                children.add(curr.right)
+            queue.extend(children - set(visited))
+    return visited
+
 def dfs_recu(curr, goal=None, path=None):
     if path == None:
         path = [curr]
@@ -85,4 +102,10 @@ result = dfs_iter(tree.root, 6)
 print(result)
 print("Recursive")
 result = dfs_recu(tree.root)
+print(result)
+result = dfs_recu(tree.root, 6)
+print(result)
+print("Breadth-First")
+print("Iterative")
+result = bfs_iter(tree.root)
 print(result)
