@@ -49,30 +49,26 @@ def dfs_iter(start, goal=None):
     visited, stack = [], [start]
     while stack:
         curr = stack.pop()
+        visited.append(curr)
         if goal != None and curr.val == goal:
-            visited.append(curr)
             return visited
-        if curr not in visited:
-            visited.append(curr)
-            if curr.left != None and not curr.left in visited:
-                stack.append(curr.left)
-            if curr.right != None and not curr.right in visited:
-                stack.append(curr.right)
+        if curr.left != None and not curr.left in visited:
+            stack.append(curr.left)
+        if curr.right != None and not curr.right in visited:
+            stack.append(curr.right)
     return visited
 
 def bfs_iter(start, goal=None):
     visited, queue = [], [start]
     while queue:
         curr = queue.pop(0)
+        visited.append(curr)
         if goal != None and curr.val == goal:
-            visited.append(curr)
             return visited
-        if curr not in visited:
-            visited.append(curr)
-            if curr.left != None and not curr.left in visited:
-                queue.append(curr.left)
-            if curr.right != None and not curr.right in visited:
-                queue.append(curr.right)
+        if curr.left != None and not curr.left in visited:
+            queue.append(curr.left)
+        if curr.right != None and not curr.right in visited:
+            queue.append(curr.right)
     return visited
 
 def dfs_recu(curr, goal=None, path=None):
