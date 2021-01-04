@@ -52,9 +52,9 @@ def dfs_iter(start, goal=None):
         visited.append(curr)
         if goal != None and curr.val == goal:
             return visited
-        if curr.left != None and not curr.left in visited:
+        if curr.left != None:
             stack.append(curr.left)
-        if curr.right != None and not curr.right in visited:
+        if curr.right != None:
             stack.append(curr.right)
     return visited
 
@@ -65,9 +65,9 @@ def bfs_iter(start, goal=None):
         visited.append(curr)
         if goal != None and curr.val == goal:
             return visited
-        if curr.left != None and not curr.left in visited:
+        if curr.left != None:
             queue.append(curr.left)
-        if curr.right != None and not curr.right in visited:
+        if curr.right != None:
             queue.append(curr.right)
     return visited
 
