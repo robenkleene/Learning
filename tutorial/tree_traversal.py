@@ -72,11 +72,11 @@ def bfs_iter(start, goal=None):
         if curr not in visited:
             visited.append(curr)
             children = set()
-            if curr.left != None:
+            if curr.left != None and not curr.left in visited:
                 children.add(curr.left)
-            if curr.right != None:
+            if curr.right != None and not curr.right in visited:
                 children.add(curr.right)
-            queue.extend(children - set(visited))
+            queue.extend(children)
     return visited
 
 def dfs_recu(curr, goal=None, path=None):
