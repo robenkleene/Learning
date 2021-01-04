@@ -71,16 +71,16 @@ def bfs_iter(start, goal=None):
             queue.append(curr.right)
     return visited
 
-def dfs_recu(curr, goal=None, path=None):
-    if path == None:
-        path = [curr]
+def dfs_recu(curr, goal=None, visited=None):
+    if visited == None:
+        visited = [curr]
     if goal != None and curr.val == goal:
-        return path
+        return visited
     if curr.left != None:
-        path += dfs_recu(curr.left, goal, [curr.left])
+        visited += dfs_recu(curr.left, goal, [curr.left])
     if curr.right != None:
-        path += dfs_recu(curr.right, goal, [curr.right])
-    return path
+        visited += dfs_recu(curr.right, goal, [curr.right])
+    return visited
 
 arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
 tree = make_tree(arr)
