@@ -54,12 +54,10 @@ def dfs_iter(start, goal=None):
             return visited
         if curr not in visited:
             visited.append(curr)
-            children = set()
             if curr.left != None and not curr.left in visited:
                 stack.append(curr.left)
             if curr.right != None and not curr.right in visited:
                 stack.append(curr.right)
-            stack.extend(children)
     return visited
 
 def bfs_iter(start, goal=None):
