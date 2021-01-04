@@ -56,9 +56,9 @@ def dfs_iter(start, goal=None):
             visited.append(curr)
             children = set()
             if curr.left != None and not curr.left in visited:
-                queue.append(curr.left)
+                stack.append(curr.left)
             if curr.right != None and not curr.right in visited:
-                queue.append(curr.right)
+                stack.append(curr.right)
             stack.extend(children)
     return visited
 
