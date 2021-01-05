@@ -24,6 +24,10 @@ class Node<T>: CustomStringConvertible {
         }
         let indent = Array<String>(repeating: " ", count: level * 4)
         result += "\(indent)\(char)\(value)\n"
+        if let right = right {
+            result += right.chainString(level: level + 1, isLeft: false)
+        }
+        return result
     }
 }
 
@@ -31,6 +35,9 @@ class Tree<T>: CustomStringConvertible {
     var root: Node<T>?
 
     var description: String {
-
+        guard let root = root else {
+            return ""
+        }
+        return root.chainString()
     }
 }
