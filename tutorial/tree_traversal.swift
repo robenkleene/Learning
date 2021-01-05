@@ -18,6 +18,12 @@ class Node<T>: CustomStringConvertible {
         if let left = left {
             result += left.chainString(level: level + 1, isLeft: true)
         }
+        var char = ""
+        if let isLeft = isLeft {
+            char = isLeft ? "/ " : "\\ "
+        }
+        let indent = Array<String>(repeating: " ", count: level * 4)
+        result += "\(indent)\(char)\(value)\n"
     }
 }
 
