@@ -11,11 +11,11 @@ class Node:
     def __repr__(self):
         return str(self.val)
 
-    def chain_string(self, level=0, left=None):
+    def chain_string(self, level=0, is_left=None):
         result = ""
         if self.left != None:
             result += self.left.chain_string(level + 1, True)
-        char = '' if left == None else '/ ' if left else '\\ '
+        char = '' if is_left == None else '/ ' if is_left else '\\ '
         result += ' ' * 4 * level + char + str(self.val) + "\n"
         if self.right != None:
             result += self.right.chain_string(level + 1, False)
