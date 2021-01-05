@@ -40,4 +40,28 @@ class Tree<T>: CustomStringConvertible {
         }
         return root.chainString()
     }
+
+    static func make<T>(from arr: [T]) -> Tree<T> {
+        var source = arr
+        let root = Node(value: source.removeFirst())
+        var fringe = [root]
+        while true {
+            let head = fringe.removeFirst()
+            guard source.count > 0 else {
+                break
+            }
+            let left = Node(value: source.removeFirst())
+            head.left = left
+            fringe.append(left)
+            guard source.count > 0 else {
+                break
+            }
+            let right = Node(value: source.removeFirst())
+            fringe.append(right)
+        }
+        let tree = Tree<T>()
+        tree.root = root
+        return tree
+    }
 }
+
