@@ -28,22 +28,23 @@ class Tree:
     def __repr__(self):
         return self.root.chain_string()
 
-def make_tree(arr):
-    n = iter(arr)
-    root = Node(next(n))
-    fringe = deque([root])
-    while True:
-        head = fringe.popleft()
-        try:
-            head.left = Node(next(n))
-            fringe.append(head.left)
-            head.right = Node(next(n))
-            fringe.append(head.right)
-        except StopIteration:
-            break
-    tree = Tree()
-    tree.root = root
-    return tree
+    @staticmethod
+    def make(arr):
+        n = iter(arr)
+        root = Node(next(n))
+        fringe = deque([root])
+        while True:
+            head = fringe.popleft()
+            try:
+                head.left = Node(next(n))
+                fringe.append(head.left)
+                head.right = Node(next(n))
+                fringe.append(head.right)
+            except StopIteration:
+                break
+        tree = Tree()
+        tree.root = root
+        return tree
 
 def dfs_iter(start, goal=None):
     visited, stack = [], [start]
@@ -83,7 +84,7 @@ def dfs_recu(curr, goal=None, visited=None):
     return visited
 
 arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
-tree = make_tree(arr)
+tree = Tree.make(arr)
 
 print(tree)
 print("Depth-First")
