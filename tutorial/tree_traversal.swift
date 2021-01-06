@@ -62,6 +62,7 @@ class Tree<T>: CustomStringConvertible {
                 break
             }
             let right = Node(value: source.removeFirst())
+            head.right = right
             fringe.append(right)
         }
         return root
