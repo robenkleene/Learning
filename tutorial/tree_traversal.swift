@@ -22,7 +22,7 @@ class Node<T>: CustomStringConvertible {
         if let isLeft = isLeft {
             char = isLeft ? "/ " : "\\ "
         }
-        let indent = Array<String>(repeating: " ", count: level * 4)
+        let indent = Array<String>(repeating: " ", count: level * 4).joined()
         result += "\(indent)\(char)\(value)\n"
         if let right = right {
             result += right.chainString(level: level + 1, isLeft: false)
