@@ -41,7 +41,12 @@ class Tree<T>: CustomStringConvertible {
         return root.chainString()
     }
 
-    static func make<T>(from arr: [T]) -> Tree<T> {
+    convenience init(source: [T]) {
+        self.init()
+        self.root = Tree<T>.makeNodes(from: source)
+    }
+
+    static func makeNodes<T>(from arr: [T]) -> Node<T> {
         var source = arr
         let root = Node(value: source.removeFirst())
         var fringe = [root]
@@ -59,9 +64,10 @@ class Tree<T>: CustomStringConvertible {
             let right = Node(value: source.removeFirst())
             fringe.append(right)
         }
-        let tree = Tree<T>()
-        tree.root = root
-        return tree
+        return root
     }
 }
 
+let arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
+let tree = Tree(source: arr)
+print(tree)
