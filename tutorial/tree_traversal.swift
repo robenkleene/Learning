@@ -1,5 +1,7 @@
 #!/usr/bin/swift
 
+import Foundation
+
 class Node<T>: CustomStringConvertible {
     var left: Node?
     var right: Node?
@@ -69,13 +71,36 @@ class Tree<T>: CustomStringConvertible {
     }
 }
 
-func dfsIter<T>(start: Node<T>, goal: Node<T>? = nil) -> [Node<T>] {
+func dfsIter<T: Equatable>(start: Node<T>, goal: T? = nil) -> [Node<T>] {
     var visited = [Node<T>]()
     var stack = [start]
+
+    while let curr = stack.popLast() {
+        visited.append(curr)
+        if let goal = goal, curr.value == goal {
+            return visited
+        }
+        if let left = curr.left {
+            stack.append(left)
+        }
+        if let right = curr.right {
+            stack.append(right)
+        }
+    }
 
     return visited
 }
 
 let arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
 let tree = Tree(source: arr)
+guard let root = tree.root else {
+    assertionFailure()
+    exit(1)
+}
 print(tree)
+print("Depth-First")
+print("Iterative")
+var result = dfsIter(start: root)
+print(result)
+result = dfsIter(start: root, goal: 6)
+print(result)
