@@ -69,6 +69,13 @@ class Tree<T>: CustomStringConvertible {
     }
 }
 
+func dfsIter<T>(start: Node<T>, goal: Node<T>? = nil) -> [Node<T>] {
+    var visited = [Node<T>]()
+    var stack = [start]
+
+    return visited
+}
+
 let arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
 let tree = Tree(source: arr)
 print(tree)
