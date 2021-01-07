@@ -118,10 +118,10 @@ func dfsRecu<T: Equatable>(start: Node<T>, goal: T? = nil, visited: [Node<T>]? =
         return visited
     }
     if let left = start.left {
-        visited += dfsRecu(start: left, visited: visited)
+        visited += dfsRecu(start: left, visited: [left])
     }
     if let right = start.right {
-        visited += dfsRecu(start: right, visited: visited)
+        visited += dfsRecu(start: right, visited: [right])
     }
 
     return visited
