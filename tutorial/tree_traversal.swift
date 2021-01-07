@@ -112,6 +112,21 @@ func bfsIter<T: Equatable>(start: Node<T>, goal: T? = nil) -> [Node<T>] {
     return visited
 }
 
+func dfsRecu<T: Equatable>(start: Node<T>, goal: T? = nil, visited: [Node<T>]? = nil) -> [Node<T>] {
+    var visited = visited ?? [start]
+    if let goal = goal, start.value == goal {
+        return visited
+    }
+    if let left = start.left {
+        visited += dfsRecu(start: left, visited: visited)
+    }
+    if let right = start.right {
+        visited += dfsRecu(start: right, visited: visited)
+    }
+
+    return visited
+}
+
 let arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
 let tree = Tree(source: arr)
 guard let root = tree.root else {
@@ -125,6 +140,12 @@ var result = dfsIter(start: root)
 print(result)
 result = dfsIter(start: root, goal: 6)
 print(result)
+print("Recursive")
+result = dfsRecu(start: root)
+print(result)
+result = dfsRecu(start: root, goal: 6)
+print(result)
+print()
 print("Breadth-First")
 print("Iterative")
 result = bfsIter(start: root)
