@@ -73,8 +73,7 @@ def bfs_iter(start, goal=None):
     return visited
 
 def dfs_recu(curr, goal=None, visited=None):
-    if visited == None:
-        visited = [curr]
+    visited = visited or [curr]
     if goal != None and curr.val == goal:
         return visited
     if curr.left != None:
