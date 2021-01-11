@@ -13,7 +13,8 @@ class Solution {
         }
 
         for loc in firstChars {
-            let result = findWord(board, word, loc)
+            let restWord = String(word.dropFirst())
+            let result = findWord(board, restWord, loc)
             if result {
                 return true
             }
@@ -62,8 +63,8 @@ class Solution {
                        (hIndex, vIndex),
                        (hIndex, vIndex + 1)]
         for option in options {
-            if option.0 > 0, option.0 < board.count {
-                if option.1 > 0, option.1 < board[option.0].count {
+            if option.0 >= 0, option.0 < board.count {
+                if option.1 >= 0, option.1 < board[option.0].count {
                     if board[option.0][option.1] == char {
                         found.append((option.0, option.1))
                     }
