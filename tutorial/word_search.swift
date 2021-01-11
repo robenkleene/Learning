@@ -1,3 +1,7 @@
+#!/usr/bin/swift
+
+import Foundation
+
 class Solution {
     func exist(_ board: [[Character]], _ word: String) -> Bool {
         guard word.count > 0 else {
@@ -28,7 +32,9 @@ class Solution {
             }
             let subWord = String(restWord.dropFirst())
             for adj in adjs {
-                return findWord(board, subWord, adj)
+                if findWord(board, subWord, adj) {
+                    return true
+                }
             }
         }
         return false
@@ -68,5 +74,9 @@ class Solution {
     }
 }
 
-// [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
-// "ABCCED"
+let board: [[Character]] = [["A","B","C","E"],
+             ["S","F","C","S"],
+             ["A","D","E","E"]]
+let word = "ABCCED"
+let result = Solution().exist(board, word)
+NSLog("result = \(result)")
