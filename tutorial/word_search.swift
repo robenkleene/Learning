@@ -14,8 +14,7 @@ class Solution {
 
         for loc in firstChars {
             let restWord = String(word.dropFirst())
-            let result = findWord(board, restWord, loc)
-            if result {
+            if findWord(board, restWord, loc) {
                 return true
             }
         }
@@ -23,7 +22,7 @@ class Solution {
     }
 
     func findWord(_ board: [[Character]], _ restWord: String, _ loc: (Int, Int)) -> Bool {
-        guard restWord.count > 0 else {
+        guard restWord.count > 1 else {
             return true
         }
         for char in restWord {
@@ -32,6 +31,7 @@ class Solution {
                 return false
             }
             let subWord = String(restWord.dropFirst())
+            NSLog("subWord = \(subWord)")
             for adj in adjs {
                 if findWord(board, subWord, adj) {
                     return true
@@ -54,6 +54,7 @@ class Solution {
     }
 
     func findAdjacent(_ board: [[Character]], _ loc: (Int, Int), _ char: Character) -> [(Int, Int)] {
+        NSLog("findAdjacent = \(char)")
         var found = [(Int, Int)]()
         let (hIndex, vIndex) = loc
         let options = [(hIndex - 1, vIndex - 1),
