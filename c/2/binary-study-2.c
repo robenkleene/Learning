@@ -31,9 +31,19 @@ int main() {
     // Complex
     int x = 0b01010101010101010101010101010101;
     int y = 0b10101010101010101010101010101010;
-
+    int result;
     printf("X\n");
     qpb(x);
     printf("Y\n");
     qpb(y);
+
+    x = 1;
+    y = 4;
+    result = 1 & 4;
+    printf("X\n");
+    qpb(x);
+    printf("Y\n");
+    qpb(y);
+    printf("Result\n");
+    qpb(result);
 }
