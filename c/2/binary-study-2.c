@@ -38,8 +38,8 @@ int main() {
     qpb(y);
 
     x = 1;
-    y = 4;
-    result = 1 & 4;
+    y = 5;
+    result = x & y;
     printf("X\n");
     qpb(x);
     printf("Y\n");
