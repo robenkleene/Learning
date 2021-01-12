@@ -5,18 +5,21 @@ int main() {
     int x = 0b01010101010101010101010101010101;
     int y = 0b10101010101010101010101010101010;
     int result;
-    printf("X\n");
-    qpb(x);
-    printf("Y\n");
-    qpb(y);
+    /* printf("X\n"); */
+    /* qpb(x); */
+    /* printf("Y\n"); */
+    /* qpb(y); */
 
-    x = 1;
+    x = 3;
     y = 5;
-    result = x & y;
     printf("X\n");
     qpb(x);
     printf("Y\n");
     qpb(y);
-    printf("Result\n");
+    result = x & y;
+    printf("x & y = %i\n", result);
+    qpb(result);
+    result = x | y;
+    printf("x | y = %i\n", result);
     qpb(result);
 }
