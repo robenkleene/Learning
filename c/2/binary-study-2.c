@@ -22,4 +22,7 @@ int main() {
     result = x | y;
     printf("x | y = %i\n", result);
     qpb(result);
+    result = x ^ y;
+    printf("x ^ y = %i\n", result);
+    qpb(result);
 }
