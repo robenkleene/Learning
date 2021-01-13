@@ -25,4 +25,7 @@ int main() {
     result = x ^ y;
     printf("x ^ y = %i\n", result);
     qpb(result);
+    result = y << x;
+    printf("y << x = %i\n", result);
+    qpb(result);
 }
