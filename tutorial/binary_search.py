@@ -20,11 +20,13 @@ def bs_recu(arr, target, start=0, end=None):
         return None
 
     mid = (start + end) // 2
-    if target == arr[mid]:
-        return mid
-    if target < arr[mid]:
+    value = arr[mid]
+    if target < value:
         return bs_recu(arr, target, start, mid - 1)
-    return bs_recu(arr, target, mid + 1, end)
+    elif target > value:
+        return bs_recu(arr, target, mid + 1, end)
+    else:
+        return mid
 
 target = 4
 arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
