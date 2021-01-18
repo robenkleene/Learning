@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
 # Iterative
-def bs_iter(sequence, value):
-    lo, hi = 0, len(sequence) - 1
-    while lo <= hi:
-        mid = (lo + hi) // 2
-        if sequence[mid] < value:
-            lo = mid + 1
-        elif value < sequence[mid]:
-            hi = mid - 1
+def bs_iter(arr, value):
+    beg, end = 0, len(arr) - 1
+    while beg <= end:
+        mid = (beg + end) // 2
+        if arr[mid] < value:
+            beg = mid + 1
+        elif value < arr[mid]:
+            end = mid - 1
         else:
             return mid
     return None
@@ -43,4 +43,5 @@ def binary_search_recursive(arr, elem, start=0, end=None):
 target = 4
 arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 result = bs_iter(arr, 4)
-print("result = ", result)
+print("arr =", arr)
+print("result =", result)
