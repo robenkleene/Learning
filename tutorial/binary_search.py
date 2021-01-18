@@ -5,10 +5,10 @@ def bs_iter(arr, value):
     beg, end = 0, len(arr) - 1
     while beg <= end:
         mid = (beg + end) // 2
-        if arr[mid] < value:
-            beg = mid + 1
-        elif value < arr[mid]:
+        if value < arr[mid]:
             end = mid - 1
+        elif value > arr[mid]:
+            beg = mid + 1
         else:
             return mid
     return None
