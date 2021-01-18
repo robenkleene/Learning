@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
-# Iterative
 def bs_iter(arr, target):
-    beg, end = 0, len(arr) - 1
-    while beg <= end:
-        mid = (beg + end) // 2
-        if target < arr[mid]:
+    start, end = 0, len(arr) - 1
+    while start <= end:
+        mid = (start + end) // 2
+        value = arr[mid]
+        if target < value:
             end = mid - 1
-        elif target > arr[mid]:
-            beg = mid + 1
+        elif target > value:
+            start = mid + 1
         else:
             return mid
     return None
