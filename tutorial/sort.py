@@ -34,10 +34,13 @@ def quicksort(array, begin=0, end=None):
 # Selection Sort
 def selection(arr):
     for i in range(len(arr)):
-        mini = min(arr[i:])
-        min_index = arr[i:].index(mini)
-        arr[i + min_index] = arr[i]
-        arr[i] = mini
+        # lowest, index = min((lowest, index) for (index, lowest) in enumerate(arr))
+        # for j in range(i, len(arr)):
+        #     arr[j]
+        lowest = min(arr[i:])
+        index = arr[i:].index(lowest) + i
+        arr[index] = arr[i]
+        arr[i] = lowest
     return arr
 
 arr = [1, 2, 1, 5, 3, 2, 5]
