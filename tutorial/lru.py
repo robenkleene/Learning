@@ -8,6 +8,14 @@ class DLinkedNode():
         self.next = None
 
 class LRUCache():
+    def __init__(self, capacity):
+        self.cache = {}
+        self.size = 0
+        self.capacity = capacity
+        self.head, self.tail = DLinkedNode(), DLinkedNode()
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
     def _add_node(self, node):
         node.prev = self.head
         node.next = self.head.next
@@ -29,19 +37,10 @@ class LRUCache():
         self._remove_node(res)
         return res
 
-    def __init__(self, capacity):
-        self.cache = {}
-        self.size = 0
-        self.capacity = capacity
-        self.head, self.tail = DLinkedNode(), DLinkedNode()
-
-        self.head.next = self.tail
-        self.tail.prev = self.head
-
     def get(self, key):
         node = self.cache.get(key, None)
         if not node:
-            return -1
+            return None
 
         # move the accessed node to the head;
         self._move_to_head(node)
