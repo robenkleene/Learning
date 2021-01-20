@@ -72,6 +72,10 @@ print("Selection")
 result = selection(arr)
 print("result =", result)
 
+print("Merge Sort")
+result = merge_sort(arr)
+print("result =", result)
+
 print("Selection")
 quicksort(arr)
 print("arr =", arr)
