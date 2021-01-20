@@ -11,25 +11,25 @@ def insertion(arr):
         arr[j] = save
 
 # Quick Sort
-def partition(array, begin, end):
+def partition(arr, begin, end):
     pivot = begin
     for i in range(begin+1, end+1):
-        if array[i] <= array[begin]:
+        if arr[i] <= arr[begin]:
             pivot += 1
-            array[i], array[pivot] = array[pivot], array[i]
-    array[pivot], array[begin] = array[begin], array[pivot]
+            arr[i], arr[pivot] = arr[pivot], arr[i]
+    arr[pivot], arr[begin] = arr[begin], arr[pivot]
     return pivot
 
-def quicksort(array, begin=0, end=None):
+def quicksort(arr, start=0, end=None):
     if end is None:
-        end = len(array) - 1
-    def _quicksort(array, begin, end):
-        if begin >= end:
+        end = len(arr) - 1
+    def _quicksort(array, start, end):
+        if start >= end:
             return
-        pivot = partition(array, begin, end)
-        _quicksort(array, begin, pivot-1)
-        _quicksort(array, pivot+1, end)
-    return _quicksort(array, begin, end)
+        pivot = partition(array, start, end)
+        _quicksort(array, start, pivot - 1)
+        _quicksort(array, pivot + 1, end)
+    return _quicksort(arr, start, end)
 
 # Selection Sort
 def selection(arr):
