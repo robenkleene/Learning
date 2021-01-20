@@ -46,23 +46,23 @@ def selection(arr):
 
 # Merge Sort
 def merge_sort(arr):
-    if len(arr) < 2:
+    if len(arr) == 1:
         return arr
-    result = []
-    mid = int(len(arr) / 2)
-    y = merge_sort(arr[:mid])
-    z = merge_sort(arr[mid:])
+    mid = len(arr) // 2
+    lower = merge_sort(arr[:mid])
+    higher = merge_sort(arr[mid:])
     i = 0
     j = 0
-    while i < len(y) and j < len(z):
-        if y[i] > z[j]:
-            result.append(z[j])
+    result = []
+    while i < len(lower) and j < len(higher):
+        if lower[i] > higher[j]:
+            result.append(higher[j])
             j += 1
         else:
-            result.append(y[i])
+            result.append(lower[i])
             i += 1
-    result += y[i:]
-    result += z[j:]
+    result += lower[i:]
+    result += higher[j:]
     return result
 
 arr = [1, 2, 1, 5, 3, 2, 5]
