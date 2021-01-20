@@ -34,17 +34,6 @@ def quicksort(array, begin=0, end=None):
 # Selection Sort
 def selection(arr):
     for i in range(len(arr)):
-        # lowest, index = min((lowest, index) for (index, lowest) in enumerate(arr))
-        # for j in range(i, len(arr)):
-        #     arr[j]
-        lowest = min(arr[i:])
-        index = arr[i:].index(lowest) + i
-        arr[index] = arr[i]
-        arr[i] = lowest
-    return arr
-
-def selection2(arr):
-    for i in range(len(arr)):
         minimum = arr[i]
         index = i
         for j in range(i, len(arr)):
@@ -57,5 +46,5 @@ def selection2(arr):
 
 arr = [1, 2, 1, 5, 3, 2, 5]
 print("arr =", arr)
-result = selection2(arr)
+result = selection(arr)
 print("result =", result)
