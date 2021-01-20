@@ -41,10 +41,7 @@ class LRUCache():
         node = self.cache.get(key, None)
         if not node:
             return None
-
-        # move the accessed node to the head;
         self._move_to_head(node)
-
         return node.value
 
     def put(self, key, value):
@@ -54,19 +51,14 @@ class LRUCache():
             newNode = DLinkedNode()
             newNode.key = key
             newNode.value = value
-
             self.cache[key] = newNode
             self._add_node(newNode)
-
             self.size += 1
-
             if self.size > self.capacity:
-                # pop the tail
                 tail = self._pop_tail()
                 del self.cache[tail.key]
                 self.size -= 1
         else:
-            # update the value.
             node.value = value
             self._move_to_head(node)
 
