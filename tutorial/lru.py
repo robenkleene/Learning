@@ -6,7 +6,7 @@ class DLinkedNode():
         self.value = 0
         self.prev = None
         self.next = None
-            
+
 class LRUCache():
     def _add_node(self, node):
         node.prev = self.head
@@ -17,7 +17,6 @@ class LRUCache():
     def _remove_node(self, node):
         prev = node.prev
         new = node.next
-
         prev.next = new
         new.prev = prev
 
@@ -38,7 +37,6 @@ class LRUCache():
 
         self.head.next = self.tail
         self.tail.prev = self.head
-        
 
     def get(self, key):
         node = self.cache.get(key, None)
@@ -79,3 +77,13 @@ class LRUCache():
 # Output
 # [null, null, null, 1, null, -1, null, -1, 3, 4]
 
+lru = LRUCache(2)
+lru.put(1, 1)
+lru.put(2, 2)
+print(lru.get(1))
+lru.put(3, 3)
+print(lru.get(2))
+lru.put(4, 4)
+print(lru.get(1))
+print(lru.get(3))
+print(lru.get(4))
