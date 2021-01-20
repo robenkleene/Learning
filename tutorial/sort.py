@@ -52,5 +52,5 @@ result = selection(arr)
 print("result =", result)
 
 print("Selection")
-result = quicksort(arr)
-print("result =", result)
+quicksort(arr)
+print("arr =", arr)
