@@ -20,15 +20,15 @@ def partition(arr, begin, end):
     arr[pivot], arr[begin] = arr[begin], arr[pivot]
     return pivot
 
-def quicksort(arr, start=0, end=None):
+def quicksort(arr, start = 0, end = None):
     if end is None:
         end = len(arr) - 1
-    def _quicksort(array, start, end):
+    def _quicksort(arr, start, end):
         if start >= end:
             return
-        pivot = partition(array, start, end)
-        _quicksort(array, start, pivot - 1)
-        _quicksort(array, pivot + 1, end)
+        pivot = partition(arr, start, end)
+        _quicksort(arr, start, pivot - 1)
+        _quicksort(arr, pivot + 1, end)
     return _quicksort(arr, start, end)
 
 # Selection Sort
@@ -46,5 +46,11 @@ def selection(arr):
 
 arr = [1, 2, 1, 5, 3, 2, 5]
 print("arr =", arr)
+
+print("Selection")
 result = selection(arr)
+print("result =", result)
+
+print("Selection")
+result = quicksort(arr)
 print("result =", result)
