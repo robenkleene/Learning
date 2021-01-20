@@ -43,7 +43,19 @@ def selection(arr):
         arr[i] = lowest
     return arr
 
+def selection2(arr):
+    for i in range(len(arr)):
+        minimum = arr[i]
+        index = i
+        for j in range(i, len(arr)):
+            if arr[j] < minimum:
+                minimum = arr[j] 
+                index = j
+        arr[index] = arr[i]
+        arr[i] = minimum
+    return arr
+
 arr = [1, 2, 1, 5, 3, 2, 5]
 print("arr =", arr)
-result = selection(arr)
+result = selection2(arr)
 print("result =", result)
