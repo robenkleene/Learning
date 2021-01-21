@@ -33,9 +33,9 @@ class LRUCache():
         self._add_node(node)
 
     def _pop_tail(self):
-        res = self.tail.prev
-        self._remove_node(res)
-        return res
+        node = self.tail.prev
+        self._remove_node(node)
+        return node
 
     def get(self, key):
         node = self.cache.get(key, None)
@@ -47,12 +47,12 @@ class LRUCache():
     def put(self, key, value):
         node = self.cache.get(key)
 
-        if not node: 
-            newNode = DLinkedNode()
-            newNode.key = key
-            newNode.value = value
-            self.cache[key] = newNode
-            self._add_node(newNode)
+        if not node:
+            new = DLinkedNode()
+            new.key = key
+            new.value = value
+            self.cache[key] = new
+            self._add_node(new)
             self.size += 1
             if self.size > self.capacity:
                 tail = self._pop_tail()
