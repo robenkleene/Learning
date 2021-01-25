@@ -34,10 +34,10 @@ func bs_recu<T: Comparable>(_ arr: [T], _ target: T, start: Int = 0, end: Int = 
 }
 
 let target = 4
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-print("arr =", arr)
-var result = bs_iter(arr, 4)
+let items = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print("items =", items)
+var result = bs_iter(items, 4)
 print("result = \(result?.description ?? "")")
-result = bs_recu(arr, 4)
+result = bs_recu(items, 4)
 print("result = \(result?.description ?? "")")
 
