@@ -1,21 +1,30 @@
 #!/usr/bin/swift
 
-func sortDutchFlagColors(arr: [Int]) {
+func sortDutchFlagColors(_ arr: [Int]) -> [Int] {
     var arr = arr
-    for i in 0..<arr.count {
-        var zerosCount = 0
-        var twosCount = 0
+    var zerosIndex = 0
+    var twosIndex = arr.count - 1
+    var i = 0
+    while i < twosIndex {
         let val = arr[i]
-        switch i {
+        switch val {
         case 0:
-            zerosCount += 1
+            arr[i] = arr[zerosIndex]
+            arr[zerosIndex] = val
+            zerosIndex += 1
+            i += 1
         case 2:
-            twosCount += 1
-            let index = arr.count - 1 - twosCount
-            arr[i] = arr[index]
-            arr[index] = val
+            arr[i] = arr[twosIndex]
+            arr[twosIndex] = val
+            twosIndex -= 1
         default:
-            break
+            i += 1
         }
     }
+    return arr
 }
+
+let arr = [1, 0, 2, 2, 1, 1, 0, 0]
+print("arr = \(arr)")
+let result = sortDutchFlagColors(arr)
+print("result = \(result)")
