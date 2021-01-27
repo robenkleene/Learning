@@ -34,14 +34,11 @@ def quicksort(arr, start = 0, end = None):
 # Selection Sort
 def selection(arr):
     for i in range(len(arr)):
-        minimum = arr[i]
-        index = i
         for j in range(i, len(arr)):
-            if arr[j] < minimum:
-                minimum = arr[j] 
-                index = j
-        arr[index] = arr[i]
-        arr[i] = minimum
+            if arr[j] < arr[i]:
+                value = arr[i]
+                arr[i] = arr[j]
+                arr[j] = value
     return arr
 
 def bucket_sort(alist):
