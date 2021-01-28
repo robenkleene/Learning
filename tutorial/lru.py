@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-class DLinkedNode(): 
+class Node(): 
     def __init__(self):
         self.key = 0
         self.value = 0
@@ -12,7 +12,7 @@ class LRUCache():
         self.cache = {}
         self.size = 0
         self.capacity = capacity
-        self.head, self.tail = DLinkedNode(), DLinkedNode()
+        self.head, self.tail = Node(), Node()
         self.head.next = self.tail
         self.tail.prev = self.head
 
@@ -48,7 +48,7 @@ class LRUCache():
         node = self.cache.get(key)
 
         if not node:
-            new = DLinkedNode()
+            new = Node()
             new.key = key
             new.value = value
             self.cache[key] = new
