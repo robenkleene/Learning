@@ -2,17 +2,17 @@
 
 def spiral(matrix):
     if not matrix: return []
-    R, C = len(matrix), len(matrix[0])
-    seen = [[False] * C for _ in matrix]
+    ROWS, COLS = len(matrix), len(matrix[0])
+    seen = [[False] * COLS for _ in matrix]
     result = []
     dr = [0, 1, 0, -1]
     dc = [1, 0, -1, 0]
     r = c = di = 0
-    for _ in range(R * C):
+    for _ in range(ROWS * COLS):
         result.append(matrix[r][c])
         seen[r][c] = True
         cr, cc = r + dr[di], c + dc[di]
-        if 0 <= cr < R and 0 <= cc < C and not seen[cr][cc]:
+        if 0 <= cr < ROWS and 0 <= cc < COLS and not seen[cr][cc]:
             r, c = cr, cc
         else:
             di = (di + 1) % 4
