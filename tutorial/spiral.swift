@@ -25,3 +25,8 @@ func spiral(_ matrix: [[Int]]) -> [Int] {
     }
     return result
 }
+
+
+let input = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+let result = spiral(input)
+print("result = ", result)
