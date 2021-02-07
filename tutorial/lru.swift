@@ -7,7 +7,7 @@ class Node<Key: Hashable, Value> {
     var prev: Node?
 }
 
-struct LRUCache<Key: Hashable, Value> {
+class LRUCache<Key: Hashable, Value> {
     typealias NodeType = Node<Key, Value>
     var cache = [Key: NodeType]()
     var size = 0
@@ -55,4 +55,34 @@ struct LRUCache<Key: Hashable, Value> {
         moveToHead(node)
         return node.value
     }
+
+    func set(value: Value, for key: Key) {
+        guard let node = cache[key] else {
+            let new = NodeType()
+            new.key = key
+            new.value = value
+            cache[key] = new
+            add(new)
+            size += 1
+            if size > capacity, let node = pop(), let key = node.key {
+                cache.removeValue(forKey: key)
+                size -= 1
+            }
+            return
+        }
+        node.value = value
+        moveToHead(node)
+    }
 }
+
+
+let lru = LRUCache<Int, Int>(capacity: 2)
+lru.set(value: 1, for: 1)
+lru.set(value: 2, for: 2)
+print(lru.get(1))
+lru.put(3, 3)
+print(lru.get(2))
+lru.put(4, 4)
+print(lru.get(1))
+print(lru.get(3))
+print(lru.get(4))
