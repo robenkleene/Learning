@@ -1,12 +1,21 @@
 #!/usr/bin/swift
 
-class Node<T: Hashable> {
-    var value: T
-    var key: String
+class Node<Key: Hashable, Value> {
+    var value: Value?
+    var key: Key?
     var next: Node?
     var prev: Node?
-    init(key: String, value: T) {
-        self.key = key
-        self.value = value
+}
+
+struct LRUCache<Key: Hashable, Value> {
+    var cache = [Key: Value]()
+    var size = 0
+    let capacity: Int
+    let head = Node<Key, Value>()
+    let tail = Node<Key, Value>()
+    init(capacity: Int) {
+        self.capacity = capacity
+        head.next = tail
+        tail.next = head
     }
 }
