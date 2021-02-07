@@ -3,10 +3,10 @@
 def spiral(matrix):
     ROWS, COLS = len(matrix), len(matrix[0])
     visited = [[False] * COLS for _ in matrix]
-    result = []
     DR = [0, 1, 0, -1]
     DC = [1, 0, -1, 0]
     r = c = dir = 0
+    result = []
     for _ in range(ROWS * COLS):
         result.append(matrix[r][c])
         visited[r][c] = True
