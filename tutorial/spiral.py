@@ -22,6 +22,6 @@ def spiral(matrix):
             r, c = r + DR[dir], c + DC[dir]
     return result
 
-input = [[1,2,3],[4,5,6],[7,8,9]]
+input = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 result = spiral(input)
 print("result =", result)
