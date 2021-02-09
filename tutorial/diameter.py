@@ -23,15 +23,18 @@ class Node:
         Node children to string
         """
         result = ""
-        if self.left != None:
+        if self.left is not None:
             result += self.left.chain_string(level + 1, True)
-        char = '' if is_left == None else '/ ' if is_left else '\\ '
+        char = '' if is_left is None else '/ ' if is_left else '\\ '
         result += ' ' * 4 * level + char + str(self.val) + "\n"
-        if self.right != None:
+        if self.right is not None:
             result += self.right.chain_string(level + 1, False)
         return result
 
 class Tree:
+    """
+    Tree
+    """
     def __init__(self):
         self.root = None
 
@@ -40,6 +43,9 @@ class Tree:
 
     @staticmethod
     def make(arr):
+        """
+        Make from string
+        """
         n = iter(arr)
         root = Node(next(n))
         fringe = deque([root])
@@ -56,17 +62,17 @@ class Tree:
         tree.root = root
         return tree
 
-def diameter(root):
-    ans = 1
-    def depth(node, ans):
-        if not node: return 0
-        L = depth(node.left, ans)
-        R = depth(node.right, ans)
-        ans = max(ans, L + R + 1)
-        return max(L, R) + 1
+# def diameter(root):
+#     ans = 1
+#     def depth(node, ans):
+#         if not node: return 0
+#         L = depth(node.left, ans)
+#         R = depth(node.right, ans)
+#         ans = max(ans, L + R + 1)
+#         return max(L, R) + 1
 
-    depth(root, ans)
-    return ans - 1
+#     depth(root, ans)
+#     return ans - 1
 
 #          1
 #         / \
