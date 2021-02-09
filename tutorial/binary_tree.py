@@ -39,25 +39,25 @@ class Tree:
     def __repr__(self):
         return self.root.chain_string()
 
-    def insert(self, val) -> Node:
+    def insert(self, val):
         """
         insert
         """
 
-        def insert_recu(val, node):
+        def insert_recu(node, val):
             if node is None:
                 return Node(val)
 
             if val > node.val:
-                node.right = insert_recu(val, node.right)
+                node.right = insert_recu(node.right, val)
             else:
-                node.left = insert_recu(val, node.left)
+                node.left = insert_recu(node.left, val)
             return node
 
         if self.root is None:
             self.root = Node(val)
             return self.root
-        return insert_recu(val, self.root)
+        return insert_recu(self.root, val)
 
     @staticmethod
     def make(arr):
@@ -69,7 +69,7 @@ class Tree:
             tree.insert(val)
         return tree
 
-def insert(val, node):
+def insert(node, val):
     """
     insert
     """
@@ -77,12 +77,12 @@ def insert(val, node):
         return Node(val)
 
     if val > node.val:
-        node.right = insert(val, node.right)
+        node.right = insert(node.right, val)
     else:
-        node.left = insert(val, node.left)
+        node.left = insert(node.left, val)
     return node
 
-def search(val, node):
+def search(node, val):
     """
     search
     """
@@ -98,7 +98,7 @@ def main():
     """
     tree = Tree.make([4,2,7,1,3])
     print(tree)
-    tree = Tree.make([4,2,7,1,3])
+    tree = insert(tree.root, 5)
     print(tree)
 
 main()
