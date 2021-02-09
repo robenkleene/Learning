@@ -62,23 +62,21 @@ class Tree:
         tree.root = root
         return tree
 
-# def diameter(root):
-#     ans = 1
-#     def depth(node, ans):
-#         if not node: return 0
-#         L = depth(node.left, ans)
-#         R = depth(node.right, ans)
-#         ans = max(ans, L + R + 1)
-#         return max(L, R) + 1
+def diameter(root):
+    """
+    diameter
+    """
+    ans = 1
+    def depth(node, ans):
+        if not node:
+            return 0
+        L = depth(node.left, ans)
+        R = depth(node.right, ans)
+        ans = max(ans, L + R + 1)
+        return max(L, R) + 1
 
-#     depth(root, ans)
-#     return ans - 1
-
-#          1
-#         / \
-#        2   3
-#       / \
-#      4   5
+    depth(root, ans)
+    return ans - 1
 
 def main():
     """
@@ -86,7 +84,7 @@ def main():
     """
     tree = Tree.make([1, 2, 3, 4, 5])
     print(tree)
+    result = diameter(tree.root)
+    print(result)
 
 main()
-# result = diameter(tree.root)
-# print(result)
