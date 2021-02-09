@@ -98,6 +98,9 @@ def main():
     """
     tree = Tree.make([4,2,7,1,3])
     print(tree)
+    root = tree.root
+    result = search(root, 2)
+    print(result.chain_string())
     insert(tree.root, 5)
     print(tree)
 
