@@ -114,10 +114,10 @@ def diameter(root):
     def depth_diameter(node, result = 1):
         if not node:
             return 0, result
-        depth_left, result = depth_diameter(node.left, result)
-        depth_right, result = depth_diameter(node.right, result)
-        result = max(result, depth_left + depth_right + 1)
-        return max(depth_left, depth_right) + 1, result
+        left_depth, result = depth_diameter(node.left, result)
+        right_depth, result = depth_diameter(node.right, result)
+        result = max(result, left_depth + right_depth + 1)
+        return max(left_depth, right_depth) + 1, result
 
     _, result = depth_diameter(root)
     return result - 1
