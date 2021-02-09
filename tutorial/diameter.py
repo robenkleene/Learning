@@ -66,16 +66,16 @@ def diameter(root):
     """
     diameter
     """
-    def depth(node, ans = 1):
+    def depth(node, result = 1):
         if not node:
-            return 0, ans
-        depth_left, ans = depth(node.left, ans)
-        depth_right, ans = depth(node.right, ans)
-        ans = max(ans, depth_left + depth_right + 1)
-        return max(depth_left, depth_right) + 1, ans
+            return 0, result
+        depth_left, result = depth(node.left, result)
+        depth_right, result = depth(node.right, result)
+        result = max(result, depth_left + depth_right + 1)
+        return max(depth_left, depth_right) + 1, result
 
-    _, ans = depth(root)
-    return ans - 1
+    _, result = depth(root)
+    return result - 1
 
 def max_depth(root):
     """
