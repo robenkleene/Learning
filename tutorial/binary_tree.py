@@ -88,27 +88,32 @@ class RecuLogger:
         """
         print("\t" * self.level, self.level, ":", string)
 
-def insert(node, val, logger = RecuLogger()):
+def insert2(node, val):
     """
     insert
     """
-    logger.inc()
-    logger.print("call")
+    if val < node.val:
+        if node.left is None:
+            node.left = Node(val)
+        else:
+            insert2(node.left, val)
+    else:
+        if node.right is None:
+            node.right = Node(val)
+        else:
+            insert2(node.right, val)
+
+def insert(node, val):
+    """
+    insert
+    """
     if node is None:
-        logger.print(f"returning val={val}")
         return Node(val)
 
     if val < node.val:
-        new = insert(node.left, val, logger)
-        logger.print(f"setting node.left new={new}")
-        node.left = new
-        # node.left = insert(node.left, val, logger)
+        node.left = insert(node.left, val)
     else:
-        new = insert(node.right, val, logger)
-        logger.print(f"setting node.right new={new}")
-        node.right = new
-        # node.right = insert(node.right, val, logger)
-    logger.print(f"returning node={node}")
+        node.right = insert(node.right, val)
     return node
 
 def search(node, val):
@@ -130,7 +135,7 @@ def main():
     root = tree.root
     result = search(root, 2)
     print(result.chain_string())
-    insert(tree.root, 5)
+    insert2(tree.root, 5)
     print(tree)
 
 main()
