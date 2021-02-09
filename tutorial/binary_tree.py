@@ -3,7 +3,6 @@
 """
 tree
 """
-from collections import deque
 
 class Node:
     """
@@ -45,32 +44,23 @@ class Tree:
         insert
         """
         if node is None:
-            node = self.root
+            return Node(val)
         if val > self.root.val:
             node.right = self.insert(val, node.right)
         else:
             node.left = self.insert(val, node.left)
-        return node
+        return self.root
 
     @staticmethod
     def make(arr):
         """
         Make from string
         """
-        n = iter(arr)
-        root = Node(next(n))
-        fringe = deque([root])
-        while True:
-            head = fringe.popleft()
-            try:
-                head.left = Node(next(n))
-                fringe.append(head.left)
-                head.right = Node(next(n))
-                fringe.append(head.right)
-            except StopIteration:
-                break
         tree = Tree()
-        tree.root = root
+        for node in arr:
+            node = tree.insert(node)
+            if tree.root is None:
+                tree.root = node
         return tree
 
 def dfs_iter(start, goal=None):
@@ -118,3 +108,11 @@ def dfs_recu(curr, goal=None, visited=None):
         visited += dfs_recu(curr.right, goal, [curr.right])
     return visited
 
+def main():
+    """
+    main
+    """
+    tree = Tree.make([1, 2, 3, 4, 5])
+    print(tree)
+
+main()
