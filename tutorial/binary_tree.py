@@ -69,17 +69,46 @@ class Tree:
             tree.insert(val)
         return tree
 
-def insert(node, val):
+class RecuLogger:
+    """
+    RecursiveLogger
+    """
+    def __init__(self):
+        self.level = 0
+
+    def inc(self):
+        """
+        inc
+        """
+        self.level += 1
+
+    def print(self, string):
+        """
+        print
+        """
+        print("\t" * self.level, self.level, ":", string)
+
+def insert(node, val, logger = RecuLogger()):
     """
     insert
     """
+    logger.inc()
+    logger.print("call")
     if node is None:
+        logger.print(f"returning val={val}")
         return Node(val)
 
     if val < node.val:
-        node.left = insert(node.left, val)
+        new = insert(node.left, val, logger)
+        logger.print(f"setting node.left new={new}")
+        node.left = new
+        # node.left = insert(node.left, val, logger)
     else:
-        node.right = insert(node.right, val)
+        new = insert(node.right, val, logger)
+        logger.print(f"setting node.right new={new}")
+        node.right = new
+        # node.right = insert(node.right, val, logger)
+    logger.print(f"returning node={node}")
     return node
 
 def search(node, val):
