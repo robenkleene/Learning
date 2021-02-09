@@ -39,17 +39,28 @@ class Tree:
     def __repr__(self):
         return self.root.chain_string()
 
-    def insert(self, val, node = None) -> Node:
+    def insert(self, val) -> Node:
         """
         insert
         """
-        if node is None:
-            return Node(val)
-        if val > self.root.val:
-            node.right = self.insert(val, node.right)
-        else:
-            node.left = self.insert(val, node.left)
-        return self.root
+
+        def insert_recu(val, node) -> Node:
+            """
+            insert_recu
+            """
+            if node is None:
+                return Node(val)
+
+            if val > node.val:
+                node.right = insert_recu(val, node.right)
+            else:
+                node.left = insert_recu(val, node.left)
+            return node
+
+        if self.root is None:
+            self.root = Node(val)
+            return self.root
+        return insert_recu(val, self.root)
 
     @staticmethod
     def make(arr):
@@ -57,10 +68,8 @@ class Tree:
         Make from string
         """
         tree = Tree()
-        for node in arr:
-            node = tree.insert(node)
-            if tree.root is None:
-                tree.root = node
+        for val in arr:
+            tree.insert(val)
         return tree
 
 def dfs_iter(start, goal=None):
@@ -112,7 +121,7 @@ def main():
     """
     main
     """
-    tree = Tree.make([1, 2, 3, 4, 5])
+    tree = Tree.make([1, 2, 3, 4, 5, 4, 3, 2, 1, 10])
     print(tree)
 
 main()
