@@ -77,14 +77,14 @@ def diameter(root):
     _, result = depth(root)
     return result - 1
 
-def max_depth(root):
+def max_depth(node):
     """
     max_depth
     """
-    if root is None:
+    if node is None:
         return 0
-    left_depth = max_depth(root.left)
-    right_depth = max_depth(root.right)
+    left_depth = max_depth(node.left)
+    right_depth = max_depth(node.right)
     return max(left_depth, right_depth) + 1
 
 def main():
@@ -94,6 +94,8 @@ def main():
     tree = Tree.make([1, 2, 3, 4, 5])
     print(tree)
     result = diameter(tree.root)
-    print(result)
+    print("diameter =", result)
+    result = max_depth(tree.root)
+    print("max_depth =", result)
 
 main()
