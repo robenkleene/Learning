@@ -45,9 +45,6 @@ class Tree:
         """
 
         def insert_recu(val, node) -> Node:
-            """
-            insert_recu
-            """
             if node is None:
                 return Node(val)
 
@@ -61,6 +58,17 @@ class Tree:
             self.root = Node(val)
             return self.root
         return insert_recu(val, self.root)
+
+    def search(self, val) -> Node:
+        """
+        search
+        """
+        def search_recu(val, node):
+            if node is None or val == node.val:
+                return node
+            return search_recu(node.left, val) if val < node.val \
+                else search_recu(node.right, val)
+        return search_recu(val, self.root)
 
     @staticmethod
     def make(arr):
