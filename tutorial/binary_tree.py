@@ -66,8 +66,9 @@ class Tree:
         def search_recu(val, node):
             if node is None or val == node.val:
                 return node
-            return search_recu(node.left, val) if val < node.val \
-                else search_recu(node.right, val)
+            if val < node.val:
+                return search_recu(node.left, val)
+            return search_recu(node.right, val)
         return search_recu(val, self.root)
 
     @staticmethod
