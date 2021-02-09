@@ -80,7 +80,13 @@ class Tree:
 #       / \
 #      4   5
 
-tree = Tree.make([1, 2, 3, 4, 5])
-print(tree)
+def main():
+    """
+    main
+    """
+    tree = Tree.make([1, 2, 3, 4, 5])
+    print(tree)
+
+main()
 # result = diameter(tree.root)
 # print(result)
