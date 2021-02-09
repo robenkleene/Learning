@@ -70,6 +70,9 @@ class Tree:
         return tree
 
 def insert(val, node):
+    """
+    insert
+    """
     if node is None:
         return Node(val)
 
@@ -79,18 +82,15 @@ def insert(val, node):
         node.left = insert(val, node.left)
     return node
 
-def search(self, val):
+def search(val, node):
     """
     search
     """
-    def search_recu(val, node):
-        if node is None or val == node.val:
-            return node
-        if val < node.val:
-            return search_recu(node.left, val)
-        return search_recu(node.right, val)
-    return search_recu(val, self.root)
-
+    if node is None or val == node.val:
+        return node
+    if val < node.val:
+        return search(node.left, val)
+    return search(node.right, val)
 
 def main():
     """
