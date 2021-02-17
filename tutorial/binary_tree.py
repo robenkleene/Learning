@@ -111,12 +111,15 @@ def main():
     """
     main
     """
+    print("Tree")
     tree = Tree.make([4,2,7,1,3])
     print(tree)
     root = tree.root
+    print("Search 2")
     result = search(root, 2)
     print(result.chain_string())
-    insert2(tree.root, 5)
+    insert(tree.root, 5)
+    print("Insert 5")
     print(tree)
 
 main()
