@@ -29,9 +29,9 @@ class Node:
             result += self.right.chain_string(level + 1, False)
         return result
 
-class Tree:
+class BinaryTree:
     """
-    Tree
+    BinaryTree
     """
     def __init__(self):
         self.root = None
@@ -43,7 +43,6 @@ class Tree:
         """
         insert
         """
-
         def insert_recu(node, val):
             if node is None:
                 return Node(val)
@@ -64,7 +63,7 @@ class Tree:
         """
         Make from string
         """
-        tree = Tree()
+        tree = BinaryTree()
         for val in arr:
             tree.insert(val)
         return tree
@@ -96,8 +95,8 @@ def main():
     """
     main
     """
-    print("Tree")
-    tree = Tree.make([4,2,7,1,3])
+    print("BinaryTree")
+    tree = BinaryTree.make([4,2,7,1,3])
     print(tree)
     root = tree.root
     print("Search 2")
