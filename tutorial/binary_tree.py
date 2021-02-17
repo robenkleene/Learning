@@ -69,21 +69,6 @@ class Tree:
             tree.insert(val)
         return tree
 
-def insert2(node, val):
-    """
-    insert
-    """
-    if val < node.val:
-        if node.left is None:
-            node.left = Node(val)
-        else:
-            insert2(node.left, val)
-    else:
-        if node.right is None:
-            node.right = Node(val)
-        else:
-            insert2(node.right, val)
-
 def insert(node, val):
     """
     insert
