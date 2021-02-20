@@ -33,7 +33,7 @@ class Node<T>: CustomStringConvertible {
     }
 }
 
-class Tree<T>: CustomStringConvertible {
+class BinaryTree<T: Comparable>: CustomStringConvertible {
     var root: Node<T>?
 
     var description: String {
@@ -45,29 +45,36 @@ class Tree<T>: CustomStringConvertible {
 
     convenience init(source: [T]) {
         self.init()
-        self.root = Tree<T>.makeNodes(from: source)
+        insert(source)
     }
 
-    static func makeNodes<T>(from arr: [T]) -> Node<T> {
-        var source = arr
-        let root = Node(value: source.removeFirst())
-        var fringe = [root]
-        while true {
-            let head = fringe.removeFirst()
-            guard source.count > 0 else {
-                break
-            }
-            let left = Node(value: source.removeFirst())
-            head.left = left
-            fringe.append(left)
-            guard source.count > 0 else {
-                break
-            }
-            let right = Node(value: source.removeFirst())
-            head.right = right
-            fringe.append(right)
+    func insert(_ arr: [T]) {
+        for val in arr {
+            insert(val)
         }
-        return root
+    }
+
+    @discardableResult func insert(_ value: T) -> Node<T> {
+        func insert_recu(node: Node<T>?, value: T) -> Node<T> {
+            guard let node = node else {
+                return Node(value: value)
+            }
+
+            if value < node.value {
+                node.left = insert_recu(node: node.left, value: value)
+            } else {
+                node.right = insert_recu(node: node.right, value: value)
+            }
+            return node
+        }
+
+        guard root != nil else {
+            let node = Node(value: value)
+            root = node
+            return node
+        }
+
+        return insert_recu(node: root, value: value)
     }
 }
 
@@ -83,4 +90,3 @@ func insert<T: Comparable>(node: Node<T>?, value: T) -> Node<T> {
     }
     return node
 }
-
