@@ -102,7 +102,7 @@ def main():
     print("Search 2")
     result = search(root, 2)
     print(result.chain_string())
-    insert(tree.root, 5)
+    insert(root, 5)
     print("Insert 5")
     print(tree)
 

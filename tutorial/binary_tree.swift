@@ -78,7 +78,7 @@ class BinaryTree<T: Comparable>: CustomStringConvertible {
     }
 }
 
-func insert<T: Comparable>(node: Node<T>?, value: T) -> Node<T> {
+@discardableResult func insert<T: Comparable>(node: Node<T>?, value: T) -> Node<T> {
     guard let node = node else {
         return Node(value: value)
     }
@@ -109,4 +109,11 @@ func search<T: Comparable>(node: Node<T>?, value: T) -> Node<T>? {
 
 print("BinaryTree")
 let tree = BinaryTree(source: [4, 2, 7, 1, 3])
+print(tree)
+let root = tree.root
+print("Search 2")
+let result = search(node: root, value: 2)
+print(result?.chainString() ?? "")
+insert(node: root, value: 5)
+print("Insert 5")
 print(tree)
