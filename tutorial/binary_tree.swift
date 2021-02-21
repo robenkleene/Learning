@@ -24,7 +24,7 @@ class Node<T>: CustomStringConvertible {
         if let isLeft = isLeft {
             char = isLeft ? "/ " : "\\ "
         }
-        let indent = Array<String>(repeating: " ", count: level * 4).joined()
+        let indent = [String](repeating: " ", count: level * 4).joined()
         result += "\(indent)\(char)\(value)\n"
         if let right = right {
             result += right.chainString(level: level + 1, isLeft: false)
@@ -90,3 +90,7 @@ func insert<T: Comparable>(node: Node<T>?, value: T) -> Node<T> {
     }
     return node
 }
+
+print("BinaryTree")
+let tree = BinaryTree(source: [4, 2, 7, 1, 3])
+print(tree)
