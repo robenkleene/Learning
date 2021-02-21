@@ -91,6 +91,22 @@ func insert<T: Comparable>(node: Node<T>?, value: T) -> Node<T> {
     return node
 }
 
+func search<T: Comparable>(node: Node<T>?, value: T) -> Node<T>? {
+    guard let node = node else {
+        return nil
+    }
+
+    guard node.value != value else {
+        return node
+    }
+
+    if value < node.value {
+        return search(node: node.left, value: value)
+    } else {
+        return search(node: node.right, value: value)
+    }
+}
+
 print("BinaryTree")
 let tree = BinaryTree(source: [4, 2, 7, 1, 3])
 print(tree)
