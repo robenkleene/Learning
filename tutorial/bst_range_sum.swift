@@ -76,8 +76,11 @@ class BinaryTree<T: Comparable>: CustomStringConvertible {
     }
 }
 
-func rangeSum<T: Comparable>(node: Node<T>, low: Int, high: Int) -> Int {
-    
+func rangeSum(node: Node<Int>, low: Int, high: Int) -> Int {
+    func rangeSumRecu(node: Node<Int>, low: Int, high: Int, sum: inout Int) {
+        var sum = sum
+        sum += node.value
+    }
 }
 
 print("BinaryTree")
