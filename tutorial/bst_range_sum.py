@@ -68,18 +68,23 @@ class BinaryTree:
             tree.insert(val)
         return tree
 
-def range_sum(root, L, R):
+def range_sum(root, low, high):
     """
     range_sum
     """
     def dfs(node, ans):
         if node:
-            if L <= node.val <= R:
+            if low <= node.val <= high:
                 ans += node.val
-            if L < node.val:
+            if low < node.val:
                 dfs(node.left, ans)
-            if node.val < R:
+            if node.val < high:
                 dfs(node.right, ans)
     ans = 0
     dfs(root, ans)
     return ans
+
+tree = BinaryTree.make([10,5,15,3,7,18])
+print(tree)
+result = range_sum(tree.root, 7, 15)
+print(result)
