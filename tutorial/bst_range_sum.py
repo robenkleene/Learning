@@ -1,16 +1,85 @@
 #!/usr/bin/env python3
 
-class Solution(object):
-    def rangeSumBST(self, root, L, R):
-        def dfs(node):
-            if node:
-                if L <= node.val <= R:
-                    self.ans += node.val
-                if L < node.val:
-                    dfs(node.left)
-                if node.val < R:
-                    dfs(node.right)
+"""
+tree
+"""
 
-        self.ans = 0
-        dfs(root)
-        return self.ans
+class Node:
+    """
+    Node
+    """
+    def __init__(self, val):
+        self.left = None
+        self.right = None
+        self.val = val
+
+    def __repr__(self):
+        return str(self.val)
+
+    def chain_string(self, level=0, is_left=None):
+        """
+        Node children to string
+        """
+        result = ""
+        if self.left is not None:
+            result += self.left.chain_string(level + 1, True)
+        char = '' if is_left is None else '/ ' if is_left else '\\ '
+        result += ' ' * 4 * level + char + str(self.val) + "\n"
+        if self.right is not None:
+            result += self.right.chain_string(level + 1, False)
+        return result
+
+class BinaryTree:
+    """
+    BinaryTree
+    """
+    def __init__(self):
+        self.root = None
+
+    def __repr__(self):
+        return self.root.chain_string()
+
+    def insert(self, val):
+        """
+        insert
+        """
+        def insert_recu(node, val):
+            if node is None:
+                return Node(val)
+
+            if val > node.val:
+                node.right = insert_recu(node.right, val)
+            else:
+                node.left = insert_recu(node.left, val)
+            return node
+
+        if self.root is None:
+            self.root = Node(val)
+            return self.root
+        return insert_recu(self.root, val)
+
+    @staticmethod
+    def make(arr):
+        """
+        Make from string
+        """
+        tree = BinaryTree()
+        for val in arr:
+            tree.insert(val)
+        return tree
+
+def range_sum(root, L, R):
+    """
+    range_sum
+    """
+    def dfs(node, ans):
+        if node:
+            if L <= node.val <= R:
+                ans += node.val
+            if L < node.val:
+                dfs(node.left, ans)
+            if node.val < R:
+                dfs(node.right, ans)
+    ans = 0
+    dfs(root, ans)
+    return ans
