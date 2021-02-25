@@ -72,16 +72,17 @@ def range_sum(root, low, high):
     """
     range_sum
     """
-    def dfs(node, ans):
+    def dfs(node):
+        nonlocal ans
         if node:
             if low <= node.val <= high:
                 ans += node.val
             if low < node.val:
-                dfs(node.left, ans)
+                dfs(node.left)
             if node.val < high:
-                dfs(node.right, ans)
+                dfs(node.right)
     ans = 0
-    dfs(root, ans)
+    dfs(root)
     return ans
 
 def main():
