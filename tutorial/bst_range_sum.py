@@ -84,7 +84,13 @@ def range_sum(root, low, high):
     dfs(root, ans)
     return ans
 
-tree = BinaryTree.make([10,5,15,3,7,18])
-print(tree)
-result = range_sum(tree.root, 7, 15)
-print(result)
+def main():
+    """
+    main
+    """
+    tree = BinaryTree.make([10,5,15,3,7,18])
+    print(tree)
+    result = range_sum(tree.root, 7, 15)
+    print(result)
+
+main()
