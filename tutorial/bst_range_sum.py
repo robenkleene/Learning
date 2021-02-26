@@ -79,7 +79,7 @@ def range_sum(root, low, high):
                 ans += node.val
             if low < node.val:
                 dfs(node.left)
-            if node.val < high:
+            if high > node.val:
                 dfs(node.right)
     ans = 0
     dfs(root)
