@@ -1,5 +1,7 @@
 #!/usr/bin/swift
 
+import Foundation
+
 class Node<T>: CustomStringConvertible {
     var left: Node?
     var right: Node?
@@ -78,7 +80,6 @@ class BinaryTree<T: Comparable>: CustomStringConvertible {
 
 func rangeSum(node: Node<Int>, low: Int, high: Int) -> Int {
     func rangeSumRecu(node: Node<Int>, low: Int, high: Int, sum: inout Int) {
-        var sum = sum
         if node.value >= low, node.value <= high {
             sum += node.value
         }
@@ -96,5 +97,11 @@ func rangeSum(node: Node<Int>, low: Int, high: Int) -> Int {
 }
 
 print("BinaryTree")
-let tree = BinaryTree(source: [4, 2, 7, 1, 3])
+let tree = BinaryTree(source: [10,5,15,3,7,18])
 print(tree)
+guard let root = tree.root else {
+    assertionFailure()
+    exit(1)
+}
+let result = rangeSum(node: root, low: 7, high: 15)
+print(result)
