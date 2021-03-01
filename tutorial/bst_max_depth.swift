@@ -41,6 +41,35 @@ class BinaryTree<T: Comparable>: CustomStringConvertible {
         return root.chainString()
     }
 
+    static func makeNodes<T>(from arr: [T?]) -> Node<T>? {
+        var source = arr
+        guard let value = source.removeFirst() else {
+            return nil
+        }
+        let root = Node(value: value)
+        var fringe = [root]
+        while true {
+            let head = fringe.removeFirst()
+            guard source.count > 0 else {
+                break
+            }
+            if let leftValue = source.removeFirst() {
+                let left = Node(value: leftValue)
+                head.left = left
+                fringe.append(left)
+            }
+            guard source.count > 0 else {
+                break
+            }
+            if let rightValue = source.removeFirst() {
+                let right = Node(value: rightValue)
+                head.right = right
+                fringe.append(right)
+            }
+        }
+        return root
+    }
+
     convenience init(source: [T]) {
         self.init()
         insert(source)
