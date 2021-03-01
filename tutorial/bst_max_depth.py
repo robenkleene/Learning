@@ -91,9 +91,9 @@ def max_depth(node):
     """
     if node is None:
         return 0
-    left_height = max_depth(node.left)
-    right_height = max_depth(node.right)
-    return max(left_height, right_height) + 1
+    left = max_depth(node.left)
+    right = max_depth(node.right)
+    return max(left, right) + 1
 
 def main():
     """
