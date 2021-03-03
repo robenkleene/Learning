@@ -81,7 +81,7 @@ class BinaryTree<T: Comparable>: CustomStringConvertible {
 
     func insert(_ arr: [T?]) {
         for case let val? in arr {
-            print(val)
+            insert(val)
         }
     }
 
