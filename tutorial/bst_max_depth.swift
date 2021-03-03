@@ -109,5 +109,11 @@ class BinaryTree<T: Comparable>: CustomStringConvertible {
     }
 }
 
+func maxDepth<T>(of node: Node<T>?) -> Int {
+    guard let node = node else {
+        return 0
+    }
+}
+
 let tree = BinaryTree(source: [3,9,20,nil,nil,15,7])
 print(tree)
