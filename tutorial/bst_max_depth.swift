@@ -72,7 +72,7 @@ class BinaryTree<T: Comparable>: CustomStringConvertible {
 
     convenience init(source: [T?]) {
         self.init()
-        insert(source)
+        make(from: source)
     }
 
     func make(from arr: [T?]) {
