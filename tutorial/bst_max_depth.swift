@@ -1,5 +1,7 @@
 #!/usr/bin/swift
 
+import Darwin
+
 class Node<T>: CustomStringConvertible {
     var left: Node?
     var right: Node?
@@ -113,7 +115,14 @@ func maxDepth<T>(of node: Node<T>?) -> Int {
     guard let node = node else {
         return 0
     }
+    return max(maxDepth(of: node.left), maxDepth(of: node.right)) + 1
 }
 
 let tree = BinaryTree(source: [3,9,20,nil,nil,15,7])
 print(tree)
+guard let root = tree.root else {
+    assertionFailure()
+    exit(1)
+}
+let result = maxDepth(of: tree.root)
+print(result)
