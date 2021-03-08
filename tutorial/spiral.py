@@ -20,6 +20,12 @@ def spiral(matrix):
             r, c = next_r, next_c
     return result
 
-input = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-result = spiral(input)
-print("result =", result)
+def main():
+    """
+    main
+    """
+    input = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    result = spiral(input)
+    print("result =", result)
+
+main()
