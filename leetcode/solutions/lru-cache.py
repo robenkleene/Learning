@@ -25,7 +25,7 @@ class LRUCache:
         """
         node = self.cache.get(key, None)
         if not node:
-            return None
+            return -1
         self._move_to_head(node)
         return node.value
 
