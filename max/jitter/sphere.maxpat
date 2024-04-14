@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 59.0, 442.0, 640.0, 480.0 ],
+		"rect" : [ 58.0, 119.0, 640.0, 480.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,13 +40,36 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-10",
+					"maxclass" : "toggle",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "int" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 106.0, 125.0, 24.0, 24.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 155.0, 235.0, 32.0, 22.0 ],
+					"text" : "print"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-5",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 106.0, 160.0, 56.0, 22.0 ],
-					"text" : "metro 16"
+					"patching_rect" : [ 106.0, 160.0, 63.0, 22.0 ],
+					"text" : "qmetro 16"
 				}
 
 			}
@@ -57,8 +80,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_gl_texture", "" ],
-					"patching_rect" : [ 172.0, 301.0, 127.0, 22.0 ],
-					"text" : "jit.gl.camera myrender"
+					"patching_rect" : [ 172.0, 301.0, 113.0, 22.0 ],
+					"text" : "jit.gl.camera sphere"
 				}
 
 			}
@@ -69,8 +92,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "bang", "" ],
-					"patching_rect" : [ 312.0, 344.0, 61.0, 22.0 ],
-					"text" : "jit.window"
+					"patching_rect" : [ 312.0, 344.0, 101.0, 22.0 ],
+					"text" : "jit.window sphere"
 				}
 
 			}
@@ -81,7 +104,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_matrix", "" ],
-					"patching_rect" : [ 106.0, 116.0, 520.0, 22.0 ],
+					"patching_rect" : [ 102.5, 76.0, 520.0, 22.0 ],
 					"text" : "jit.gl.gridshape myrender @shape sphere @scale 1.5 1.5 1.5 @color 1 0 0 1 @lighting_enable 1"
 				}
 
@@ -93,13 +116,36 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "bang", "" ],
-					"patching_rect" : [ 106.0, 200.0, 122.0, 22.0 ],
-					"text" : "jit.gl.render myrender"
+					"patching_rect" : [ 106.0, 200.0, 108.0, 22.0 ],
+					"text" : "jit.gl.render sphere"
 				}
 
 			}
  ],
-		"lines" : [  ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"source" : [ "obj-10", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"order" : 1,
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-6", 0 ],
+					"order" : 0,
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+ ],
 		"dependency_cache" : [  ],
 		"autosave" : 0
 	}
