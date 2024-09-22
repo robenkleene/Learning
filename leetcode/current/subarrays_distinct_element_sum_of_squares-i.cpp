@@ -22,7 +22,7 @@ class Solution {
 };
 
 int main() {
-  vector<int> nums = {1, 2, 3};
+  vector<int> nums = {1, 2, 1};
   Solution solution;
   solution.sumCounts(nums);
 }
