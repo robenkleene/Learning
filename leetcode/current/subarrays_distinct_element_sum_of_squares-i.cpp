@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <unordered_set>
 
 using namespace std;
 
@@ -18,12 +19,15 @@ class Solution {
       for (std::size_t i = 0; i < nums.size(); ++i) {
         for (std::size_t j = i; j < nums.size(); ++j) {
           // Create an array with the elements at indexes from `i` to `j`
-          vector<int> subarray(nums.begin() + i, nums.begin() + j + 1);
+          std::unordered_set<int> subset(nums.begin() + i, nums.begin() + j + 1);
 
           // Debug code
-          std::cout << "subarray = ";
-          for (std::size_t i = 0; i < subarray.size(); ++i) {
-              std::cout << (i > 0 ? ", " : "") << subarray[i];
+          std::cout << "subset = ";
+          for (auto it = subset.begin(); it != subset.end(); ++it) {
+            if (it != subset.begin()) {
+              std::cout << ", ";
+            }
+            std::cout << *it;
           }
           std::cout << std::endl;
           //
