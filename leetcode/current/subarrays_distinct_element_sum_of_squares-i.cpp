@@ -12,6 +12,7 @@ class Solution {
           std::cout << (i > 0 ? ", " : "") << nums[i];
       }
       std::cout << std::endl;
+      //
 
       // Iterate through all subarrays
       for (std::size_t i = 0; i < nums.size(); ++i) {
@@ -25,6 +26,7 @@ class Solution {
               std::cout << (i > 0 ? ", " : "") << subarray[i];
           }
           std::cout << std::endl;
+          //
 
         }
       }
