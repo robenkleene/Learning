@@ -33,3 +33,15 @@ class Solution {
       return vector<int>{};
     }
 };
+
+int main() {
+  vector<int> nums = {2, 7, 11, 15};
+  Solution solution;
+  vector<int> result = solution.twoSum(nums, 9);
+
+  std::cout << "result = ";
+  for (std::size_t i = 0; i < result.size(); ++i) {
+    std::cout << (i > 0 ? ", " : "") << result[i];
+  }
+  std::cout << std::endl;
+}
