@@ -13,7 +13,7 @@ class Solution {
       }
 
       // Debug
-      std::cout << &values << " values = {";
+      std::cout << this << " values = {";
       bool first = true;
       for (const auto& pair : values) {
         if (!first) {
@@ -23,25 +23,32 @@ class Solution {
         first = false;
       }
       std::cout << "}" << std::endl;
-      // for (int i = 0; i < nums.size(); i++) {
-      //   int value = nums[i];
-      //   int diff = target - value;
-      //   if (values.count(diff) > 0) {
-      //     return vector<int>{i, values[diff]};
-      //   }
-      // }
+
+      for (int i = 0; i < nums.size(); i++) {
+        int value = nums[i];
+        int diff = target - value;
+        if (values.count(diff) > 0) {
+          return vector<int>{i, values[diff]};
+        }
+      }
       return vector<int>{};
     }
 };
 
-int main() {
-  vector<int> nums = {2, 7, 11, 15};
-  Solution solution;
-  vector<int> result = solution.twoSum(nums, 9);
-
-  std::cout << "result = ";
-  for (std::size_t i = 0; i < result.size(); ++i) {
-    std::cout << (i > 0 ? ", " : "") << result[i];
+void dump(vector<int> arr) {
+  for (std::size_t i = 0; i < arr.size(); ++i) {
+    std::cout << (i > 0 ? ", " : "") << arr[i];
   }
   std::cout << std::endl;
+}
+
+void test(vector<int> nums) {
+  Solution solution;
+  dump(nums);
+  vector<int> result = solution.twoSum(nums, 9);
+  dump(result);
+}
+
+int main() {
+  test({2, 7, 11, 15});
 }
