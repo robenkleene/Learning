@@ -51,4 +51,6 @@ void test(vector<int> nums) {
 
 int main() {
   test({2, 7, 11, 15});
+  std::cout << std::endl;
+  test({3,2,4});
 }
