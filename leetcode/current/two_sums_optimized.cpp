@@ -27,7 +27,7 @@ class Solution {
       for (int i = 0; i < nums.size(); i++) {
         int value = nums[i];
         int diff = target - value;
-        if (values.count(diff) > 0) {
+        if (values.count(diff) > 0 &&  i != values[diff]) {
           return vector<int>{i, values[diff]};
         }
       }
