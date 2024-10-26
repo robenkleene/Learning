@@ -42,15 +42,15 @@ void dump(vector<int> arr) {
   std::cout << std::endl;
 }
 
-void test(vector<int> nums) {
+void test(vector<int> nums, int target) {
   Solution solution;
   dump(nums);
-  vector<int> result = solution.twoSum(nums, 9);
+  vector<int> result = solution.twoSum(nums, target);
   dump(result);
 }
 
 int main() {
-  test({2, 7, 11, 15});
+  test({2, 7, 11, 15}, 9);
   std::cout << std::endl;
-  test({3,2,4});
+  test({3,2,4}, 6);
 }
