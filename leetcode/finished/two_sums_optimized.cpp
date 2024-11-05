@@ -37,5 +37,5 @@ void test(vector<int> nums, int target) {
 int main() {
   test({2, 7, 11, 15}, 9);
   std::cout << std::endl;
-  test({3,2,4}, 6);
+  test({3, 2, 4}, 6);
 }
