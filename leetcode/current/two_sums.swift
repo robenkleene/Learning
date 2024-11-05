@@ -9,4 +9,6 @@ class Solution {
 func test(nums: [Int], target: Int) {
     let solution = Solution();
     print("nums = \(nums)")
+    let result = solution.twoSum(nums, target)
+    print("result = \(result)")
 }
