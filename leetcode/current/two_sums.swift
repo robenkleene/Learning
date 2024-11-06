@@ -2,11 +2,20 @@
 
 class Solution {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-
+        var values: [Int: Int] = [:];
+        for i in 0..<nums.count {
+            let num = nums[i]
+            let diff = target - num
+            if let result = values[diff] {
+                return [result, i]
+            }
+            values[num] = i
+        }
+        return [];
     }
 }
 
-func test(_ nums: [Int], target: Int) {
+func test(_ nums: [Int], _ target: Int) {
     let solution = Solution();
     print("nums = \(nums)")
     let result = solution.twoSum(nums, target)
