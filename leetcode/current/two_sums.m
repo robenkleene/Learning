@@ -2,15 +2,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @interface Solution : NSObject
- - (NSInteger)twoSum(nums: NSInteger, target: NSInteger);
++ (NSInteger)twoSumWithNums:(NSInteger)nums target:(NSInteger)target;
 @end
 NS_ASSUME_NONNULL_END
 
 @implementation
-- (NSInteger)twoSum(nums: NSInteger, target: NSInteger) {
++ (NSInteger)twoSumWithNums:(NSInteger)nums target:(NSInteger)target {
     return 0;
 }
-@end}
+@end
 
 int main() {
     NSLog(@"Hello, World!");
