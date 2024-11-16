@@ -6,7 +6,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 NS_ASSUME_NONNULL_END
 
-@implementation
+@implementation Solution
 + (NSInteger)twoSumWithNums:(NSInteger)nums target:(NSInteger)target {
     return 0;
 }
