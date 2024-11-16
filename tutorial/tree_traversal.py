@@ -83,7 +83,10 @@ def dfs_recu(curr, goal=None, visited=None):
     return visited
 
 arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
+print("Array")
+print(arr)
 tree = Tree.make(arr)
+print("Tree")
 print(tree)
 print("Depth-First")
 print("Iterative")
