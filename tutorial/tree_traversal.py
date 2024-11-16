@@ -1,35 +1,38 @@
 #!/usr/bin/env python3
 
 from collections import deque
+from typing import Optional, List, TypeVar, Generic
 
-class Node:
-    def __init__(self, val):
-        self.left = None
-        self.right = None
-        self.val = val
+T = TypeVar("T")
 
-    def __repr__(self):
+class Node(Generic[T]):
+    def __init__(self, val: T):
+        self.left: Optional[Node[T]] = None
+        self.right: Optional[Node[T]] = None
+        self.val: T = val
+
+    def __repr__(self) -> str:
         return str(self.val)
 
-    def chain_string(self, level=0, is_left=None):
+    def chain_string(self, level: int = 0, is_left: Optional[bool] = None) -> str:
         result = ""
-        if self.left != None:
+        if self.left:
             result += self.left.chain_string(level + 1, True)
-        char = '' if is_left == None else '/ ' if is_left else '\\ '
+        char = '' if is_left is None else '/ ' if is_left else '\\ '
         result += ' ' * 4 * level + char + str(self.val) + "\n"
-        if self.right != None:
+        if self.right:
             result += self.right.chain_string(level + 1, False)
         return result
 
-class Tree:
+class Tree(Generic[T]):
     def __init__(self):
-        self.root = None
+        self.root: Optional[Node[T]] = None
 
-    def __repr__(self):
-        return self.root.chain_string()
+    def __repr__(self) -> str:
+        return self.root.chain_string() if self.root else ""
 
     @staticmethod
-    def make(arr):
+    def make(arr: List[T]) -> "Tree[T]":
         n = iter(arr)
         root = Node(next(n))
         fringe = deque([root])
@@ -46,59 +49,66 @@ class Tree:
         tree.root = root
         return tree
 
-def dfs_iter(start, goal=None):
+def dfs_iter(start: Node[T], goal: Optional[T] = None) -> List[Node[T]]:
     visited, stack = [], [start]
     while stack:
         curr = stack.pop()
         visited.append(curr)
-        if goal != None and curr.val == goal:
+        if goal is not None and curr.val == goal:
             return visited
-        if curr.left != None:
+        if curr.left:
             stack.append(curr.left)
-        if curr.right != None:
+        if curr.right:
             stack.append(curr.right)
     return visited
 
-def bfs_iter(start, goal=None):
+def bfs_iter(start: Node[T], goal: Optional[T] = None) -> List[Node[T]]:
     visited, queue = [], [start]
     while queue:
         curr = queue.pop(0)
         visited.append(curr)
-        if goal != None and curr.val == goal:
+        if goal is not None and curr.val == goal:
             return visited
-        if curr.left != None:
+        if curr.left:
             queue.append(curr.left)
-        if curr.right != None:
+        if curr.right:
             queue.append(curr.right)
     return visited
 
-def dfs_recu(curr, goal=None, visited=None):
+def dfs_recu(curr: Node[T], goal: Optional[T] = None, visited: Optional[List[Node[T]]] = None) -> List[Node[T]]:
     visited = visited or [curr]
-    if goal != None and curr.val == goal:
+    if goal is not None and curr.val == goal:
         return visited
-    if curr.left != None:
+    if curr.left:
         visited += dfs_recu(curr.left, goal, [curr.left])
-    if curr.right != None:
+    if curr.right:
         visited += dfs_recu(curr.right, goal, [curr.right])
     return visited
 
-arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
+arr = [3, 5, 2, 1, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 print("Array")
 print(arr)
 tree = Tree.make(arr)
+
+if tree.root is None:
+    raise ValueError("Tree root should not be None.")
+
 print("Tree")
 print(tree)
+
 print("Depth-First")
 print("Iterative")
 result = dfs_iter(tree.root)
 print(result)
 result = dfs_iter(tree.root, 6)
 print(result)
+
 print("Recursive")
 result = dfs_recu(tree.root)
 print(result)
 result = dfs_recu(tree.root, 6)
 print(result)
+
 print()
 print("Breadth-First")
 print("Iterative")
