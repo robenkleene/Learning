@@ -48,7 +48,7 @@ class Tree<T>: CustomStringConvertible {
         self.root = Tree<T>.makeNodes(from: source)
     }
 
-    static func makeNodes<T>(from arr: [T]) -> Node<T> {
+    static func makeNodes(from arr: [T]) -> Node<T> {
         var source = arr
         let root = Node(value: source.removeFirst())
         var fringe = [root]
@@ -128,11 +128,14 @@ func dfsRecu<T: Equatable>(start: Node<T>, goal: T? = nil, visited: [Node<T>]? =
 }
 
 let arr = [3,5,2,1,4,6,7,8,9,10,11,12,13,14]
+print("Array")
+print(arr)
 let tree = Tree(source: arr)
 guard let root = tree.root else {
     assertionFailure()
     exit(1)
 }
+print("Tree")
 print(tree)
 print("Depth-First")
 print("Iterative")
