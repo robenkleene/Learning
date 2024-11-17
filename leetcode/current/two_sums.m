@@ -2,13 +2,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @interface Solution : NSObject
-+ (NSInteger)twoSumWithNums:(NSInteger)nums target:(NSInteger)target;
++ (NSArray<NSNumber *> *)twoSumWithNums:(NSInteger)nums target:(NSInteger)target;
 @end
 NS_ASSUME_NONNULL_END
 
 @implementation Solution
-+ (NSInteger)twoSumWithNums:(NSInteger)nums target:(NSInteger)target {
-    return 0;
++ (NSArray<NSNumber *> *)twoSumWithNums:(NSInteger)nums target:(NSInteger)target {
+
+    return @[];
 }
 @end
 
