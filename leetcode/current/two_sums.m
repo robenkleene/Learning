@@ -17,6 +17,14 @@ NS_ASSUME_NONNULL_END
 }
 @end
 
+void test(NSArray<NSNumber *> *nums, NSInteger target) {
+    NSLog(@"nums = %@", nums);
+    NSArray<NSNumber *> *result = [Solution twoSumWithNums:nums target:target];
+    NSLog(@"result = %@", result);
+}
+
 int main() {
-    NSLog(@"Hello, World!");
+    test(@[@2, @7, @11, @15], 9);
+    NSLog(@"");
+    test(@[@3, @2, @4], 6);
 }
