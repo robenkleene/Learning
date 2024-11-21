@@ -11,7 +11,12 @@ NS_ASSUME_NONNULL_END
 
     NSMutableDictionary<NSNumber *, NSNumber *> *values = [NSMutableDictionary dictionary];
     for (int i = 0; i < [nums count]; i++) {
-        NSLog(@"%d", i);
+        NSNumber *num = nums[i];
+        NSInteger diff = target - num.intValue;
+        NSNumber *result = values[diff];
+        if (result) {
+            return @[result, @(i)];
+        }
     }
     return @[];
 }
