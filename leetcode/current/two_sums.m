@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_END
     for (int i = 0; i < [nums count]; i++) {
         NSNumber *num = nums[i];
         NSInteger diff = target - num.intValue;
-        NSNumber *result = values[diff];
+        NSNumber *result = values[@(diff)];
         if (result) {
             return @[result, @(i)];
         }
