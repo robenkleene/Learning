@@ -22,6 +22,6 @@ func test(_ nums: [Int], _ target: Int) {
     print("result = \(result)")
 }
 
-test([2, 7, 11, 15], 9)
+test([2, 7, 11, 15], 9) // [0, 1]
 print("")
-test([3, 2, 4], 6);
+test([3, 2, 4], 6); // [1, 2]

@@ -7,8 +7,8 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 @implementation Solution
-+ (NSArray<NSNumber *> *)twoSumWithNums:(NSArray<NSNumber *> *)nums target:(NSInteger)target {
 
++ (NSArray<NSNumber *> *)twoSumWithNums:(NSArray<NSNumber *> *)nums target:(NSInteger)target {
     NSMutableDictionary<NSNumber *, NSNumber *> *values = [NSMutableDictionary dictionary];
     for (int i = 0; i < [nums count]; i++) {
         NSNumber *num = nums[i];
@@ -17,9 +17,11 @@ NS_ASSUME_NONNULL_END
         if (result) {
             return @[result, @(i)];
         }
+        values[num] = @(i);
     }
     return @[];
 }
+
 @end
 
 void test(NSArray<NSNumber *> *nums, NSInteger target) {
