@@ -15,9 +15,14 @@ class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
       ListNode *c1 = l1;
+      ListNode *c2 = l2;
       ListNode *result;
       while (c1 != nullptr) {
         int v1 = l1->val;
+        while (c2 != nullptr) {
+          int v2 = l2->val;
+          c2 = l2->next;
+        }
         c1 = l1->next;
       }
       return result;
