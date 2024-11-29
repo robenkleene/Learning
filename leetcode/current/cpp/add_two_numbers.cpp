@@ -69,4 +69,7 @@ public:
 
 int main() {
   Solution *solution = new Solution();
+  testCase({2, 4, 3}, {5,6,4});
+  testCase({0}, {0});
+  testCase({9, 9, 9, 9, 9, 9, 9}, {9, 9, 9, 9});
 }
