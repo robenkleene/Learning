@@ -1,3 +1,5 @@
+#include <iostream>
+
 /*
    Input: l1 = [2,4,3], l2 = [5,6,4]
    Output: [7,0,8]
@@ -10,6 +12,38 @@ struct ListNode {
   ListNode(int x) : val(x), next(nullptr) {}
   ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
+
+void printList(ListNode* head) {
+  ListNode* current = head;
+  while (current != nullptr) {
+    std::cout << current->val << " ";
+    current = current->next;
+  }
+  std::cout << std::endl;
+}
+
+ListNode* arrayToLinkedList(const std::vector<int>& arr) {
+  if (arr.empty()) {
+    return nullptr;
+  }
+
+  ListNode* head = new ListNode(arr[0]);
+  ListNode* current = head;
+
+  for (size_t i = 1; i < arr.size(); ++i) {
+    current->next = new ListNode(arr[i]);
+    current = current->next;
+  }
+
+  return head;
+}
+
+void testCase(const std::vector<int>& a1, const std::vector<int>& a2) {
+  ListNode* l1 = arrayToLinkedList(a1);
+  ListNode* l2 = arrayToLinkedList(a2);
+  printList(l1);
+  printList(l2);
+}
 
 class Solution {
 public:
@@ -32,3 +66,7 @@ public:
     return result;
   }
 };
+
+int main() {
+  Solution *solution = new Solution();
+}
