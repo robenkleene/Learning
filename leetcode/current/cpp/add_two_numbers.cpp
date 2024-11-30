@@ -24,10 +24,16 @@ public:
       int v1 = l1->val;
       while (c2 != nullptr) {
         int v2 = l2->val;
+        if (c2 == l2) {
+          break;
+        }
         c2 = l2->next;
         c->val = v1 + v2;
         c->next = new ListNode();
         c = c->next;
+      }
+      if (c1 == l1) {
+        break;
       }
       c1 = l1->next;
     }
