@@ -1,10 +1,5 @@
 #include <iostream>
 
-/*
-   Input: l1 = [2,4,3], l2 = [5,6,4]
-   Output: [7,0,8]
-   Explanation: 342 + 465 = 807.
-*/
 struct ListNode {
   int val;
   ListNode *next;
@@ -24,18 +19,12 @@ public:
       int v1 = l1->val;
       while (c2 != nullptr) {
         int v2 = l2->val;
-        if (c2 == l2) {
-          break;
-        }
-        c2 = l2->next;
+        c2 = c2->next;
         c->val = v1 + v2;
         c->next = new ListNode();
         c = c->next;
       }
-      if (c1 == l1) {
-        break;
-      }
-      c1 = l1->next;
+      c1 = c1->next;
     }
     return result;
   }
