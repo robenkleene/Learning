@@ -15,16 +15,31 @@ public:
     ListNode *c2 = l2;
     ListNode *result = new ListNode();
     ListNode *c = result;
-    while (c1 != nullptr) {
-      int v1 = l1->val;
-      while (c2 != nullptr) {
-        int v2 = l2->val;
+    while (c1 != nullptr && c2 != nullptr) {
+      int v1 = 0;
+      int v2 = 0;
+
+      if (c1 != nullptr) {
+        v1 = c1->val;
+        c1 = c1->next;
+        if (c->next == nullptr) {
+          c->next = new ListNode();
+        }
+      }
+
+      if (c2 != nullptr) {
+        v2 = c2->val;
         c2 = c2->next;
-        c->val = v1 + v2;
-        c->next = new ListNode();
+        if (c->next == nullptr) {
+          c->next = new ListNode();
+        }
+      }
+
+      c->val = v1 + v2;
+
+      if (c->next != nullptr) {
         c = c->next;
       }
-      c1 = c1->next;
     }
     return result;
   }
