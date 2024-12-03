@@ -22,7 +22,7 @@ public:
       if (c1 != nullptr) {
         v1 = c1->val;
         c1 = c1->next;
-        if (c->next == nullptr) {
+        if (c1 != nullptr && c->next == nullptr) {
           c->next = new ListNode();
         }
       }
@@ -30,7 +30,7 @@ public:
       if (c2 != nullptr) {
         v2 = c2->val;
         c2 = c2->next;
-        if (c->next == nullptr) {
+        if (c2 != nullptr && c->next == nullptr) {
           c->next = new ListNode();
         }
       }
